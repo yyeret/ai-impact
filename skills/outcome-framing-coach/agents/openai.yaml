@@ -1,0 +1,4 @@
+interface:
+  display_name: "Outcome Framing Coach"
+  short_description: "Rewrite directives into outcome-led asks"
+  default_prompt: "Use $outcome-framing-coach to review this draft, flag prescriptive or drive-by directive language, and rewrite it toward outcomes and team autonomy."

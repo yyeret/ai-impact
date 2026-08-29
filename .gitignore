@@ -1,0 +1,14 @@
+# Nothing binary or generated belongs here. Skills are text, and a container
+# this gate cannot read is the one place a private detail could hide.
+*.pdf
+*.doc
+*.docx
+*.rtf
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.zip
+*.skill
+*.lnk
+.DS_Store

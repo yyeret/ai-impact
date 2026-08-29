@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "ai-impact",
+  "description": "Yuval Yeret's diagnostics and coaches for leaders turning AI activity into business impact.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Yuval Yeret",
+    "email": "yuval@yeretagility.com",
+    "url": "https://yuvalyeret.com"
+  },
+  "homepage": "https://github.com/yyeret/ai-impact",
+  "license": "CC-BY-4.0"
+}
