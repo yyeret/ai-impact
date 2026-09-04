@@ -148,6 +148,37 @@ def main() -> int:
                 if not target.exists():
                     errors.append(f"{rel}: broken relative link -> {link}")
 
+    # Four manifests describe the same plugin to two hosts. They drift the
+    # moment one is edited by hand, and nothing else would notice.
+    import json as _json
+    try:
+        cm = _json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text())
+        cp = _json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text())
+        xm = _json.loads((ROOT / ".agents" / "plugins" / "marketplace.json").read_text())
+        xp = _json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text())
+    except FileNotFoundError as exc:
+        errors.append(f"missing plugin manifest: {exc.filename}")
+    except _json.JSONDecodeError as exc:
+        errors.append(f"unparseable plugin manifest: {exc}")
+    else:
+        entry = cm["plugins"][0]
+        xentry = xm["plugins"][0]
+        for label, a, b in (
+            ("plugin name", cp["name"], xp["name"]),
+            ("plugin version", cp["version"], xp["version"]),
+            ("plugin description", cp["description"], xp["description"]),
+            ("marketplace name", cm["name"], xm["name"]),
+            ("listed plugin name", entry["name"], xentry["name"]),
+            ("listed version", entry["version"], xentry["version"]),
+            ("listed description", entry["description"], xentry["description"]),
+        ):
+            if a != b:
+                errors.append(f"Claude and Codex manifests disagree on {label}")
+        if xp.get("skills") != "./skills/":
+            errors.append(".codex-plugin/plugin.json must set skills to ./skills/")
+        if not xp.get("interface", {}).get("displayName"):
+            errors.append(".codex-plugin/plugin.json missing interface.displayName")
+
     for name in ("README.md", "CREDITS.md", "LICENSE", "LICENSE-CODE"):
         if not (ROOT / name).exists():
             errors.append(f"missing {name}")
