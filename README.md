@@ -41,6 +41,9 @@ for you, and that is a fine outcome to reach in thirty seconds.
 | "Delivery feels slow and I can't say why" | [`flow-metrics-self-assessment`](skills/flow-metrics-self-assessment/) | Whether flow metrics would tell you anything you would act on — and which one to start with, or a clear no |
 | "Agents write most of our code and our WIP limits stopped meaning anything" | [`wip-limit-configuration-coach`](skills/wip-limit-configuration-coach/) | Starting numbers derived from your actual constraint, with the arithmetic shown and the traps named |
 | "We adopted a scaling framework and its temporary compromises never got revisited" | [`descaling-experiment-coach`](skills/descaling-experiment-coach/) | Which concession hardened into a constraint, and one small experiment against it |
+| "There is a lot of AI activity here and no defensible line from any of it to a business outcome" | [`ai-traction-self-assessment`](skills/ai-traction-self-assessment/) | Where the evidence — not the story — puts you on four dimensions, which one is binding, and one experiment against it |
+| "AI is clearly helping me and the leverage has plateaued" | [`ai-fluency-self-assessment`](skills/ai-fluency-self-assessment/) | Which rung is actually binding across automation, augmentation, agency and context, and one habit change with an artifact at the end of it |
+| "We say we do product now, and I want to know how far that is actually true" | [`product-operating-model-audit`](skills/product-operating-model-audit/) | Where you sit across strategy, people, governance and the value cycle, the shape rather than the average, and the gravity your one experiment will meet |
 
 **The common shape:** each one ends in a conversation to have or an experiment to
 run in the next two to four weeks, with a leading indicator you could actually
@@ -96,11 +99,19 @@ Each skill is a `SKILL.md`, plus for some a `references/` folder it loads on
 demand and an `agents/` folder holding config for a specific host (there is one,
 for an OpenAI-style agent). No install step, no dependencies, nothing to run.
 
-**Two shapes in here, deliberately.** `sniff-test`, `sniff-test-portfolio` and
-`outcome-framing-coach` are structured skill documents. The other four are the
-coaching prompts published alongside their articles, kept close to that wording
-on purpose — so what you install matches what you can read on the site and use in
-a plain chat window. If they read differently, that is why.
+**Three shapes in here, deliberately.** `sniff-test`, `sniff-test-portfolio` and
+`outcome-framing-coach` are structured skill documents. Four —
+`portfolio-to-product-shift-coach`, `flow-metrics-self-assessment`,
+`wip-limit-configuration-coach`, `descaling-experiment-coach` — are the coaching
+prompts published alongside their articles, kept close to that wording on purpose,
+so what you install matches what you can read on the site and use in a plain chat
+window. The three `*-self-assessment` and `*-audit` skills were extracted from the
+scorecards at [yeretagility.com](https://yeretagility.com): they carry the
+scorecard's behavioural ladders in `references/`, but drop the score and ask your
+agent to place you from your own artifacts instead.
+[docs/scorecard-to-skill.md](docs/scorecard-to-skill.md) records what carries over
+from a scorecard to a skill, what gets thrown away, and what has to be added. If
+they read differently from each other, that is why.
 
 **Before pointing one at anything confidential**, read [SECURITY.md](SECURITY.md)
 — short version: this repo runs nothing and sees nothing, but your agent will
@@ -114,9 +125,10 @@ if you want the cheapest possible first run — paste a dozen epic titles and se
 what comes back. `flow-metrics-self-assessment` if the problem is that delivery
 feels slow and you cannot say why.
 
-The three that overlap: `sniff-test` reads **one bet**, `sniff-test-portfolio`
-reads **the board**, `portfolio-to-product-shift-coach` reads **the operating
-model around both**. Start with the narrowest one that fits — the wider
+The four that overlap: `sniff-test` reads **one bet**, `sniff-test-portfolio`
+reads **the board**, `portfolio-to-product-shift-coach` reads **the portfolio
+governance around both**, and `product-operating-model-audit` reads **the whole
+operating model**. Start with the narrowest one that fits — the wider
 conversations usually come after it, not before.
 
 If you are pointing an agent at this folder rather than installing,

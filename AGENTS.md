@@ -15,12 +15,20 @@ run.
 | Whether flow metrics would help them at all | `flow-metrics-self-assessment` |
 | What WIP limit to set now that agents write much of the code | `wip-limit-configuration-coach` |
 | A scaling framework's temporary compromises that never got revisited | `descaling-experiment-coach` |
+| Whether their AI work is producing business results or AI Theater | `ai-traction-self-assessment` |
+| Their own or their team's AI practice, and why the leverage plateaued | `ai-fluency-self-assessment` |
+| How far the operating model has actually moved from project to product | `product-operating-model-audit` |
 
-The three that overlap most: `sniff-test` reads **one bet**,
+The four that overlap most: `sniff-test` reads **one bet**,
 `sniff-test-portfolio` reads **the board**, `portfolio-to-product-shift-coach`
-reads **the operating model around both**. If the person hands you a single
-initiative, start with `sniff-test` — the other two are usually the conversation
-after it, not before.
+reads **the portfolio governance around both**, and `product-operating-model-audit`
+reads **the whole operating model**. If the person hands you a single initiative,
+start with `sniff-test` — the wider ones are usually the conversation after it, not
+before.
+
+The two AI ones split by subject, not by depth: `ai-traction-self-assessment` is
+about an organisation's AI portfolio, `ai-fluency-self-assessment` about how one
+person or team works with AI. If you cannot tell which, ask.
 
 If two look plausible, say which you picked and why in one line, and offer the
 other. Picking silently is the failure mode here, because these produce
@@ -32,8 +40,15 @@ confident-sounding output and the wrong one is confidently wrong.
   time, chosen from what the person just said. A skill that dumps its whole
   interview at once has failed before it started.
 - **In the prompt-shaped skills, "me" and "my" mean the person you are talking
-  to**, not the author. Those four are the published coaching prompts, kept close
-  to their original wording on purpose.
+  to**, not the author. Four of those are the published coaching prompts, kept
+  close to their original wording on purpose; the three scorecard-derived ones say
+  so in a note at the top.
+- **The scorecard-derived skills place the person from evidence, not self-report.**
+  `ai-traction-self-assessment`, `ai-fluency-self-assessment` and
+  `product-operating-model-audit` carry behavioural ladders in `references/`. Ask
+  what you can look at, place them from that, and say out loud where the artifacts
+  contradict what they told you — that contradiction is usually the most useful
+  thing in the run. None of them produces a score; do not compute one.
 - **Everything needed to run is local.** Web access is never required. Several
   skills name a source article and invite you to fetch it *if* the person asks
   why a rule exists — that is depth on demand, not a dependency.
