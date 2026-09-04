@@ -150,6 +150,10 @@ Use these as examples, not universal recommendations:
 
 ## Final output
 
+For a complete run against this contract — the interview, the arithmetic, the
+recommendation and the two things it got wrong — see
+[`examples/wip-limit-worked-example.md`](../../examples/wip-limit-worked-example.md).
+
 Provide:
 
 1. A workflow table with active and queue stages.

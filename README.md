@@ -13,10 +13,13 @@ demos, a committee, a few teams shipping faster, and no clear line from any of i
 to a business outcome anyone would defend in a budget conversation.
 
 These are the diagnostics I use on that problem, packaged so your agent can run
-them. They ask questions rather than hand you a framework: where the constraint
-actually sits, whether an initiative has enough clarity for the stage it claims,
-what a starting WIP limit should be when agents write much of the code, whether
-flow metrics would tell you anything you would act on.
+them. They are mostly questions — where the constraint actually sits, whether an
+initiative has enough clarity for the stage it claims, what a starting WIP limit
+should be when agents write much of the code, whether flow metrics would tell you
+anything you would act on. Some carry a rubric behind the questions, because you
+cannot judge clarity against a stage without saying what the stages are. Where
+they do, they say the shape is one shape and not the shape, and tell you to map it
+onto whatever your organization actually calls things.
 
 They are meant to run against your real situation, with your real data, in your
 own tooling. That is deliberate — a hosted chatbot that answers questions about
@@ -106,10 +109,12 @@ Give it less and it still runs:
 Use the outcome-framing-coach skill on these twelve epic titles: <paste>
 ```
 
-**Want to see what comes back before you spend the time?**
-[examples/sniff-test-worked-example.md](examples/sniff-test-worked-example.md) is
-a full run on a made-up initiative — what went in, what came out, roughly how long
-it took, what it changed, and the two things it got wrong.
+**Want to see what comes back before you spend the time?** Two full runs, both on
+made-up teams, each showing what went in, what came out, how long it took, what it
+changed, and what it got wrong:
+
+- [A `sniff-test` run](examples/sniff-test-worked-example.md) — one initiative, four minutes of reading.
+- [A `wip-limit-configuration-coach` run](examples/wip-limit-worked-example.md) — the long one, 35 minutes, including where the skill contradicts its own default and why.
 
 ## Credits
 

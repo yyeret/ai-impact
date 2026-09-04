@@ -47,9 +47,9 @@ two different artifacts, and the coaching differs:
   own the how? Load `references/detection-patterns.md` for what to flag and
   `references/rewrite-patterns.md` for the rewrite shapes and worked examples.
 
-`agents/openai.yaml` is a ready-made config for hosting this as an OpenAI-style
-agent. It is not loaded at runtime and you can ignore it unless you are setting
-that up.
+`agents/openai.yaml` is four lines of display name and default prompt, for
+hosting this as an OpenAI-style agent. Not loaded at runtime; ignore it unless
+you are setting that up.
 
 If you are handed a message, a Slack draft, or a leadership email rather than a
 work item, go to the references first — the epic taxonomy will not fit it.
