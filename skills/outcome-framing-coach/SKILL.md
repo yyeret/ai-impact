@@ -1,6 +1,6 @@
 ---
 name: outcome-framing-coach
-description: Reframe work from output/activity language to outcome language, on two surfaces — backlog items (Jira Epics and the like, classified on the Input→Activity→Output→Outcome→Impact taxonomy) and leadership asks (the drive-by directive that names a solution instead of a problem). Use when reviewing backlog epics in bulk, facilitating PI planning, running a value orientation audit, coaching a product owner on outcome-driven planning, or pressure-testing a message before a leader sends it. For whether an initiative is ready to commit rather than how it is worded, use sniff-test.
+description: Reframe work from output/activity language to outcome language, on two surfaces — backlog items (Jira Epics and the like, classified on the Input→Activity→Output→Outcome→Impact taxonomy) and leadership asks (the drive-by directive that names a solution instead of a problem). Use when reviewing backlog epics in bulk, facilitating PI planning, running a value orientation audit, coaching a product owner on outcome-driven planning, or pressure-testing a message before a leader sends it. For whether an initiative is ready to commit rather than how it is worded, use sniff-test. If the question is broad — AI pilots with no clear return, or "where do we start" — run ai-activity-to-impact first; it finds the constraint and routes here.
 metadata:
   tags: flow-agile, product-strategy
   version: 1.1.0

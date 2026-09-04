@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.schemastore.org/claude-code-plugin-manifest.json",
   "name": "ai-impact",
-  "description": "Think through the questions that separate AI activity from AI impact, with your own agent and your own material: is this initiative really ready to commit to, has the constraint moved now that agents write the code, would flow metrics change any decision you make. Reflection, working-through and diagnosis \u2014 conversational, ending in an experiment rather than a score.",
+  "description": "Turn AI activity into business impact with your own agent and your own material. Locate whether you are at activity, output or impact and find the constraint the result is waiting on \u2014 then work the specific thing: initiative readiness, portfolio patterns, outcome framing, flow metrics, WIP limits once agents write the code. Conversational, ending in an experiment rather than a score.",
   "version": "1.0.0",
   "author": {
     "name": "Yuval Yeret",

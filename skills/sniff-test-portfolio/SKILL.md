@@ -1,6 +1,6 @@
 ---
 name: sniff-test-portfolio
-description: Add-on to the sniff-test skill that looks across many initiatives on a portfolio Kanban for board-level patterns — duplicate/shadowing initiatives, WIP clustering, stale-status sweeps, experiment scope creep, and portfolio risk balance (Explore/Discovery vs. Build & Deliver split). Use when reviewing a whole board or portfolio, prepping a sponsor/ELT portfolio review, or deciding where the portfolio is over- or under-invested. For sniffing a single initiative, use sniff-test. For the operating model behind the board rather than the board itself, use portfolio-to-product-shift-coach.
+description: Add-on to the sniff-test skill that looks across many initiatives on a portfolio Kanban for board-level patterns — duplicate/shadowing initiatives, WIP clustering, stale-status sweeps, experiment scope creep, and portfolio risk balance (Explore/Discovery vs. Build & Deliver split). Use when reviewing a whole board or portfolio, prepping a sponsor/ELT portfolio review, or deciding where the portfolio is over- or under-invested. For sniffing a single initiative, use sniff-test. For the operating model behind the board rather than the board itself, use portfolio-to-product-shift-coach. If the question is broad — AI pilots with no clear return, or "where do we start" — run ai-activity-to-impact first; it finds the constraint and routes here.
 metadata:
   tags: flow-agile, product-strategy
   version: 1.0.0
