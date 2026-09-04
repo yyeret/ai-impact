@@ -190,14 +190,11 @@ changed, and what it got wrong:
 
 ## Credits
 
-These skills borrow. The Lean Product Canvas they read against is **Jeff
-Gothelf and Josh Seiden's**; the portfolio lifecycle framing is **Mark
-Richards'**; the flow metrics are **Daniel Vacanti's**. Who owns what, and links
-to the originals, is in [CREDITS.md](CREDITS.md) — read that before you cite any
-of this as mine.
-
+These skills document and make available practices and perspectives I use in my work day in and day out helping leaders shift AI from activity to impact, standing on the shoulders of giant principles, bodies of work, and thought leaders. 
 If a skill is useful to you, the source it came from is usually more useful.
 Every skill says which one and links it.
+Consider part of this repository's value to be a librarian for your AI activity, to impact research and action. 
+You can find more details in [CREDITS.md](CREDITS.md). 
 
 ## License
 
