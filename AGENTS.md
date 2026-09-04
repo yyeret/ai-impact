@@ -9,7 +9,6 @@ run.
 | The person is asking about | Run |
 |---|---|
 | AI pilots and no idea what they are getting, or "where do we start" | `ai-activity-to-impact` (triage; routes onward) |
-| AI pilots and no idea what they are getting, or "where do we start" | `ai-activity-to-impact` |
 | Whether one initiative is ready for a commit decision | `sniff-test` |
 | A whole board — duplication, hidden WIP, risk balance | `sniff-test-portfolio` |
 | Whether the operating model is really product-oriented yet | `portfolio-to-product-shift-coach` |

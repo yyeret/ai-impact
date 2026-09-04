@@ -115,12 +115,24 @@ with, and the good runs usually involve arguing.
 
 ## Install
 
-**As a Claude Code plugin:**
+This repo is a plugin marketplace, so Claude Code and ChatGPT/Codex can both
+install it and pick up updates.
+
+**Claude Code, Cowork, Claude Desktop:**
 
 ```
 /plugin marketplace add yyeret/ai-impact
 /plugin install ai-impact@ai-impact
 ```
+
+Installed skills are namespaced — `/ai-impact:sniff-test` and so on.
+
+**ChatGPT / Codex.** Codex has no `marketplace add` subcommand; marketplaces are
+configured through files rather than the CLI. Clone the repo and run `codex
+/plugins` to browse and install, or point Codex at a checkout — working *inside*
+this repo it picks up `.agents/plugins/marketplace.json` with no install step at
+all. Codex looks for skills in `$CODEX_HOME/skills`, `$HOME/.agents/skills` and
+`/etc/codex/skills`.
 
 **Anywhere else.** Skills follow the standard `skills/<name>/SKILL.md` layout, so
 most agent tooling picks them up directly:

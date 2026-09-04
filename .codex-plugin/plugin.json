@@ -1,0 +1,31 @@
+{
+  "name": "ai-impact",
+  "version": "1.1.0",
+  "description": "Turn AI activity into business impact with your own agent and your own material. Start by locating whether you are at activity, output or impact and which constraint the result is waiting on, then work the specific thing: AI traction from what you shipped, initiative readiness, portfolio patterns, operating-model reality, outcome framing, flow metrics, WIP limits once agents write the code. Reflection, working-through and diagnosis \u2014 conversational, ending in an experiment rather than a score.",
+  "skills": "./skills/",
+  "author": {
+    "name": "Yuval Yeret",
+    "email": "yuval@yeretagility.com",
+    "url": "https://yuvalyeret.com"
+  },
+  "homepage": "https://github.com/yyeret/ai-impact",
+  "repository": "https://github.com/yyeret/ai-impact",
+  "license": "CC-BY-SA-4.0",
+  "keywords": [
+    "ai-transformation",
+    "portfolio-agility",
+    "flow-metrics",
+    "product-operating-model",
+    "outcome-framing",
+    "wip-limits",
+    "kanban",
+    "okrs"
+  ],
+  "interface": {
+    "displayName": "AI Impact",
+    "shortDescription": "Turn AI activity into business impact with your own agent and your own material. Start by locating whether you are at...",
+    "longDescription": "Turn AI activity into business impact with your own agent and your own material. Start by locating whether you are at activity, output or impact and which constraint the result is waiting on, then work the specific thing: AI traction from what you shipped, initiative readiness, portfolio patterns, operating-model reality, outcome framing, flow metrics, WIP limits once agents write the code. Reflection, working-through and diagnosis \u2014 conversational, ending in an experiment rather than a score.",
+    "developerName": "Yuval Yeret",
+    "category": "AI Transformation"
+  }
+}

@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate plugin manifests are well-formed JSON
         run: |
-          for f in .claude-plugin/*.json; do
+          for f in .claude-plugin/*.json .codex-plugin/*.json .agents/plugins/*.json; do
             python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$f"
             echo "ok $f"
           done
