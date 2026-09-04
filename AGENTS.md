@@ -16,6 +16,7 @@ run.
 | Whether flow metrics would help them at all | `flow-metrics-self-assessment` |
 | What WIP limit to set now that agents write much of the code | `wip-limit-configuration-coach` |
 | A scaling framework's temporary compromises that never got revisited | `descaling-experiment-coach` |
+| Which scaled ways of working still earn their keep once agents write much of the code | `scaled-agile-for-agentic-sdlc` |
 | Whether their AI work is producing business results or AI Theater | `ai-traction-self-assessment` |
 | Their own or their team's AI practice, and why the leverage plateaued | `ai-fluency-self-assessment` |
 | How far the operating model has actually moved from project to product | `product-operating-model-audit` |
