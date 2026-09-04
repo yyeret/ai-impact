@@ -55,7 +55,7 @@ For a regulated or NDA-bound initiative, that is the mode to use.
 If you find something in this repo that leaks information, misdirects an agent,
 or would cause harm if followed — a private path that survived review, an
 instruction that would send data somewhere unexpected — please
-[open an issue](https://github.com/yyeret/ai-activity-to-impact/issues), or
+[open an issue](https://github.com/yyeret/ai-impact/issues), or
 [contact Yuval directly](https://yuvalyeret.com/contact/) if it is not something
 to discuss in public.
 

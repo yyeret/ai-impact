@@ -1,27 +1,52 @@
-# ai-activity-to-impact
+# ai-impact
 
-Diagnostics you install into your own AI agent, so the gap between AI activity
-and business impact becomes something you can see and argue about — where the
-constraint actually sits, which initiative is not as ready as its status says,
-what a WIP limit means once agents write the code.
+**Scaling AI activity into business impact — as diagnostics your own AI agent can
+run, on your real portfolio, in the tooling you already use.**
 
 By [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
 Organizational AI Coaching.
 
-## What this is
+## The problem these exist for
 
 Most organizations running AI pilots have more activity than evidence. There are
 demos, a committee, a few teams shipping faster, and no clear line from any of it
 to a business outcome anyone would defend in a budget conversation.
 
-These are the diagnostics I use on that problem, packaged so your agent can run
-them. They are mostly questions — where the constraint actually sits, whether an
-initiative has enough clarity for the stage it claims, what a starting WIP limit
-should be when agents write much of the code, whether flow metrics would tell you
-anything you would act on. Some carry a rubric behind the questions, because you
-cannot judge clarity against a stage without saying what the stages are. Where
-they do, they say the shape is one shape and not the shape, and tell you to map it
-onto whatever your organization actually calls things.
+The gap is rarely the technology. It is that nobody can say which initiative is
+actually ready to commit to, where the constraint has moved now that code is
+cheap, or what would have to change for the next quarter's spend to be
+defensible. Those are answerable questions. They just require someone to ask them
+properly, against your real material, and to not flinch at the answer.
+
+That asking is what these skills do.
+
+## The job you are hiring this for
+
+Pick the row that sounds like your week. If none of them do, this probably is not
+for you, and that is a fine outcome to reach in thirty seconds.
+
+| When you are stuck on | Run | You end up with |
+|---|---|---|
+| "We commit budget in three weeks and I don't know if this initiative is really ready" | [`sniff-test`](skills/sniff-test/) | Where clarity is thin *for the stage it claims*, whether the status label survives contact with the evidence, and the one conversation to have before the money moves |
+| "I inherited this board and I can't see the patterns in it" | [`sniff-test-portfolio`](skills/sniff-test-portfolio/) | Duplicated bets, hidden WIP, whether the risk balance is intentional, and what to raise at the next review |
+| "We say we're product-led but funding still runs by project" | [`portfolio-to-product-shift-coach`](skills/portfolio-to-product-shift-coach/) | Where you actually sit, which of five gaps is binding, and one experiment for the next month |
+| "Our epics are written as output and nobody can say what would change if they shipped" | [`outcome-framing-coach`](skills/outcome-framing-coach/) | Each item classified, the prescriptive verbs flagged, and rewrites stated as behaviour someone can falsify |
+| "Delivery feels slow and I can't say why" | [`flow-metrics-self-assessment`](skills/flow-metrics-self-assessment/) | Whether flow metrics would tell you anything you would act on — and which one to start with, or a clear no |
+| "Agents write most of our code and our WIP limits stopped meaning anything" | [`wip-limit-configuration-coach`](skills/wip-limit-configuration-coach/) | Starting numbers derived from your actual constraint, with the arithmetic shown and the traps named |
+| "We adopted a scaling framework and its temporary compromises never got revisited" | [`descaling-experiment-coach`](skills/descaling-experiment-coach/) | Which concession hardened into a constraint, and one small experiment against it |
+
+**The common shape:** each one ends in a conversation to have or an experiment to
+run in the next two to four weeks, with a leading indicator you could actually
+watch. None of them ends in a score.
+
+## How they work
+
+They are mostly questions, run as a conversation — your agent asks one or two at
+a time and follows what you say, rather than dumping a survey. Some carry a rubric
+behind the questions, because you cannot judge clarity against a stage without
+saying what the stages are. Where they do, they say the shape is one shape and not
+the shape, and tell you to map it onto whatever your organization actually calls
+things.
 
 They are meant to run against your real situation, with your real data, in your
 own tooling. That is deliberate — a hosted chatbot that answers questions about
@@ -36,15 +61,15 @@ with, and the good runs usually involve arguing.
 **As a Claude Code plugin:**
 
 ```
-/plugin marketplace add yyeret/ai-activity-to-impact
-/plugin install ai-activity-to-impact@ai-activity-to-impact
+/plugin marketplace add yyeret/ai-impact
+/plugin install ai-impact@ai-impact
 ```
 
 **Anywhere else.** Skills follow the standard `skills/<name>/SKILL.md` layout, so
 most agent tooling picks them up directly:
 
 ```bash
-git clone https://github.com/yyeret/ai-activity-to-impact
+git clone https://github.com/yyeret/ai-impact
 ```
 
 Point your agent at the folder, or copy the skills you want into wherever your
@@ -64,30 +89,20 @@ a plain chat window. If they read differently, that is why.
 send whatever you give it to your model provider, and every skill also works as
 a plain interview with no data access at all.
 
-## What's here
+## Where to start
 
-**Diagnosing where you actually are**
+`sniff-test` if you have one initiative you are unsure about. `outcome-framing-coach`
+if you want the cheapest possible first run — paste a dozen epic titles and see
+what comes back. `flow-metrics-self-assessment` if the problem is that delivery
+feels slow and you cannot say why.
 
-| Skill | Use it when |
-|---|---|
-| [`sniff-test`](skills/sniff-test/) | An initiative is heading for a commit decision and you want to know whether its clarity matches its stage |
-| [`sniff-test-portfolio`](skills/sniff-test-portfolio/) | You are reading a whole board and want the patterns a single-initiative read cannot see — duplication, hidden WIP, risk balance |
-| [`portfolio-to-product-shift-coach`](skills/portfolio-to-product-shift-coach/) | "We do product now" is claimed, but funding and governance still run by project |
+The three that overlap: `sniff-test` reads **one bet**, `sniff-test-portfolio`
+reads **the board**, `portfolio-to-product-shift-coach` reads **the operating
+model around both**. Start with the narrowest one that fits — the wider
+conversations usually come after it, not before.
 
-**Making outcomes legible**
-
-| Skill | Use it when |
-|---|---|
-| [`outcome-framing-coach`](skills/outcome-framing-coach/) | Epics are written as output and nobody can say what would change if they shipped |
-| [`flow-metrics-self-assessment`](skills/flow-metrics-self-assessment/) | Before adopting flow metrics, to decide whether they would tell you anything you would act on |
-| [`wip-limit-configuration-coach`](skills/wip-limit-configuration-coach/) | Agents write much of the code and your existing WIP limits no longer describe the system |
-| [`descaling-experiment-coach`](skills/descaling-experiment-coach/) | A scaling framework was adopted with compromises that were meant to be temporary |
-
-Start with `sniff-test` if you have one initiative you are unsure about, or
-`flow-metrics-self-assessment` if the problem is that delivery feels slow and you
-cannot say why. If you are pointing an agent at this folder rather than
-installing, [AGENTS.md](AGENTS.md) is the routing map — which skill for which
-question, and how they expect to be run.
+If you are pointing an agent at this folder rather than installing,
+[AGENTS.md](AGENTS.md) is the routing map, plus how the skills expect to be run.
 
 ## Running one
 
@@ -112,6 +127,29 @@ Give it less and it still runs:
 ```
 Use the outcome-framing-coach skill on these twelve epic titles: <paste>
 ```
+
+**Four things that make a run worth the time:**
+
+1. **Point it at the system of record, not a summary you wrote.** The stale
+   status label, the roadmap with no confidence range, the eleven features all
+   sitting in "not started" — those are the findings, and they only exist in the
+   real material. A tidy briefing hides exactly what you want found.
+2. **Argue with it.** These produce confident-sounding output from whatever you
+   fed them. When a rating is wrong because the evidence lives somewhere the agent
+   never saw, say so and re-run that dimension — the good sessions are half
+   correction.
+3. **Answer honestly about intent.** Several skills ask whether you want to
+   preserve current behaviour or change it. Answer "change it" and mean it, or
+   you will get a number that ratifies what you already do.
+4. **Stop at the experiment.** Each one ends in one thing to try in two to four
+   weeks with an indicator to watch. That is the deliverable. A run that produces
+   a table and no next move has failed, and the skills say so themselves.
+
+**No web access, or working on something confidential?** Every skill runs as a
+plain interview with no data access at all — you answer from material the agent
+never sees. You lose `sniff-test`'s evidence-based stage check, which is the most
+valuable thing it does; the rest of the read still works. See
+[SECURITY.md](SECURITY.md) for what does and does not leave your building.
 
 **Want to see what comes back before you spend the time?** Two full runs, both on
 made-up teams, each showing what went in, what came out, how long it took, what it
@@ -151,4 +189,4 @@ portfolio is running my questions, not my judgment. If you want the judgment,
 [talk to me](https://yuvalyeret.com/contact/).
 
 Found something wrong, or recognize your work here uncredited?
-[Open an issue](https://github.com/yyeret/ai-activity-to-impact/issues).
+[Open an issue](https://github.com/yyeret/ai-impact/issues).

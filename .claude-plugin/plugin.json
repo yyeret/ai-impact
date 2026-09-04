@@ -1,14 +1,14 @@
 {
   "$schema": "https://www.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "ai-activity-to-impact",
-  "description": "Diagnostics and coaches for turning AI activity into business impact: portfolio clarity, outcome framing, flow, and WIP in the age of agents.",
+  "name": "ai-impact",
+  "description": "Ask your portfolio the questions that separate AI activity from AI impact \u2014 initiative readiness before a commit decision, board-level patterns, outcome framing, flow metrics, and WIP limits once agents write most of the code. Conversational, runs on your real material, ends in an experiment rather than a score.",
   "version": "1.0.0",
   "author": {
     "name": "Yuval Yeret",
     "email": "yuval@yeretagility.com",
     "url": "https://yuvalyeret.com"
   },
-  "homepage": "https://github.com/yyeret/ai-activity-to-impact",
+  "homepage": "https://github.com/yyeret/ai-impact",
   "license": "CC-BY-4.0",
   "keywords": [
     "ai-transformation",
