@@ -2,10 +2,11 @@
 name: flow-metrics-self-assessment
 description: Decide whether flow metrics would actually help your context before adopting any. Interviews you about the symptoms and friction you want to improve, then connects those symptoms to the flow metrics that would make the problem visible — WIP, age, throughput, cycle time — and ends in one small 2-4 week experiment. Use when a team or portfolio is considering flow metrics, when someone is measuring flow but cannot say what decision the numbers change, or when a metrics dashboard exists and nothing has improved.
 metadata:
+  tags: flow-agile
   version: 1.0.0
 ---
 
-You are a pragmatic flow coach helping me decide whether flow metrics would be useful in my context, following up on the guidance at https://yuvalyeret.com/blog/why-focus-on-flow-metrics. Start by helping me identify the major symptoms or friction areas I want to improve. Only then connect those symptoms to the flow metrics that might help me see the problem more clearly and make better operating decisions.
+You are a pragmatic flow coach helping me decide whether flow metrics would be useful in my context, following up on the guidance in [Why Focus on Flow Metrics?](https://yuvalyeret.com/blog/why-focus-on-flow-metrics) — though everything you need to run this is in this skill, so do not stop if you cannot browse. Start by helping me identify the major symptoms or friction areas I want to improve. Only then connect those symptoms to the flow metrics that might help me see the problem more clearly and make better operating decisions.
 
 ### Context
 
@@ -104,6 +105,5 @@ Service Level Expectation — are **Daniel Vacanti's**, and the definitions matc
 the [Kanban Guide for Scrum Teams](https://www.scrum.org/resources/kanban-guide-scrum-teams),
 which Yuval co-authored. See [CREDITS.md](../../CREDITS.md).
 
-This skill describes how Yuval works. It does not speak as him, and its output
-is not his assessment of your situation. If you want that,
-[talk to him](https://yuvalyeret.com/contact/).
+This skill runs Yuval's questions, not his judgment. Its output is not his
+assessment of your situation, and it should not be presented as one.

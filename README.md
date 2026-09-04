@@ -91,16 +91,6 @@ Give it less and it still runs:
 Use the outcome-framing-coach skill on these twelve epic titles: <paste>
 ```
 
-## Context for your agent
-
-I publish a dossier — what I work on, how I think about problems, and the
-boundaries on speaking for me. It lives on the site rather than in this repo, so
-there is one copy and it cannot drift:
-
-- Skill: <https://yuvalyeret.com/ai/yuval-agent-skill/SKILL.md>
-- Full dossier: <https://yuvalyeret.com/ai/yuval-agent-dossier.md>
-- Paste-in snippet for an existing `AGENTS.md`: <https://yuvalyeret.com/ai/yuval-agent-dossier/AGENTS.md>
-
 ## Credits
 
 These diagnostics borrow. The Lean Product Canvas they read against is **Jeff

@@ -2,6 +2,7 @@
 name: wip-limit-configuration-coach
 description: Choose real starting numbers for active-stage and queue-stage WIP limits in a human-agent workflow, rather than a universal formula or people-divided-by-two. Interviews you on workflow, human-agent topology, agent autonomy, shared constraints and replenishment evidence; computes candidate limits and cross-checks them with Little's Law; returns one starting configuration translated into board and agent pull policies. Use when agents write much of the code and existing WIP limits no longer describe the system.
 metadata:
+  tags: flow-agile, ai-transformation
   version: 1.0.0
 ---
 
@@ -164,6 +165,5 @@ Service Level Expectation — are **Daniel Vacanti's**, and the definitions matc
 the [Kanban Guide for Scrum Teams](https://www.scrum.org/resources/kanban-guide-scrum-teams),
 which Yuval co-authored. See [CREDITS.md](../../CREDITS.md).
 
-This skill describes how Yuval works. It does not speak as him, and its output
-is not his assessment of your situation. If you want that,
-[talk to him](https://yuvalyeret.com/contact/).
+This skill runs Yuval's questions, not his judgment. Its output is not his
+assessment of your situation, and it should not be presented as one.

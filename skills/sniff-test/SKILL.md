@@ -124,6 +124,5 @@ Gothelf and Josh Seiden**. Both are credited properly, with links to the
 originals, in [CREDITS.md](../../CREDITS.md). If you want the source rather than
 this adaptation, go there first.
 
-This skill describes how Yuval works. It does not speak as him, and its output
-is not his assessment of your situation. If you want that,
-[talk to him](https://yuvalyeret.com/contact/).
+This skill runs Yuval's questions, not his judgment. Its output is not his
+assessment of your situation, and it should not be presented as one.

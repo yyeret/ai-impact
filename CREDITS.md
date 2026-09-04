@@ -70,6 +70,19 @@ associated with IDEO's desirability/viability/feasibility framing and with Marty
 Cagan's writing on product risk (*Inspired*, *Empowered*). It is used here as
 shared language, not as anyone's proprietary model.
 
+## Breaking the SAFe — Ryan Ripley
+
+`descaling-experiment-coach` comes out of
+[Breaking the SAFe](https://yuvalyeret.com/scaling-ai-podcast/breaking-the-safe/),
+a series Yuval co-hosted with **Ryan Ripley**. The patterns the skill coaches
+against — proxy product ownership, the project-manager Scrum Master, PI planning
+as a binding contract — were argued out on that show, with Ripley taking the
+harder line and Yuval defending the concession. The skill inherits both halves of
+that argument; half of it is his.
+
+- [Breaking the SAFe](https://yuvalyeret.com/scaling-ai-podcast/breaking-the-safe/) (season one)
+- Ryan Ripley, co-author of *Fixing Your Scrum*
+
 ## Trademarks
 
 Used nominatively, to say what these skills work with. No affiliation or

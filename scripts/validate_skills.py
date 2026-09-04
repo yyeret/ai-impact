@@ -30,6 +30,10 @@ PRIVATE_PATTERNS = [
 
 REQUIRED_FRONTMATTER = ("name", "description")
 
+# Kept small on purpose: a tag vocabulary that grows per-skill stops being a
+# vocabulary. Add to this deliberately, not incidentally.
+ALLOWED_TAGS = {"flow-agile", "product-strategy", "ai-transformation"}
+
 
 def frontmatter(text: str) -> dict[str, str] | None:
     m = re.match(r"---\n(.*?)\n---\n", text, re.S)
@@ -75,6 +79,21 @@ def main() -> int:
         # the README, and it is the thing that quietly rots.
         if "## Source" not in text:
             errors.append(f"{d.name}: no '## Source' section")
+
+        meta = re.search(r"^metadata:\n((?:  .*\n)+)", text, re.M)
+        if not meta:
+            errors.append(f"{d.name}: no metadata block")
+        else:
+            block = meta.group(1)
+            if not re.search(r"^  version: ", block, re.M):
+                errors.append(f"{d.name}: metadata missing 'version'")
+            tag_line = re.search(r"^  tags: (.+)$", block, re.M)
+            if not tag_line:
+                errors.append(f"{d.name}: metadata missing 'tags'")
+            else:
+                for tag in (t.strip() for t in tag_line.group(1).split(",")):
+                    if tag not in ALLOWED_TAGS:
+                        errors.append(f"{d.name}: unknown tag {tag!r}")
 
         for md in sorted(d.rglob("*.md")) + sorted(d.rglob("*.yaml")):
             body = md.read_text(encoding="utf-8")

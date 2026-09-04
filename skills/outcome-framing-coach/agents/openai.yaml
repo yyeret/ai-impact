@@ -1,4 +1,4 @@
 interface:
   display_name: "Outcome Framing Coach"
-  short_description: "Rewrite directives into outcome-led asks"
-  default_prompt: "Use the Outcome Framing Coach skill to review this draft, flag prescriptive or drive-by directive language, and rewrite it toward outcomes and team autonomy."
+  short_description: "Reframe epics and leadership asks from output to outcome"
+  default_prompt: "Use the Outcome Framing Coach skill. If I give you backlog items, classify each on the Input/Activity/Output/Outcome/Impact taxonomy, flag prescriptive verbs, and rewrite toward outcomes. If I give you a leadership message, flag prescriptive or drive-by directive language and rewrite it toward outcomes and team autonomy."

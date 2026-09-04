@@ -1,8 +1,8 @@
 ---
 name: outcome-framing-coach
-description: Coach teams and individuals to reframe Jira Epics (and other work items) from output/activity language to outcome-oriented language using the Input→Activity→Output→Outcome→Impact taxonomy. Use when reviewing backlog epics, facilitating PI planning, running a value orientation audit, or coaching a product owner on outcome-driven planning.
+description: Reframe work from output/activity language to outcome language, on two surfaces — backlog items (Jira Epics and the like, classified on the Input→Activity→Output→Outcome→Impact taxonomy) and leadership asks (the drive-by directive that names a solution instead of a problem). Use when reviewing backlog epics in bulk, facilitating PI planning, running a value orientation audit, coaching a product owner on outcome-driven planning, or pressure-testing a message before a leader sends it.
 metadata:
-  tags: flow-agile
+  tags: flow-agile, product-strategy
   version: 1.1.0
 ---
 
@@ -34,6 +34,21 @@ Classify a work item on the value taxonomy, flag prescriptive language smells, a
 
 Flag these verbs in epic titles as output-oriented smells:
 `build · create · implement · setup · set up · add · integrate · develop · launch · deploy · configure · migrate · establish · introduce · rollout · redesign · rebuild`
+
+## Two Surfaces
+
+The same move — stop naming the solution, name the change you want — applies to
+two different artifacts, and the coaching differs:
+
+- **A backlog item** already exists and is miswritten. Classify it, flag the
+  verb, rewrite it. That is the taxonomy and workflow below.
+- **A leadership ask** is about to be sent and prescribes a solution. That needs
+  a different read: is the *why* present, and is there room left for the team to
+  own the how? Load `references/detection-patterns.md` for what to flag and
+  `references/rewrite-patterns.md` for the rewrite shapes and worked examples.
+
+If you are handed a message, a Slack draft, or a leadership email rather than a
+work item, go to the references first — the epic taxonomy will not fit it.
 
 ## Workflow
 
@@ -119,6 +134,5 @@ the questions this skill asks; read it if you want the why rather than the how.
 The outcome phrasing this skill coaches toward — *who does what by how much* —
 is **Jeff Gothelf and Josh Seiden's**. See [CREDITS.md](../../CREDITS.md).
 
-This skill describes how Yuval works. It does not speak as him, and its output
-is not his assessment of your situation. If you want that,
-[talk to him](https://yuvalyeret.com/contact/).
+This skill runs Yuval's questions, not his judgment. Its output is not his
+assessment of your situation, and it should not be presented as one.
