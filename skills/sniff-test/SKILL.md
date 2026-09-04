@@ -47,9 +47,29 @@ The cleanest way to run me: **point me at where this initiative is actually mana
 3. **A recent sponsor update (useful).** What's being claimed about status, confidence, and risk to leadership — prime material for spotting watermelons and stale-status mismatches.
 4. **The feature list / Outcome-Oriented Roadmap (useful).** The features and where each one stands, so I can check whether delivery progress actually matches the claimed stage and confidence. (The lifecycle's other foundation artifact.)
 
-Beyond the artifacts, I'll establish two things: the initiative's **tier** (Tier-1 enterprise vs. Tier-2 domain/team), and **what "you can count on being true" at this stage** (the stage's executive contract if one is defined; otherwise I use the default rubric and say so). The single most important and most-skipped input is **evidence behind any claimed clarity** — I treat confident-but-unevidenced conviction as a question mark, because that's what separates a real commit decision from a rubber stamp.
+Beyond the artifacts, I'll establish two things: the initiative's **tier** (see below), and **what "you can count on being true" at this stage** (the stage's executive contract if one is defined; otherwise I use the default rubric and say so). The single most important and most-skipped input is **evidence behind any claimed clarity** — I treat confident-but-unevidenced conviction as a question mark, because that's what separates a real commit decision from a rubber stamp.
 
 **If you give me little or no input:** I'll still run, but I'll **ask you for context first** — what the initiative is, where it's managed, and what stage you think it's in. Expect a longer, noisier flag list: with sparse information much of it reads as "unknown / unevidenced," which is itself a finding (the clarity isn't written down anywhere I can check). The more you point me at the real sources, the shorter and sharper the flags get.
+
+## Tier-1 or Tier-2
+
+Tier decides how much ceremony the read deserves, so establish it early. Use your
+organization's own criteria if it has them — say which you used. If it does not,
+these three, each rated low / medium / high:
+
+- **Investment size** relative to what your portfolio normally decides on.
+- **Strategic risk** — how much rides on this being right, beyond the money.
+- **Cross-product collaboration** needed to deliver it.
+
+**Tier-1 (enterprise)** if any one of the three is high, or two are medium. It
+goes on the enterprise portfolio Kanban and gets the full read. **Tier-2
+(domain/team)** otherwise: it runs under the lifecycle as lightweight guardrails,
+and a full sniff is usually more ceremony than it is worth.
+
+Any single dimension at "high" is enough on its own — a very large but low-risk,
+low-dependency investment is still a portfolio decision. When you are between
+tiers, say so and let the sponsor decide rather than picking silently; the
+borderline cases are exactly where escalation habits show.
 
 ## Core Workflow
 

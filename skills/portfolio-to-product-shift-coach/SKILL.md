@@ -35,6 +35,14 @@ Add the three numbers:
 - **5-6:** worth a conversation about whether to track it at the portfolio level at all.
 - **7-9:** this legitimately belongs at the portfolio level.
 
+**Override, and apply it before you read the total: any single dimension at 3
+puts the item on the portfolio board regardless of the sum.** Adding three
+ordinals lets one maxed dimension get washed out by two low ones — a very large
+but low-risk, low-dependency investment scores 3+1+1=5 and reads as "maybe," when
+the money alone makes it a portfolio decision. The sum is a conversation starter,
+not an algorithm; when the override and the total disagree, say so and let the
+disagreement be the conversation.
+
 Tell me the score and what it implies. If most of what I describe scores 7-9, flag that as a signal, not a compliment: it usually means dependencies aren't localized yet.
 
 #### Phase 2: Locate the real gap

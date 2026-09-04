@@ -11,10 +11,11 @@ A sniff test rates clarity across two aligned layers: the **Lean Product Canvas*
 | Element | The core question | Sniff for |
 |---|---|---|
 | **Business Problem** | What problem are we focused on, and why now? | Solution-first framing with no named problem; a "project" with no outcome behind it. |
-| **Users** | Which users/customers and stakeholders are we focused on first? | "Everyone / the business" hand-waving; sponsors and end-users conflated; cross-functional stakeholders (EA, SecOps, data) unnamed. |
+| **Users** | Which users/customers and stakeholders are we focused on first? | "Everyone / the business" hand-waving; sponsors and end-users conflated; cross-functional stakeholders (enterprise architecture, security, data) unnamed. |
 | **Business Outcomes** | How will we know we solved it? What will we measure? | Outcomes stated as activity or output; no measure; only lagging totals. |
 | **User Outcomes & Benefits (JTBD)** | Why would the user seek this out — what changes for them? | Benefit asserted with no job-to-be-done; internal convenience mistaken for user value. |
-| **Hypotheses** | "We believe [outcome] if [user] attains [benefit] with [feature]." | No falsifiable hypothesis; a plan with no belief to test. |
+| **Solutions** | What could we build or change that solves the problem and meets the users' needs? | A single pre-decided solution presented as the only option; ideas never compared or costed. |
+| **Hypotheses** | "We believe [business outcome] will be achieved if [user] attains [benefit] with [solution]." | No falsifiable hypothesis; a plan with no belief to test. A hypothesis that names a *feature* where the canvas asks for a *solution* — the slot is for the change you would make, not the thing you would build. |
 | **Questions / Assumptions & Learning Priorities** | What's most important to learn first, and how cheaply? | No riskiest-assumption call-out; a learning plan that validates the already-known. |
 
 ## Layer 2 — DVF risk lens (the Discovery assumption set)
@@ -24,7 +25,7 @@ A sniff test rates clarity across two aligned layers: the **Lean Product Canvas*
 | **Desirability** | How much conviction do we have that the right users want this enough to "pay" (money, time, adoption)? | The classic discovery question. Confidence with no evidence; a stakeholder proxy standing in for the real user. |
 | **Viability** | If they want it, can we make money / is the value exchange worth it? | Revenue/cost logic never sized; "we'll figure out the model later" on a Tier-1 bet. |
 | **Feasibility** | Can we build it? Will it work? Can we run it safely? | Technical optimism with no spike; operational/run-time risk ignored. |
-| **Architecture / Data / Security assumptions** | Have EA, data, and security risks been surfaced while there's still optionality? | EA/SecOps engaged late as gatekeepers instead of early as stakeholders; the portfolio-lifecycle≠SDLC line blurred. |
+| **Architecture / Data / Security assumptions** | Have enterprise-architecture, data, and security risks been surfaced while there's still optionality? | Architecture and security engaged late as gatekeepers instead of early as stakeholders; the portfolio-lifecycle≠SDLC line blurred. |
 
 ## Rating discipline
 

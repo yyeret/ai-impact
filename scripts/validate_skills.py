@@ -95,6 +95,17 @@ def main() -> int:
                     if tag not in ALLOWED_TAGS:
                         errors.append(f"{d.name}: unknown tag {tag!r}")
 
+        # A reference file the SKILL.md never mentions is dead weight: the agent
+        # has no reason to load it, so it ships without ever being read.
+        refs_dir = d / "references"
+        if refs_dir.is_dir():
+            for ref in sorted(refs_dir.rglob("*.md")):
+                if ref.name not in text:
+                    errors.append(
+                        f"{d.name}: references/{ref.name} is never mentioned in "
+                        "SKILL.md, so it will never be loaded"
+                    )
+
         for md in sorted(d.rglob("*.md")) + sorted(d.rglob("*.yaml")):
             body = md.read_text(encoding="utf-8")
             rel = md.relative_to(ROOT)

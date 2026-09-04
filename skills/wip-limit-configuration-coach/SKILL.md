@@ -18,6 +18,7 @@ Act as a pragmatic flow coach. Help me choose actual starting numbers for active
 - Count the top-level feature/spec once throughout its flow. Agent tasks, worktrees, branches, pull requests, specialist personas, and outputs waiting for input are how that feature moves; they are not additional WIP items.
 - Keep upstream and downstream Ready queues visible and limited separately where useful, while allowing a combined `Ready + Active` limit around a constraint.
 - Treat human attention as the governing capacity. The human has one shared context across all the threads they are juggling, so every additional feature carries reorientation and quality cost even when every agent has its own context window.
+- **Watch the denominator at the review constraint.** The counting rule above is stated in features, but review capacity is consumed in the artifacts a reviewer actually opens — pull requests. One feature can arrive as six PRs across four worktrees, so a review limit of "2 features" can mean a twelve-PR queue. Where review is the constraint, ask what a feature *lands as*, and set that stage's limit in the unit the reviewer actually handles. If a feature routinely fans out past three or four review artifacts, that is a batch-size problem to fix upstream, not a limit to raise.
 
 ## Interview sequence
 
@@ -76,9 +77,21 @@ Do not lead with `p50` or `p85` when speaking to the practitioner. Explain the o
 
 Cross-check the candidate with Little's Law when the system is stable:
 
-`target WIP ≈ throughput rate × target cycle time`
+`average WIP ≈ average throughput rate × average cycle time`
 
-Use matching units. Treat this as a consistency check, not precision engineering. In a brownfield system, also compare a deliberately aggressive experiment near half current WIP or batch size.
+Use matching units, and use **observed** values on both sides: take the WIP,
+throughput, and cycle time the system actually produced over a completed interval
+and check whether they are internally consistent. That tells you whether your
+current WIP explains your current cycle time.
+
+**Do not rearrange it to solve for a limit from a target cycle time you have
+never hit.** Little's Law is a diagnostic over averages, not a design equation:
+the throughput you would substitute is itself a function of the WIP you are about
+to change, so the number that falls out has no referent. If a stakeholder wants
+"the WIP that gets us to a 10-day cycle time," say plainly that the arithmetic
+cannot answer it, and go run the experiment instead.
+
+Treat this as a consistency check, not precision engineering. In a brownfield system, also compare a deliberately aggressive experiment near half current WIP or batch size.
 
 ## Configure active stages and queues separately
 
@@ -122,13 +135,13 @@ Use these as examples, not universal recommendations:
 2. Six people as one swarm/pod: start with one active feature and a combined limit of two.
 3. The same six as two independent trios: start with two active features and compare combined limits of three or four.
 4. The same six as three independent pairs: start with three active features and compare combined limits of four, five, or six.
-5. Several builders and agents feeding one reviewer: cap `Reviewing 1 + Ready for Review 1 = 2`, regardless of upstream implementation capacity.
+5. Several builders and agents feeding one reviewer: cap `Reviewing 1 + Ready for Review 1 = 2`, regardless of upstream implementation capacity. Check the denominator before you commit to it — if each feature lands as five or six pull requests, "2 features" is a ten-PR review queue and the cap is not doing what it looks like it is doing. Either state the limit in review artifacts, or fix the fan-out upstream.
 6. Weekly replenishment at four items/week: the team needs about four items until the next trip; one extra gives a queue limit of five.
 7. Twice-weekly replenishment at the same throughput: the team needs about two items until the next trip; one extra gives a queue limit of three.
 8. Near-continuous replenishment: the team needs about one item; one extra gives a queue limit of two.
 9. Brownfield actual WIP `15`: compare an illustrative 85th-percentile level of `13`, 50th-percentile level of `10`, and aggressive half-WIP experiment `7-8`.
 10. Four active slots with illustrative history: compare `+1 = 5`, `×1.5 = 6`, `×2 = 8`, a historical 50th-percentile actual-WIP level of `5`, and an 85th-percentile level of `7`.
-11. Real-data calibration: a 91-day Stories/Bugs history has current WIP `21`. WIP was `23` or lower on half the days and `26` or lower on 85 percent of the days. In a more representative 36-day window, those levels are `23` and `24`. Treat `23` as a data-only system experiment, then cross-check human capacity and release cadence.
+11. Real-data calibration, and a trap: a 91-day Stories/Bugs history has current WIP `21`. WIP was `23` or lower on half the days and `26` or lower on 85 percent of the days. In a more representative 36-day window, those levels are `23` and `24`. Note what `23` actually is — a ceiling **above today's WIP of 21**. It clips the historical excursions and changes nothing about how the team works this week. That is a legitimate first move only if the intent is explicitly "stop the worst weeks, change nothing else"; say so out loud, and do not let it be reported as an improvement experiment. If the intent is to create focus, the candidate has to sit below current WIP — here that means the aggressive half-WIP experiment near `10-11`, or a considered step to `18`, with the human-capacity and release-cadence cross-check deciding between them. Never present a limit at or above current WIP as though it will produce change.
 12. In that real-data example, recent combined-column 50th-percentile candidates are `8 / 3 / 6 / 6` for Development, Review, QA, and UAT/release. Do not assume accumulated inventory equals capacity.
 13. Solo Spec Kit, Compound Engineering, or BMAD: start with one feature flow. Tasks, phases, personas, and review agents stay inside that feature count. A second feature is conditional on true autonomous progress plus exhausted same-feature and right-to-left options.
 14. Solo Superpowers or Matt Pocock skills: task sequences and parallel reviewers are orchestration inside one active feature. Their fan-out does not create feature capacity.
@@ -161,9 +174,11 @@ Organizational AI Coaching. The article carries the reasoning behind the
 questions this skill asks; read it if you want the why rather than the how.
 
 The flow metrics themselves — WIP, Cycle Time, Throughput, Work Item Age, and the
-Service Level Expectation — are **Daniel Vacanti's**, and the definitions match
-the [Kanban Guide for Scrum Teams](https://www.scrum.org/resources/kanban-guide-scrum-teams),
-which Yuval co-authored. See [CREDITS.md](../../CREDITS.md).
+Service Level Expectation — are **Daniel Vacanti's**. This skill assumes those
+definitions rather than restating them: it coaches which metric to reach for and
+what to do about what it shows. For what the terms actually mean, use the
+[Kanban Guide for Scrum Teams](https://www.scrum.org/resources/kanban-guide-scrum-teams)
+(short, free, co-authored by Yuval). See [CREDITS.md](../../CREDITS.md).
 
 This skill runs Yuval's questions, not his judgment. Its output is not his
 assessment of your situation, and it should not be presented as one.

@@ -48,27 +48,70 @@ thinking is his.
 
 ## Flow metrics — Daniel Vacanti, and the Kanban Guide for Scrum Teams
 
-The four flow metrics these skills use — Work in Progress, Cycle Time,
+The four flow metrics these skills work with — Work in Progress, Cycle Time,
 Throughput, and Work Item Age — along with the Service Level Expectation (SLE),
 come from **Daniel Vacanti's** work, in particular *Actionable Agile Metrics for
-Predictability*, and from the **Kanban Guide for Scrum Teams**, which Yuval
-co-authored with Vacanti and Scrum.org. Professional Scrum with Kanban (PSK) is
-a Scrum.org course Yuval co-created.
+Predictability*, and are defined in the **Kanban Guide for Scrum Teams**, which
+Yuval co-authored with Vacanti and Scrum.org. Professional Scrum with Kanban
+(PSK) is a Scrum.org course Yuval co-created.
 
-So the vocabulary in `flow-metrics-self-assessment`, `wip-limit-configuration-coach`,
-and the flow parts of the sniff tests is partly borrowed and partly Yuval's own
-published work. Where it is borrowed, it is Vacanti's:
+**These skills assume the definitions rather than restating them.** They coach on
+*which* metric to reach for and *what to do* about what it shows; they are not a
+reference for what the metrics mean. If you need the definitions, get them from
+the Guide — it is short, free, and authoritative in a way a coaching skill is not:
 
 - *Actionable Agile Metrics for Predictability*, Daniel S. Vacanti
 - [Kanban Guide for Scrum Teams](https://www.scrum.org/resources/kanban-guide-scrum-teams) (Scrum.org)
 - [Kanban Guide](https://kanbanguides.org/)
 
+## The Kanban Method — David J. Anderson
+
+`wip-limit-configuration-coach` is, underneath, the **Kanban Method**: explicit
+WIP limits, a pull system, queue replenishment, combined column limits, and the
+practice of making policies explicit. That is **David J. Anderson's** synthesis
+(*Kanban: Successful Evolutionary Change for Your Technology Business*), and
+"stop starting, start finishing" comes from the same community.
+
+The supermarket the skill reasons with when sizing a queue — *how much must be on
+the shelf to reach the next realistic trip?* — is **Taiichi Ohno's**, by way of
+the Toyota Production System, and the rope in its pull policies is
+**Eliyahu Goldratt's** drum-buffer-rope from *The Goal*.
+
+What is new here is the application to a human-plus-agent system: what counts as
+one work item when agents fan out, and why human attention rather than agent
+capacity is the governing constraint. The mechanism being applied is Anderson's.
+
+- *Kanban: Successful Evolutionary Change for Your Technology Business*, David J. Anderson
+- *The Goal*, Eliyahu M. Goldratt (drum-buffer-rope)
+- [Kanban Guide](https://kanbanguides.org/)
+
+## The Input → Activity → Output → Outcome → Impact ladder
+
+The taxonomy `outcome-framing-coach` classifies work against, and that
+`sniff-test`'s derisking reference uses, is the **logic model** (or results
+chain) from program evaluation — the W.K. Kellogg Foundation logic model and the
+OECD-DAC results chain are the canonical statements. It predates its use in
+product work by decades and belongs to that literature, not to this library.
+
+**"One Metric That Matters" (OMTM)**, used by name in
+`sniff-test/references/derisking-and-indicators.md`, is **Alistair Croll and
+Benjamin Yoskovitz's**, from *Lean Analytics*.
+
+**"Sense and respond"**, used across the sniff-test references, is **Jeff Gothelf
+and Josh Seiden's** — it is the title of their book, and the same pair credited
+above for the canvas.
+
 ## Desirability, Viability, Feasibility
 
 The DVF risk lens in `sniff-test` is common product-discovery vocabulary, most
-associated with IDEO's desirability/viability/feasibility framing and with Marty
-Cagan's writing on product risk (*Inspired*, *Empowered*). It is used here as
-shared language, not as anyone's proprietary model.
+associated with IDEO's desirability/viability/feasibility framing. It is used
+here as shared language, not as anyone's proprietary model.
+
+One clarification, because the two get conflated: **Marty Cagan's** product risks
+are **four** — value, usability, feasibility, viability — and he splits
+desirability into value and usability deliberately, because collapsing them hides
+a real class of failure. The three-risk DVF used here is the older, coarser lens.
+If you want the sharper one, it is Cagan's (*Inspired*, *Empowered*), not this.
 
 ## Breaking the SAFe — Ryan Ripley
 

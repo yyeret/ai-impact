@@ -4,6 +4,20 @@ The purpose of a sniff test: **find where an initiative's clarity is insufficien
 
 > **Verify the stage first.** Don't trust the status label — corroborate it against evidence (downstream artifacts, shipped output, go-live state, git history, decision records). A stale label can invalidate the whole clarity-vs-stage read and is often the highest-signal finding. See the main skill's "Stage Is a Required, Verified Input."
 
+**These stage names and artifacts are one shape, not the shape.** The rubric below
+names stages ("Explore", "Plan / Commit"), review points ("Direction Review") and
+artifacts ("Target Initiative Completion Date", "Outcome-Oriented Roadmap") the
+way one enterprise lifecycle does. **Yours will call them something else, or will
+not have them at all.** Read them as *the kind of thing that happens here*, map
+them onto whatever your organization actually calls it, and say in your output
+which local artifact you mapped each one to. Do not tell a team they are missing
+a "Direction Review" — ask who signs off on direction, and when.
+
+Abbreviations used below: **EA** enterprise architecture, **IS** information
+security, **UAT** user acceptance testing, **DVF** desirability/viability/feasibility,
+**BAU** business as usual.
+
+
 ## Lifecycle stages
 
 The lifecycle is two macro-phases — **Explore & Define** (framing, testing assumptions) and **Build & Deliver** (delivering, realizing value) — then **BAU**:

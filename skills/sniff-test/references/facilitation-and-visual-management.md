@@ -11,9 +11,9 @@ This skill sniffs **one initiative**. For board-wide patterns across many initia
 
 ## Who to involve
 
-- The initiative owner / DRI (owns the canvas and its accuracy).
+- The initiative owner — the directly responsible individual (DRI), whoever owns the canvas and its accuracy.
 - A sponsor or decision-maker when the sniff feeds a go/no-go.
-- The right cross-functional stakeholders for the open risks (EA for architecture, SecOps for security, data, finance/AOP) — engaged early as stakeholders, not late as gatekeepers.
+- The right cross-functional stakeholders for the open risks (enterprise architecture for architecture, security operations for security, data, and finance — whoever owns the annual operating plan) — engaged early as stakeholders, not late as gatekeepers.
 
 ## Establish "what you can count on" before rating
 

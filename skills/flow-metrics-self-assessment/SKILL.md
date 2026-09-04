@@ -101,9 +101,11 @@ Organizational AI Coaching. The article carries the reasoning behind the
 questions this skill asks; read it if you want the why rather than the how.
 
 The flow metrics themselves — WIP, Cycle Time, Throughput, Work Item Age, and the
-Service Level Expectation — are **Daniel Vacanti's**, and the definitions match
-the [Kanban Guide for Scrum Teams](https://www.scrum.org/resources/kanban-guide-scrum-teams),
-which Yuval co-authored. See [CREDITS.md](../../CREDITS.md).
+Service Level Expectation — are **Daniel Vacanti's**. This skill assumes those
+definitions rather than restating them: it coaches which metric to reach for and
+what to do about what it shows. For what the terms actually mean, use the
+[Kanban Guide for Scrum Teams](https://www.scrum.org/resources/kanban-guide-scrum-teams)
+(short, free, co-authored by Yuval). See [CREDITS.md](../../CREDITS.md).
 
 This skill runs Yuval's questions, not his judgment. Its output is not his
 assessment of your situation, and it should not be presented as one.

@@ -53,7 +53,7 @@ State the chosen approach and the altitude (Tier-1 enterprise only, or including
 - **Correct stages before reading balance.** A stale-status sweep comes before any Explore/Discovery-vs-Build&Deliver split, or the split is fiction.
 - **Make tradeoffs visible; don't resolve them silently.** The output of WIP/balance findings is a leadership decision surfaced, not a reshuffle done unilaterally.
 - **Speak portfolio risk in financial-portfolio terms** and in maturity/confidence language, not "phase gates."
-- **Keep altitude honest.** Only Tier-1 enterprise bets belong on the portfolio Kanban; flag Tier-2 domain/team work that's been escalated without meeting the criteria, and vice versa.
+- **Keep altitude honest.** Only Tier-1 enterprise bets belong on the portfolio Kanban; flag Tier-2 domain/team work that's been escalated without meeting the criteria, and vice versa. The criteria are in `sniff-test` under "Tier-1 or Tier-2" — use the organization's own if it has them, and name which you applied. Do not assess against criteria you invented and did not state.
 
 ## Output Modes
 
