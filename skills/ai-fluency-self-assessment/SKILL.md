@@ -1,6 +1,6 @@
 ---
 name: ai-fluency-self-assessment
-description: Work out where you actually sit between using AI and architecting workflows with it, and what the next rung is. Places you on behavioural ladders across the three modes of engagement (automation, augmentation, agency), how the AI gets your context, verification rigour and leadership scope, then names one habit change worth making. Use when AI is clearly helping but the leverage has plateaued, when every session starts by re-explaining the same background, or before rolling AI practices out to a team.
+description: Work out where you actually sit between using AI and architecting workflows with it, and what the next rung is. Places you on behavioural ladders across the three modes of engagement (automation, augmentation, agency), how the AI gets your context, verification rigour and leadership scope, then names one habit change worth making. Use when AI is clearly helping but the leverage has plateaued, when every session starts by re-explaining the same background, or before rolling AI practices out to a team. If the question is broad — AI pilots with no clear return, or "where do we start" — run ai-activity-to-impact first; it triages and routes here.
 metadata:
   tags: ai-transformation
   version: 1.0.0

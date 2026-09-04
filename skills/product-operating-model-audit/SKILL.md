@@ -1,6 +1,6 @@
 ---
 name: product-operating-model-audit
-description: Audit how far an organisation's operating model has actually moved from project to product, across strategic alignment, people and leadership, structure and governance, and the value cycle. Runs a ten-probe short read by default and a forty-probe deep audit on request, places the organisation as Project Silo, Transitional Lab or Product-Led Engine, and ends in one experiment against the binding dimension. Use before or during a project-to-product transformation, when "we do product now" needs a reality check, or when teams are visibly busy and the business strategy is not moving.
+description: Audit how far an organisation's operating model has actually moved from project to product, across strategic alignment, people and leadership, structure and governance, and the value cycle. Runs a ten-probe short read by default and a forty-probe deep audit on request, places the organisation as Project Silo, Transitional Lab or Product-Led Engine, and ends in one experiment against the binding dimension. Use before or during a project-to-product transformation, when "we do product now" needs a reality check, or when teams are visibly busy and the business strategy is not moving. If the question is broad — AI pilots with no clear return, or "where do we start" — run ai-activity-to-impact first; it triages and routes here.
 metadata:
   tags: product-strategy
   version: 1.0.0

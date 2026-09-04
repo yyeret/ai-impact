@@ -8,6 +8,8 @@ run.
 
 | The person is asking about | Run |
 |---|---|
+| AI pilots and no idea what they are getting, or "where do we start" | `ai-activity-to-impact` (triage; routes onward) |
+| AI pilots and no idea what they are getting, or "where do we start" | `ai-activity-to-impact` |
 | Whether one initiative is ready for a commit decision | `sniff-test` |
 | A whole board — duplication, hidden WIP, risk balance | `sniff-test-portfolio` |
 | Whether the operating model is really product-oriented yet | `portfolio-to-product-shift-coach` |
@@ -18,6 +20,14 @@ run.
 | Whether their AI work is producing business results or AI Theater | `ai-traction-self-assessment` |
 | Their own or their team's AI practice, and why the leverage plateaued | `ai-fluency-self-assessment` |
 | How far the operating model has actually moved from project to product | `product-operating-model-audit` |
+
+**`ai-activity-to-impact` is the front door.** When the question is broad, vague, or
+about AI overall rather than one artifact, start there — it is triage: it works out
+which rung the organisation is on, which surface the constraint sits on, and which of
+the skills below to run. It does not do a deep read itself. Do not run it when the
+person already named something narrow, and do not run it instead of
+`ai-traction-self-assessment` when they want the evidence-based assessment — route to
+that one.
 
 The four that overlap most: `sniff-test` reads **one bet**,
 `sniff-test-portfolio` reads **the board**, `portfolio-to-product-shift-coach`

@@ -1,6 +1,6 @@
 ---
 name: flow-metrics-self-assessment
-description: Decide whether flow metrics would actually help your context before adopting any. Interviews you about the symptoms and friction you want to improve, then connects those symptoms to the flow metrics that would make the problem visible — WIP, age, throughput, cycle time, distribution — and ends in one small 2-4 week experiment. Use when a team or portfolio is considering flow metrics, when someone is measuring flow but cannot say what decision the numbers change, or when a metrics dashboard exists and nothing has improved. This decides *whether* to adopt metrics at all; to set actual WIP numbers once you have, use wip-limit-configuration-coach.
+description: Decide whether flow metrics would actually help your context before adopting any. Interviews you about the symptoms and friction you want to improve, then connects those symptoms to the flow metrics that would make the problem visible — WIP, age, throughput, cycle time, distribution — and ends in one small 2-4 week experiment. Use when a team or portfolio is considering flow metrics, when someone is measuring flow but cannot say what decision the numbers change, or when a metrics dashboard exists and nothing has improved. This decides *whether* to adopt metrics at all; to set actual WIP numbers once you have, use wip-limit-configuration-coach. If the question is broad — AI pilots with no clear return, or "where do we start" — run ai-activity-to-impact first; it finds the constraint and routes here.
 metadata:
   tags: flow-agile
   version: 1.1.0

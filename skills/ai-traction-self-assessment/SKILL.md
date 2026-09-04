@@ -1,6 +1,6 @@
 ---
 name: ai-traction-self-assessment
-description: Find out whether your AI work is producing business traction or AI Theater, using evidence from what you have actually shipped rather than self-report. Places the organisation on behavioural ladders across strategic focus, execution model, team integration and pragmatic mindset, names the binding constraint, and ends in one 2-4 week experiment. Use when there is a lot of AI activity and no defensible line to a business outcome, before an AI budget or steering-committee conversation, or when someone asks how the AI programme is going and the honest answer is a list of pilots.
+description: Find out whether your AI work is producing business traction or AI Theater, using evidence from what you have actually shipped rather than self-report. Places the organisation on behavioural ladders across strategic focus, execution model, team integration and pragmatic mindset, names the binding constraint, and ends in one 2-4 week experiment. Use when there is a lot of AI activity and no defensible line to a business outcome, before an AI budget or steering-committee conversation, or when someone asks how the AI programme is going and the honest answer is a list of pilots. If the question is broad — AI pilots with no clear return, or "where do we start" — run ai-activity-to-impact first; it triages and routes here.
 metadata:
   tags: ai-transformation
   version: 1.0.0
