@@ -142,7 +142,9 @@ EBM itself, get it from the source.
 The argument that queue time is driven by utilization *and* variability together
 — used in `flow-metrics-self-assessment/references/jira-rovo-agent.md` to explain
 why a fully-loaded team delivers more slowly — is queueing theory (Kingman's
-formula, whose two terms are exactly those)
+formula, whose drivers these are — strictly it multiplies a variability term, a
+utilization term and the service time, and it is a heavy-traffic approximation
+rather than an identity)
 as it entered product development through **Donald Reinertsen's** *The Principles
 of Product Development Flow*. Cost of Delay and batch-size economics come from
 the same place.

@@ -38,6 +38,10 @@ BANNED_OUTCOME_DEFS = [
     (r"Outcome[^|\n]*\|\s*A (?:new/improved )?capability", "defines Outcome as a capability"),
     (r"Outcome \(user capability", "defines Outcome as a capability"),
     (r"anchors to user capability", "anchors outcomes in capability rather than behaviour"),
+    # Prose forms too — the pasteable agent blocks are the highest-risk surface
+    # and they are prose, not tables.
+    (r"Outcome\s*[:=]\s*(?:a |an )?(?:new/improved )?capabilit", "defines Outcome as a capability"),
+    (r"Outcome (?:is|means) (?:a |an )?(?:new/improved )?capabilit", "defines Outcome as a capability"),
 ]
 
 # Kept small on purpose: a tag vocabulary that grows per-skill stops being a
@@ -85,7 +89,7 @@ def main() -> int:
                     f"{d.name}: frontmatter name '{fm['name']}' != directory name"
                 )
 
-        for md in [skill_md] + sorted(d.rglob("*.md")):
+        for md in sorted(d.rglob("*.md")):
             body = md.read_text(encoding="utf-8")
             for pattern, label in BANNED_OUTCOME_DEFS:
                 if re.search(pattern, body):

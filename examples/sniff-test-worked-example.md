@@ -64,12 +64,16 @@ already being built.
 | Desirability | question mark | opinion — nobody has asked a customer whether they would change behaviour |
 | Viability | partial | **evidence** — build cost modelled; the ongoing vendor licence is not |
 | Feasibility | clear | **evidence** — a spike branch proves the integration works |
+| Questions / Assumptions & Learning Priorities | question mark | opinion — no riskiest-assumption call-out anywhere; the discovery plan validates what is already clear |
 | Architecture / data / security | question mark | not addressed in the space at all |
 
 ### What that means for the stage
 
 At Plan/Commit you should be able to count on a roadmap with an explicit
-confidence level and a resourced plan. Two of those are missing.
+confidence level and a resourced plan. The confidence level is missing — that is
+evidenced above. Whether the plan is genuinely resourced is not something the
+space shows either way, so it is an open question rather than a finding, and the
+run says so rather than counting it as a gap.
 
 Solutions and Feasibility are the two best-evidenced dimensions. Desirability is
 a question mark. **That is the classic mismatch**: the effort went into proving

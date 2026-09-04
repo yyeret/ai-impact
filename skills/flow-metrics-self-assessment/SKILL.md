@@ -82,7 +82,11 @@ wrong is how flow metrics quietly become the old reporting with new labels:
   target, and it belongs to the team that has to meet it.
 - **You do not need to normalize by size first.** The instinct is to compare only
   "similar" items; the distribution already absorbs mixed sizes, and that is
-  precisely why this can replace estimation rather than depend on it. If someone
+  precisely why this can replace estimation rather than depend on it. The
+  condition is that the *mix* stays roughly stable — if the kind of work changes
+  materially (a quarter of platform work replaced by a quarter of small tickets),
+  the old distribution is describing a system you no longer have, and the
+  percentile is stale rather than wrong. If someone
   proposes sizing the work before measuring it, that is story points coming back
   through a side door.
 

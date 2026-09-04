@@ -76,15 +76,21 @@ the pace for the whole system.
 | Candidate | Number | What it answers |
 |---|---|---|
 | One guided feature per pod | **2** | What can actually move without contention |
-| Pods +1 | 3 | Buffer for a blocked item |
+| Pods +1 | 3 | Buffer for one blocked item |
 | Pods ×1.5 | 3 | Moderate variability |
+| Pods ×2 | 4 | High variability or slow blocker recovery |
 | Half current WIP | 4-5 | Aggressive brownfield experiment |
-| Historical p50 | 8 | What the board has been doing |
+| Historical p50 | 8 | The level half the observed days sat at or below |
+| Historical p85 | 12 | The level 85% of observed days sat at or below |
 
 ### 5. Recommendation
 
-**Active features: 2. Combined `Ready for Review + In Review`: 2 — counted in
-pull requests, not features.**
+**Active features: 2. Ready-to-start: 2. Combined `Ready for Review + In Review`:
+2 — counted in pull requests, not features.**
+
+The Ready-to-start limit comes from the replenishment answer, not from the
+constraint: the team replenishes roughly weekly and starts about two features a
+week, so two on the shelf reaches the next realistic trip.
 
 That second half is the part that matters, and it is where the skill contradicted
 its own default. The counting rule says count a feature once. But review capacity
@@ -100,9 +106,28 @@ left where it is.
 
 ### 6. Why not the others
 
-The historical p50 of 8 was rejected on the skill's own rule: current WIP is 9,
-so a limit of 8 binds on almost no days and changes nothing. It said so plainly —
-*"do not let it be reported as an improvement experiment."*
+**The percentiles (8 and 12) were rejected, but not for the reason you might
+expect.** A limit of 8 sits *below* today's WIP of 9, and half the observed days
+were at or above 8 — so it would genuinely bind, on roughly half of them. It is
+not a no-op. (The trap in the skill's scenario 11 is a limit at or *above* current
+WIP; that is a different case and it does not apply here.)
+
+It was rejected because of what it measures. Historical WIP is a record of what
+the board accumulated, not evidence of what the system can sustain — the skill is
+explicit that *"historical WIP can include old queues and is not proof of human
+capacity."* With one reviewer, eight concurrent features is inventory piled in
+front of the constraint. Setting the limit there would ratify the pile. The p85 of
+12 is the same objection, further from the constraint.
+
+**The buffer multipliers (3, 3, 4)** were rejected for a related reason: `+1`,
+`×1.5` and `×2` protect a constraint against variability by holding more work near
+it. Here the constraint is one person's attention, and extra work near it does not
+protect it — it lengthens the queue it has to look at.
+
+**Half-WIP (4-5)** is the closest runner-up and would be a defensible first move
+on a team without such a stark single-point constraint. It is derived from
+history rather than from the topology, so it was compared and set aside, not
+dismissed.
 
 ### 7. Pull policy
 
@@ -117,9 +142,18 @@ in six weeks everyone concludes WIP limits do not work.
 
 ### 8. Sensitivity check
 
-Reviewer on holiday → the system stalls at 2, which is correct and visible rather
-than hidden. Agents generating 2× → nothing changes, because the constraint is
-downstream. Faster review → revisit, but only after the fan-out is fixed.
+- **Normal week:** two features active, review queue rarely empty. The limit binds
+  a few times a week, which is the point — each time is a prompt to finish rather
+  than start.
+- **Reviewer absent:** the system stalls at 2 within a day or so. That is correct
+  and visible, rather than six people quietly starting a seventh thing.
+- **Agents generating 2×:** nothing changes. The constraint is downstream of
+  generation, which is the whole argument for not multiplying limits by agents.
+- **Review gets slower** (bigger changes, more context to reload): the PR-denominated
+  review cap binds harder and sooner. Tighten the fan-out before loosening it.
+- **Replenishment changes** to twice-weekly grooming: the Ready-to-start limit
+  drops from 2 to 1 — a shorter trip needs less on the shelf. The active and review
+  limits are unaffected, because they come from the constraint, not the cadence.
 
 ### 9. The experiment
 

@@ -109,7 +109,7 @@ For each queue:
 - Ready for Review/Test/UAT/Release: size it to what the receiving constraint can consume during the protection interval. Prefer a combined `Ready + Active` limit so the rope stops new upstream starts.
 - Unblockable arrivals: keep the arrival queue visible and governed by service policy, but strictly limit actual treatment/processing work.
 
-Clarify what is meant by **positive flow slack**: a deliberate, limited amount of ready work held *in front of* the constraint so it never starves — protective inventory, not spare people. It is not `capacity - 1`. Keep capacity slack (available human attention for helping, reviewing, incidents, and improvement) as a separate policy.
+Name the thing plainly rather than reaching for jargon: what is wanted here is a deliberate, limited amount of ready work held *in front of* the constraint so it never starves — protective inventory, not spare people. (This library calls that *positive flow slack*; it is not standard Kanban vocabulary, so define it before using it with a team.) It is not `capacity - 1`. Keep capacity slack (available human attention for helping, reviewing, incidents, and improvement) as a separate policy.
 
 ## Translate the number into executable pull policies
 
