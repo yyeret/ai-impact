@@ -1,19 +1,19 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
   "name": "ai-impact",
   "owner": {
     "name": "Yuval Yeret",
     "email": "yuval@yeretagility.com",
     "url": "https://yuvalyeret.com"
   },
-  "description": "Diagnostics and coaches for turning AI activity into business impact \u2014 portfolio clarity, outcome framing, flow, and spec-driven delivery.",
+  "description": "Diagnostics and coaches for turning AI activity into business impact: portfolio clarity, outcome framing, flow, and WIP in the age of agents.",
   "version": "1.0.0",
   "plugins": [
     {
       "name": "ai-impact",
       "source": "./",
       "displayName": "AI Impact",
-      "description": "Yuval Yeret's diagnostics and coaches for leaders turning AI activity into business impact.",
+      "description": "Seven diagnostics and coaches for leaders turning AI activity into business impact. They ask questions rather than hand you a framework.",
       "version": "1.0.0",
       "author": {
         "name": "Yuval Yeret",
@@ -24,10 +24,13 @@
       "license": "CC-BY-4.0",
       "keywords": [
         "ai-transformation",
-        "portfolio",
-        "flow",
+        "portfolio-agility",
+        "flow-metrics",
         "product-operating-model",
-        "spec-driven-development"
+        "outcome-framing",
+        "wip-limits",
+        "kanban",
+        "okrs"
       ]
     }
   ]

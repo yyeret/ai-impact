@@ -71,17 +71,19 @@ State the chosen approach and the altitude (Tier-1 enterprise only, or including
 
 ## References
 
-- Base skill: `sniff-test.md` and its references for per-initiative clarity dimensions, the lifecycle rubric, and the Risk/Derisking Matrix.
+- Base skill: `sniff-test` (`../sniff-test/SKILL.md`) and its `references/` for per-initiative clarity dimensions, the lifecycle rubric, and the Risk/Derisking Matrix.
+
 
 ---
 
-## About this skill
+## Source
 
-From [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching. Yuval helps leaders turn AI activity into business
-impact by finding the current constraint and changing the workflow and adoption
-loops around it.
+The multi-initiative add-on to `sniff-test`. Same lineage: distilled from
+[Scaling Product Organizations with Portfolio Agility](https://yuvalyeret.com/blog/scaling-product-organizations-with-portfolio-agility/)
+by [Yuval Yeret](https://yuvalyeret.com), building on **Mark Richards'**
+portfolio-agility work and the **Lean Product Canvas** by **Jeff Gothelf and Josh
+Seiden**. Full credits and links to the originals: [CREDITS.md](../../CREDITS.md).
 
-Adapt it to your context. It describes how Yuval works; it does not speak as
-him, and it should not be presented as his review of your situation. If you
-want that, [talk to him](https://yuvalyeret.com/contact/).
+This skill describes how Yuval works. It does not speak as him, and its output
+is not his assessment of your situation. If you want that,
+[talk to him](https://yuvalyeret.com/contact/).

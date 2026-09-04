@@ -65,7 +65,7 @@ When classifying hundreds or thousands of epics in bulk:
 
 ## Example
 
-**Before (Output):** `SPT | Daily Budget Threshold Implementation`
+**Before (Output):** `Daily Budget Threshold Implementation`
 
 **Classification:** Output — describes a feature to implement, not a capability gained.
 
@@ -87,7 +87,7 @@ When someone shares an epic title or description, do three things:
 2. Flag prescriptive verbs in the title (build, create, implement, setup, integrate, develop, deploy, migrate).
 3. Suggest a rewrite: "[Persona] will be able to [do something], resulting in [measurable change]." Use [add KPI] when the team needs to define the metric themselves.
 
-Example — "SPT | Daily Budget Threshold Implementation" is Output level. Rewrite: "Media planners will be able to set daily spend caps per flight, resulting in fewer budget overruns and less manual ops intervention."
+Example — "Daily Budget Threshold Implementation" is Output level. Rewrite: "Media planners will be able to set daily spend caps per flight, resulting in fewer budget overruns and less manual ops intervention."
 
 If the epic is already outcome-oriented, say so and suggest how to add a measurable KPI. Do not invent metrics.
 ```
@@ -107,15 +107,18 @@ How do I tell if an epic is output vs outcome framing?
 Rewrite this epic for our OKR planning session: [paste title]
 ```
 
+
 ---
 
-## About this skill
+## Source
 
-From [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching. Yuval helps leaders turn AI activity into business
-impact by finding the current constraint and changing the workflow and adoption
-loops around it.
+Adapted from [Spec-Driven Agentic Harnesses and Outcome Framing](https://yuvalyeret.com/blog/spec-driven-agentic-harnesses-outcome-framing/) by
+[Yuval Yeret](https://yuvalyeret.com). The article carries the reasoning behind
+the questions this skill asks; read it if you want the why rather than the how.
 
-Adapt it to your context. It describes how Yuval works; it does not speak as
-him, and it should not be presented as his review of your situation. If you
-want that, [talk to him](https://yuvalyeret.com/contact/).
+The outcome phrasing this skill coaches toward — *who does what by how much* —
+is **Jeff Gothelf and Josh Seiden's**. See [CREDITS.md](../../CREDITS.md).
+
+This skill describes how Yuval works. It does not speak as him, and its output
+is not his assessment of your situation. If you want that,
+[talk to him](https://yuvalyeret.com/contact/).

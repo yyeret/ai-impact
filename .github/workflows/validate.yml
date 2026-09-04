@@ -1,0 +1,51 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # Links to other people's sites rot without anyone touching this repo.
+    - cron: "0 9 1 * *"
+
+jobs:
+  skills:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate skill structure, private paths, and internal links
+        run: python3 scripts/validate_skills.py
+
+  manifests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate plugin manifests are well-formed JSON
+        run: |
+          for f in .claude-plugin/*.json; do
+            python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$f"
+            echo "ok $f"
+          done
+
+  links:
+    runs-on: ubuntu-latest
+    # A dead outbound link is worth knowing about, but it is somebody else's
+    # site going down — it should not block a merge.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check outbound links resolve
+        run: |
+          set -u
+          urls=$(grep -rhoE 'https?://[^ )"'"'"'`>]+' --include='*.md' --include='*.json' . \
+                 | tr -d '<>' | sed 's/[.,]*$//' | sort -u)
+          fail=0
+          for u in $urls; do
+            code=$(curl -sS -o /dev/null -w '%{http_code}' -L --max-time 25 "$u" || echo 000)
+            case "$code" in
+              2*|3*) ;;
+              *) echo "::warning::$code $u"; fail=1 ;;
+            esac
+          done
+          exit $fail

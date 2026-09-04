@@ -100,31 +100,30 @@ Beyond the artifacts, I'll establish two things: the initiative's **tier** (Tier
 - `references/derisking-and-indicators.md` — the Risk/Derisking Matrix (Just Do It / Ship & Measure / Discovery-Testing / Seek Alpha), leading indicators and sense-and-respond, the input→impact ladder, and Goldilocks/OMTM.
 - `references/facilitation-and-visual-management.md` — when to run a sniff, single-initiative session format, visual management (cards/dots), who to involve, and how to handle resistance.
 
-## Lineage and Attribution
-
-The sniff-test framing builds on **Mark Richards'** portfolio-agility work at
-[Shaping Agility](https://www.shapingagility.com/) — in particular the reading of a
-portfolio lifecycle as *common language, not gates*, and of confidence as something
-that has to grow with the stage rather than be certified at it. The rubric,
-Risk/Derisking Matrix, and facilitation guidance here are this library's own
-adaptation; the underlying portfolio-agility thinking is his. Start with the
-[Shaping Portfolio Agility](https://shapingportfolioagility.podbean.com/) podcast he
-co-hosts with Eric Willeke if you want the source rather than the adaptation.
-
 ## Related Skills
 
 - `sniff-test-portfolio` — the multi-initiative add-on: shadowing/duplicate detection, WIP clustering, portfolio risk balance (Explore/Discovery vs. Build & Deliver split), and board-wide stale-status sweeps.
-- `lean-product-canvas-coach` — to build or strengthen the canvas this skill reads.
+
+To build or strengthen the canvas this skill reads, go to the source: Jeff
+Gothelf and Josh Seiden's [Lean Product Canvas](https://jeffgothelf.com/blog/the-lean-product-canvas/).
+
 
 ---
 
-## About this skill
+## Source
 
-From [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching. Yuval helps leaders turn AI activity into business
-impact by finding the current constraint and changing the workflow and adoption
-loops around it.
+Distilled from [Scaling Product Organizations with Portfolio Agility](https://yuvalyeret.com/blog/scaling-product-organizations-with-portfolio-agility/)
+by [Yuval Yeret](https://yuvalyeret.com), which carries the full lifecycle and the
+reasoning behind these questions; read it if you want the why rather than the how.
 
-Adapt it to your context. It describes how Yuval works; it does not speak as
-him, and it should not be presented as his review of your situation. If you
-want that, [talk to him](https://yuvalyeret.com/contact/).
+**Builds on other people's work.** The lifecycle read — *common language, not
+gates*, confidence growing with the stage — comes from **Mark Richards'**
+portfolio-agility work at [Shaping Agility](https://www.shapingagility.com/), and
+the clarity dimensions are read against the **Lean Product Canvas** by **Jeff
+Gothelf and Josh Seiden**. Both are credited properly, with links to the
+originals, in [CREDITS.md](../../CREDITS.md). If you want the source rather than
+this adaptation, go there first.
+
+This skill describes how Yuval works. It does not speak as him, and its output
+is not his assessment of your situation. If you want that,
+[talk to him](https://yuvalyeret.com/contact/).

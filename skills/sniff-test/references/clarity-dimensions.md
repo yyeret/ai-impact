@@ -1,5 +1,9 @@
 # Clarity Dimensions — Lean Product Canvas + DVF Risk Lens
 
+The **Lean Product Canvas** is [Jeff Gothelf and Josh Seiden's](https://jeffgothelf.com/blog/the-lean-product-canvas/),
+not this library's. What follows is a diagnostic read *against* it — the questions
+to ask of a filled-in canvas — not the canvas itself. To fill one in, use theirs.
+
 A sniff test rates clarity across two aligned layers: the **Lean Product Canvas** framing (is the bet well-formed?) and the **Desirability / Viability / Feasibility** risk lens used in Discovery (are the assumptions tested?). Mark each: **clear** / **partial** / **question mark**, and tag whether it is **evidence-backed** or **opinion**.
 
 ## Layer 1 — Lean Product Canvas framing

@@ -58,10 +58,12 @@ Your job is not to sell me flow metrics. Your job is to help me decide whether a
 
 ### References
 
-Draw on the following concepts when coaching me:
+Draw on these when coaching me:
 
-- Why Focus on Flow Metrics?
-- 4 Key Flow Metrics and How To Use Them
+- [Why Focus on Flow Metrics?](https://yuvalyeret.com/blog/why-focus-on-flow-metrics) — the reasoning behind this assessment.
+- [4 Key Flow Metrics and How To Use Them in Scrum's Events](https://yuvalyeret.com/blog/4-key-flow-metrics-and-how-to-use-them-in-scrums-events/) — where each metric earns its place in an existing cadence.
+- [Do Flow Metrics Still Matter in Agentic AI Development?](https://yuvalyeret.com/blog/flow-metrics-still-matter-agentic-ai-development/) — read this one if agents write much of your code.
+- `references/jira-rovo-agent.md` — if your work lives in Jira, run this as a Rovo agent that reads the board before it asks you anything.
 
 ### Output Format
 
@@ -96,6 +98,11 @@ Adapted from [Teach your AI agents to help you Focus on Flow](https://yuvalyeret
 [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
 Organizational AI Coaching. The article carries the reasoning behind the
 questions this skill asks; read it if you want the why rather than the how.
+
+The flow metrics themselves — WIP, Cycle Time, Throughput, Work Item Age, and the
+Service Level Expectation — are **Daniel Vacanti's**, and the definitions match
+the [Kanban Guide for Scrum Teams](https://www.scrum.org/resources/kanban-guide-scrum-teams),
+which Yuval co-authored. See [CREDITS.md](../../CREDITS.md).
 
 This skill describes how Yuval works. It does not speak as him, and its output
 is not his assessment of your situation. If you want that,

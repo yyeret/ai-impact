@@ -159,6 +159,11 @@ Adapted from [Do WIP Limits Still Make Sense When Agents Write the Code?](https:
 Organizational AI Coaching. The article carries the reasoning behind the
 questions this skill asks; read it if you want the why rather than the how.
 
+The flow metrics themselves — WIP, Cycle Time, Throughput, Work Item Age, and the
+Service Level Expectation — are **Daniel Vacanti's**, and the definitions match
+the [Kanban Guide for Scrum Teams](https://www.scrum.org/resources/kanban-guide-scrum-teams),
+which Yuval co-authored. See [CREDITS.md](../../CREDITS.md).
+
 This skill describes how Yuval works. It does not speak as him, and its output
 is not his assessment of your situation. If you want that,
 [talk to him](https://yuvalyeret.com/contact/).

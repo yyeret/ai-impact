@@ -1,4 +1,0 @@
-interface:
-  display_name: "Agility AI Transformation"
-  short_description: "AI theater to outcome-led transformation positioning"
-  default_prompt: "Use $agility-ai-transformation to turn this AI/agility insight into an executive POV and offer narrative."
