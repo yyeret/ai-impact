@@ -120,6 +120,8 @@ borderline cases are exactly where escalation habits show.
 - `references/derisking-and-indicators.md` — the Risk/Derisking Matrix (Just Do It / Ship & Measure / Discovery-Testing / Seek Alpha), leading indicators and sense-and-respond, the input→impact ladder, and Goldilocks/OMTM.
 - `references/facilitation-and-visual-management.md` — when to run a sniff, single-initiative session format, visual management (cards/dots), who to involve, and how to handle resistance.
 
+For what a finished run looks like end to end, see [`examples/sniff-test-worked-example.md`](../../examples/sniff-test-worked-example.md) in this repo — a full run on a made-up initiative, including what it got wrong.
+
 ## Related Skills
 
 - `sniff-test-portfolio` — the multi-initiative add-on: shadowing/duplicate detection, WIP clustering, portfolio risk balance (Explore/Discovery vs. Build & Deliver split), and board-wide stale-status sweeps.

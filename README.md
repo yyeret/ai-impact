@@ -91,6 +91,11 @@ Give it less and it still runs:
 Use the outcome-framing-coach skill on these twelve epic titles: <paste>
 ```
 
+**Want to see what comes back before you spend the time?**
+[examples/sniff-test-worked-example.md](examples/sniff-test-worked-example.md) is
+a full run on a made-up initiative — what went in, what came out, roughly how long
+it took, what it changed, and the two things it got wrong.
+
 ## Credits
 
 These diagnostics borrow. The Lean Product Canvas they read against is **Jeff
