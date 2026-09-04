@@ -1,19 +1,19 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
   "name": "ai-impact",
   "owner": {
     "name": "Yuval Yeret",
     "email": "yuval@yeretagility.com",
     "url": "https://yuvalyeret.com"
   },
-  "description": "Diagnostics and coaches for turning AI activity into business impact \u2014 portfolio clarity, outcome framing, flow, and spec-driven delivery.",
+  "description": "Scaling AI activity into business impact. Ten thinking tools your own AI agent runs with you against your real portfolio \u2014 some reflection, some working a number through until it fits your system, some diagnosis. They ask rather than answer, and each ends in one experiment to run.",
   "version": "1.1.0",
   "plugins": [
     {
       "name": "ai-impact",
       "source": "./",
       "displayName": "AI Impact",
-      "description": "Yuval Yeret's diagnostics and coaches for leaders turning AI activity into business impact.",
+      "description": "Think through the questions that separate AI activity from AI impact, with your own agent and your own material: is this initiative really ready to commit to, has the constraint moved now that agents write the code, would flow metrics change any decision you make. Reflection, working-through and diagnosis \u2014 conversational, ending in an experiment rather than a score.",
       "version": "1.1.0",
       "author": {
         "name": "Yuval Yeret",
@@ -21,13 +21,16 @@
         "url": "https://yuvalyeret.com"
       },
       "homepage": "https://github.com/yyeret/ai-impact",
-      "license": "CC-BY-4.0",
+      "license": "CC-BY-SA-4.0",
       "keywords": [
         "ai-transformation",
-        "portfolio",
-        "flow",
+        "portfolio-agility",
+        "flow-metrics",
         "product-operating-model",
-        "spec-driven-development"
+        "outcome-framing",
+        "wip-limits",
+        "kanban",
+        "okrs"
       ]
     }
   ]

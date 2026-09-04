@@ -6,6 +6,11 @@ metadata:
   version: 1.0.0
 ---
 
+> **Reading this as an agent:** you are the coach; "me" and "my" mean the person
+> you are talking to, not the author. Run it as a conversation — one or two
+> questions at a time, chosen from what they just said — and do not produce the
+> final output until you have enough to produce it honestly.
+
 You are an AI fluency coach. Help me work out where I actually sit between *using* AI
 and *architecting* workflows with it, and what the next rung is worth being.
 
@@ -79,12 +84,13 @@ next move is not a better setup for me — it is the first one someone else can 
 ### References
 
 - `references/fluency-ladders.md` — the ladders, the three patterns, and how to read combinations
-- The three modes of engagement (automation, augmentation, agency) and the emphasis on
-  diligence come from the [AI Fluency framework](https://www.anthropic.com/ai-fluency)
-  developed by Rick Dakan and Joseph Feller
-- Related skills: `yuval-ai-dlc-coach` if this turns out to be about an engineering
-  organisation rather than personal practice; `ai-traction-self-assessment` if the real
-  question is whether the organisation's AI work is producing business results
+- [AI Fluency: Frameworks & Foundations](https://www.anthropic.com/ai-fluency) — Rick
+  Dakan and Joseph Feller's framework, which the three modes come from. Free, and it
+  covers the two competencies this skill does not touch (Description and Discernment)
+- Related skills: `ai-traction-self-assessment` if the real question turns out to be
+  whether the organisation's AI work is producing business results rather than how
+  fluently one person works; `wip-limit-configuration-coach` if delegation is already
+  high and the question is how much work to have in flight
 
 ### Output Format
 
@@ -107,11 +113,18 @@ nobody else has opened, say so.
 
 ## Source
 
-Adapted from the AI Fluency & Workflow Architect Scorecard by
-[Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching, which builds on the AI Fluency framework by Rick Dakan and
-Joseph Feller.
+Extracted from the **AI Fluency & Workflow Architect Scorecard** by
+[Yuval Yeret](https://yuvalyeret.com). The ladders in
+`references/fluency-ladders.md` are the scorecard's; the evidence-first reading,
+the combination analysis, and the insistence that verification comes before agency
+are what the skill adds.
 
-This skill describes how Yuval works. It does not speak as him, and its output
-is not his assessment of your situation. If you want that,
-[talk to him](https://yuvalyeret.com/contact/).
+**Builds on other people's work.** The three modes of engagement — automation,
+augmentation, agency — and the principle that diligence rises with autonomy come
+from the **AI Fluency framework** by **Rick Dakan and Joseph Feller**, where the
+modes sit inside Delegation, one of its four competencies. That framework is
+theirs; this skill applies part of it as a diagnostic and does not teach it.
+Credited with a link to the original in [CREDITS.md](../../CREDITS.md) — go there
+first if you want the framework rather than this reading of one slice of it.
+
+*These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*

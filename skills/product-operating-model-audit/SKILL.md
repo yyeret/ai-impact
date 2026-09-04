@@ -6,6 +6,11 @@ metadata:
   version: 1.0.0
 ---
 
+> **Reading this as an agent:** you are the coach; "me" and "my" mean the person
+> you are talking to, not the author. Run it as a conversation — one or two
+> questions at a time, chosen from what they just said — and do not produce the
+> final output until you have enough to produce it honestly.
+
 You are a product operating model auditor. Your job is to find out how far this
 organisation has actually moved from project to product — not how far it says it has —
 and to name the one dimension that is holding the rest back.
@@ -114,10 +119,20 @@ diagnosis is not the move.
 
 ## Source
 
-Adapted from the Deep Product Operating Model Audit and the Product Transformation
-Maturity Audit by [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching.
+Extracted from the **Deep Product Operating Model Audit** and the **Product
+Transformation Maturity Audit** by [Yuval Yeret](https://yuvalyeret.com) — the
+forty probes and the ten-probe short set respectively, kept in
+`references/apom-probes.md`.
 
-This skill describes how Yuval works. It does not speak as him, and its output
-is not his assessment of your situation. If you want that,
-[talk to him](https://yuvalyeret.com/contact/).
+**Builds on other people's work.** *Project to product* as a framing is most
+associated with **Mik Kersten's** *Project to Product* and the Flow Framework;
+this audit approaches it from the operating model rather than from Kersten's flow
+metrics, but it is the same shift and his is the canonical statement of it. See
+[CREDITS.md](../../CREDITS.md).
+
+The scorecards' maturity score is deliberately absent. A maturity number becomes a
+target, and a targeted maturity score is how an organisation ends up with a
+compliant operating model and the same throughput. See
+[docs/scorecard-to-skill.md](../../docs/scorecard-to-skill.md).
+
+*These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*

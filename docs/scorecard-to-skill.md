@@ -64,8 +64,10 @@ reflection prompt ("if nothing changes for 6-12 months, what happens to the busi
 Keep those, reframed as a question rather than a multiple choice.
 
 **Every CTA.** A skill running in someone's harness that ends by pitching a session is a
-skill they uninstall. The repo convention is a single Source footer with attribution and
-one link; that is the entire ask.
+skill they uninstall. The repo convention is the `## Source` footer, and it is doing a
+different job: saying where the questions came from, crediting anyone else's work the
+skill leans on (in [CREDITS.md](../CREDITS.md), in the same commit), and telling the
+reader the output is not Yuval's judgement of their situation.
 
 **Question order.** The scorecard's order is tuned for completion rate. A skill should
 follow the conversation.
@@ -87,22 +89,26 @@ This is what makes the skill worth building rather than linking to the quiz.
 
 ## The house shape
 
-Match the existing skills — `sniff-test`, `flow-metrics-self-assessment`,
-`portfolio-to-product-shift-coach` are the reference implementations:
+Match the existing skills — `sniff-test` for a structured document,
+`flow-metrics-self-assessment` for a conversational one:
 
 ```
 ---
 name: <slug>
-description: <what it does, then "Use when ..." triggers>
+description: <what it does, then "Use when ..." triggers, then which sibling skill
+             to use instead when the reader is really asking something adjacent>
 metadata:
+  tags: <one or more of flow-agile, product-strategy, ai-transformation>
   version: 1.0.0
 ---
 
+> **Reading this as an agent:** ...   — the standard note; "me" is the reader
+
 You are a <role>, <framing sentence>.
 
-### Context          — what to ask for if not already given
-### Instructions     — Phase 1 locate / Phase 2 diagnose / Phase 3 one move
-### References       — the ladders file, plus source articles
+### Context          — what to ask for if not already given, artifacts included
+### Instructions     — Phase 1 place / Phase 2 read the shape / Phase 3 one move
+### References       — the ladders file, plus source articles and sibling skills
 ### Output Format    — a short bolded list, the same shape every run
 ### Tone             — direct, practitioner-to-practitioner
 
@@ -110,6 +116,12 @@ You are a <role>, <framing sentence>.
 
 ## Source
 ```
+
+`scripts/validate_skills.py` enforces some of this and will fail the build otherwise:
+frontmatter `name` matching the directory, `tags` drawn from the allowed set, a
+`version`, a `## Source` section, every file in the skill directory mentioned by name
+in `SKILL.md`, no reference to a sibling skill this repo does not ship, and no relative
+link that does not resolve. Run it before you finish.
 
 Ladders go in `references/<name>-ladders.md` so the SKILL.md stays readable and the
 rubric loads only when the conversation needs it.
@@ -141,7 +153,7 @@ Two traps:
 | `ai-traction-scorecard-old` | Superseded by `ai-traction-scorecard`; not converted |
 | `product-flywheel`, `product-agility-health-check` | Identical question sets; ground already covered by `portfolio-to-product-shift-coach` |
 | `product-org-scorecard`, `product-organization-scorecard` | Overlapping project→product variants; folded into the POM audit |
-| `okr-flywheel-scorecard` | Candidate. Overlaps `outcome-framing-coach` at the epic level and existing OKR coaching at the system level — convert only if the OKR-system angle is not already served |
+| `okr-flywheel-scorecard` | Candidate. `outcome-framing-coach` covers the epic level; nothing here covers the OKR system as a whole, so this is the strongest of the unconverted ones |
 | `pom-workshop-pilot` | Workshop instrument, not a standalone diagnostic |
 | `founder-blind-spot-v1` | Off-brand for this repo — founder audience, not AI-impact leadership |
 | `consulting-clarity-gap-analysis` | Yuval's own practice-building tool, and built on a third party's framework. Not for publication here |

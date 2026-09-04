@@ -1,6 +1,6 @@
 ---
 name: sniff-test-portfolio
-description: Add-on to the sniff-test skill that looks across many initiatives on a portfolio Kanban for board-level patterns — duplicate/shadowing initiatives, WIP clustering, stale-status sweeps, experiment scope creep, and portfolio risk balance (Explore/Discovery vs. Build & Deliver split). Use when reviewing a whole board or portfolio, prepping a sponsor/ELT portfolio review, or deciding where the portfolio is over- or under-invested. For sniffing a single initiative, use sniff-test.
+description: Add-on to the sniff-test skill that looks across many initiatives on a portfolio Kanban for board-level patterns — duplicate/shadowing initiatives, WIP clustering, stale-status sweeps, experiment scope creep, and portfolio risk balance (Explore/Discovery vs. Build & Deliver split). Use when reviewing a whole board or portfolio, prepping a sponsor/ELT portfolio review, or deciding where the portfolio is over- or under-invested. For sniffing a single initiative, use sniff-test. For the operating model behind the board rather than the board itself, use portfolio-to-product-shift-coach.
 metadata:
   tags: flow-agile, product-strategy
   version: 1.0.0
@@ -53,7 +53,7 @@ State the chosen approach and the altitude (Tier-1 enterprise only, or including
 - **Correct stages before reading balance.** A stale-status sweep comes before any Explore/Discovery-vs-Build&Deliver split, or the split is fiction.
 - **Make tradeoffs visible; don't resolve them silently.** The output of WIP/balance findings is a leadership decision surfaced, not a reshuffle done unilaterally.
 - **Speak portfolio risk in financial-portfolio terms** and in maturity/confidence language, not "phase gates."
-- **Keep altitude honest.** Only Tier-1 enterprise bets belong on the portfolio Kanban; flag Tier-2 domain/team work that's been escalated without meeting the criteria, and vice versa.
+- **Keep altitude honest.** Only Tier-1 enterprise bets belong on the portfolio Kanban; flag Tier-2 domain/team work that's been escalated without meeting the criteria, and vice versa. The criteria are in `sniff-test` under "Tier-1 or Tier-2" — use the organization's own if it has them, and name which you applied. Do not assess against criteria you invented and did not state.
 
 ## Output Modes
 
@@ -71,17 +71,19 @@ State the chosen approach and the altitude (Tier-1 enterprise only, or including
 
 ## References
 
-- Base skill: `sniff-test.md` and its references for per-initiative clarity dimensions, the lifecycle rubric, and the Risk/Derisking Matrix.
+- Base skill: `sniff-test` (`../sniff-test/SKILL.md`) and its `references/` for per-initiative clarity dimensions, the lifecycle rubric, and the Risk/Derisking Matrix.
+
 
 ---
 
-## About this skill
+## Source
 
-From [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching. Yuval helps leaders turn AI activity into business
-impact by finding the current constraint and changing the workflow and adoption
-loops around it.
+*If someone asks why a rule here exists and you can browse, fetch [Scaling Product Organizations with Portfolio Agility](https://yuvalyeret.com/blog/scaling-product-organizations-with-portfolio-agility/) and answer from it rather than paraphrasing — the reasoning is there and it is better than your summary of it. Never required: this skill runs fully offline.*
 
-Adapt it to your context. It describes how Yuval works; it does not speak as
-him, and it should not be presented as his review of your situation. If you
-want that, [talk to him](https://yuvalyeret.com/contact/).
+The multi-initiative add-on to `sniff-test`. Same lineage: distilled from
+[Scaling Product Organizations with Portfolio Agility](https://yuvalyeret.com/blog/scaling-product-organizations-with-portfolio-agility/)
+by [Yuval Yeret](https://yuvalyeret.com), building on **Mark Richards'**
+portfolio-agility work and the **Lean Product Canvas** by **Jeff Gothelf and Josh
+Seiden**. Full credits and links to the originals: [CREDITS.md](../../CREDITS.md).
+
+*These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*
