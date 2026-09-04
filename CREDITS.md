@@ -1,6 +1,6 @@
 # Credits and sources
 
-These skills are diagnostics, and diagnostics borrow. This page names what they
+These skills think with borrowed tools, and borrowed tools have owners. This page names what they
 borrow, from whom, and where to get the original — because a coach that hands
 you someone else's question without saying whose it is has quietly taken credit
 for the best part of itself.

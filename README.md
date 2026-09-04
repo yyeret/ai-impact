@@ -1,7 +1,12 @@
 # ai-impact
 
-**Scaling AI activity into business impact — as diagnostics your own AI agent can
-run, on your real portfolio, in the tooling you already use.**
+**Scaling AI activity into business impact — as thinking tools your own AI agent
+runs with you, on your real portfolio, in the tooling you already use.**
+
+Some are reflection: noticing what hardened into a constraint while nobody was
+looking. Some are working a number through until it fits your system instead of a
+formula. Some are diagnosis: reading an initiative's clarity against the stage it
+claims. All of them ask rather than answer.
 
 By [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
 Organizational AI Coaching.
@@ -18,7 +23,9 @@ cheap, or what would have to change for the next quarter's spend to be
 defensible. Those are answerable questions. They just require someone to ask them
 properly, against your real material, and to not flinch at the answer.
 
-That asking is what these skills do.
+That asking is what these skills do — and asking well is most of the work. A good
+run is closer to a hard conversation with someone who knows your context than to
+a report landing in your inbox.
 
 ## The job you are hiring this for
 
@@ -42,9 +49,20 @@ watch. None of them ends in a score.
 ## How they work
 
 They are mostly questions, run as a conversation — your agent asks one or two at
-a time and follows what you say, rather than dumping a survey. Some carry a rubric
-behind the questions, because you cannot judge clarity against a stage without
-saying what the stages are. Where they do, they say the shape is one shape and not
+a time and follows what you say, rather than dumping a survey. What that
+conversation is doing varies:
+
+- **Reflection.** `descaling-experiment-coach` and `portfolio-to-product-shift-coach`
+  mostly help you see your own situation clearly — which compromise hardened, where
+  you actually sit — before anyone proposes anything.
+- **Thinking a thing through.** `wip-limit-configuration-coach` deliberately
+  refuses to hand you a formula. It walks you to a number that fits your system and
+  makes you able to defend it, which is the part that survives after the run.
+- **Diagnosis.** `sniff-test` and `sniff-test-portfolio` do read your material and
+  come back with findings — the closest thing here to an assessment.
+
+Most runs are some of each. Some carry a rubric behind the questions, because you
+cannot judge clarity against a stage without saying what the stages are. Where they do, they say the shape is one shape and not
 the shape, and tell you to map it onto whatever your organization actually calls
 things.
 
@@ -160,7 +178,7 @@ changed, and what it got wrong:
 
 ## Credits
 
-These diagnostics borrow. The Lean Product Canvas they read against is **Jeff
+These skills borrow. The Lean Product Canvas they read against is **Jeff
 Gothelf and Josh Seiden's**; the portfolio lifecycle framing is **Mark
 Richards'**; the flow metrics are **Daniel Vacanti's**. Who owns what, and links
 to the originals, is in [CREDITS.md](CREDITS.md) — read that before you cite any

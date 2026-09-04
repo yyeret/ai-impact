@@ -6,14 +6,14 @@
     "email": "yuval@yeretagility.com",
     "url": "https://yuvalyeret.com"
   },
-  "description": "Scaling AI activity into business impact. Seven diagnostics your own AI agent runs against your real portfolio: is this initiative actually ready to commit to, where has the constraint moved now that agents write the code, and what would make next quarter's spend defensible. Each ends in one experiment to run, not a score.",
+  "description": "Scaling AI activity into business impact. Seven thinking tools your own AI agent runs with you against your real portfolio \u2014 some reflection, some working a number through until it fits your system, some diagnosis. They ask rather than answer, and each ends in one experiment to run.",
   "version": "1.0.0",
   "plugins": [
     {
       "name": "ai-impact",
       "source": "./",
       "displayName": "AI Impact",
-      "description": "Ask your portfolio the questions that separate AI activity from AI impact \u2014 initiative readiness before a commit decision, board-level patterns, outcome framing, flow metrics, and WIP limits once agents write most of the code. Conversational, runs on your real material, ends in an experiment rather than a score.",
+      "description": "Think through the questions that separate AI activity from AI impact, with your own agent and your own material: is this initiative really ready to commit to, has the constraint moved now that agents write the code, would flow metrics change any decision you make. Reflection, working-through and diagnosis \u2014 conversational, ending in an experiment rather than a score.",
       "version": "1.0.0",
       "author": {
         "name": "Yuval Yeret",
