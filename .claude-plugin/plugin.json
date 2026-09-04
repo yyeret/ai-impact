@@ -1,8 +1,8 @@
 {
   "$schema": "https://www.schemastore.org/claude-code-plugin-manifest.json",
   "name": "ai-impact",
-  "description": "Turn AI activity into business impact with your own agent and your own material. Locate whether you are at activity, output or impact and find the constraint the result is waiting on \u2014 then work the specific thing: initiative readiness, portfolio patterns, outcome framing, flow metrics, WIP limits once agents write the code. Conversational, ending in an experiment rather than a score.",
-  "version": "1.0.0",
+  "description": "Turn AI activity into business impact with your own agent and your own material. Start by locating whether you are at activity, output or impact and which constraint the result is waiting on, then work the specific thing: AI traction from what you shipped, initiative readiness, portfolio patterns, operating-model reality, outcome framing, flow metrics, WIP limits once agents write the code. Reflection, working-through and diagnosis \u2014 conversational, ending in an experiment rather than a score.",
+  "version": "1.1.0",
   "author": {
     "name": "Yuval Yeret",
     "email": "yuval@yeretagility.com",

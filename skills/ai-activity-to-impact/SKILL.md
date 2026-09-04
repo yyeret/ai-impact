@@ -1,6 +1,6 @@
 ---
 name: ai-activity-to-impact
-description: The front door to this library. Work out whether an organization's AI effort is producing activity, output, or impact — then find the constraint the impact is actually waiting on, across ways of working, structure, dynamics, culture and technology rather than only the tooling. Use when someone has AI pilots, licenses and enthusiasm but no credible line to a business result, when engineering ships faster and the business does not, when a board or CEO is asking "what are we getting from AI", or when someone wants to know where to start. Ends by naming the constraint and routing to the specific skill for it. If the question is already narrow — one initiative's readiness, a WIP limit, an epic's wording — go straight to that skill instead.
+description: The front door to this library — triage, not assessment. Works out whether an organization's AI effort is producing activity, output or impact, which surface the constraint sits on (ways of working, structure, funding, culture, evidence, or technology), and therefore which skill to run. Deliberately fast and shallow: it ends by handing off. Use when someone has AI pilots and no credible line to a business result, when engineering ships faster and the business does not, or when someone asks where to start. Go straight to the specific skill when the question is already narrow, and to ai-traction-self-assessment when they want a real evidence-based read of whether the AI work is producing traction — this skill routes there rather than duplicating it.
 metadata:
   tags: ai-transformation, product-strategy
   version: 1.0.0
@@ -12,6 +12,12 @@ metadata:
 > you are talking to. Run it as a conversation — one or two questions at a time.
 > This skill's job is to find where the constraint sits and hand off. Resist
 > solving the whole thing here; the handoff is the deliverable.
+
+> **This skill is triage.** It is deliberately shallow: locate, then hand off. If
+> the person wants a real assessment of whether their AI work is producing
+> traction — read from what they actually shipped, placed on behavioural ladders,
+> with the evidence quoted — that is `ai-traction-self-assessment`, and you should
+> route there rather than doing a lighter version of it here.
 
 ## Why this skill exists
 
@@ -150,6 +156,9 @@ Once the constraint is named, route to the skill built for it and say why:
 
 | If the constraint is | Go to |
 |---|---|
+| Whether the AI work is producing traction at all, read from evidence | `ai-traction-self-assessment` |
+| How one person or team works with AI, and why the leverage plateaued | `ai-fluency-self-assessment` |
+| How far the operating model has really moved from project to product | `product-operating-model-audit` |
 | One initiative that may not be ready to commit to | `sniff-test` |
 | A whole portfolio you cannot see the patterns in | `sniff-test-portfolio` |
 | Funding and governance still running by project | `portfolio-to-product-shift-coach` |
@@ -157,6 +166,11 @@ Once the constraint is named, route to the skill built for it and say why:
 | Flow you cannot see, and no agreed way to see it | `flow-metrics-self-assessment` |
 | Too much in flight now that agents write the code | `wip-limit-configuration-coach` |
 | A scaling framework's compromises that hardened | `descaling-experiment-coach` |
+
+**Most often the answer is `ai-traction-self-assessment`.** If the conversation has
+established that there is a lot of AI activity and no defensible line to a result,
+that is the skill built to prove it from artifacts. Hand over rather than
+continuing here.
 
 If none of them fits, say so. A constraint in hiring, data access, pricing or a
 customer-success model is a real answer, and this library not covering it is

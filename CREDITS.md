@@ -164,10 +164,29 @@ Three more that these skills use as vocabulary and did not invent:
   skill argues about SAFe specifically; the idea that removing organizational
   layers beats adding coordination is theirs.
 - **Project-to-product** as a framing, which `portfolio-to-product-shift-coach`
-  works inside, is most associated with **Mik Kersten's** *Project to Product* and
-  the Flow Framework. That skill approaches it from Lean Portfolio Management
-  rather than from Kersten's flow metrics, but it is the same shift and his is the
-  canonical statement of it.
+  and `product-operating-model-audit` work inside, is most associated with
+  **Mik Kersten's** *Project to Product* and the Flow Framework. Those skills
+  approach it from Lean Portfolio Management and from the operating model
+  respectively rather than from Kersten's flow metrics, but it is the same shift
+  and his is the canonical statement of it.
+
+## The AI Fluency framework — Rick Dakan and Joseph Feller
+
+`ai-fluency-self-assessment` is organised around the **three modes of engagement**
+— **Automation** (offloading a task with a fixed recipe), **Augmentation** (the AI
+as an active thinking partner), and **Agency** (delegating an objective and letting
+the AI determine the how) — and around the principle that **diligence** has to rise
+with autonomy. Those come from the **AI Fluency framework** by **Rick Dakan and
+Joseph Feller**, published as a free course with Anthropic, where the three modes
+sit inside **Delegation**, the first of its four competencies: Delegation,
+Description, Discernment, Diligence.
+
+The skill uses them as diagnostic axes and does not teach the framework — it says
+nothing about Description or Discernment, which are half of it. If you want the
+framework itself, get it from the source; it is free, and it is better at its own
+subject than a coaching skill built on top of it:
+
+- [AI Fluency: Frameworks & Foundations](https://www.anthropic.com/ai-fluency)
 
 ## Trademarks
 
