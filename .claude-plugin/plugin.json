@@ -1,6 +1,6 @@
 {
   "$schema": "https://www.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "ai-impact",
+  "name": "ai-activity-to-impact",
   "description": "Diagnostics and coaches for turning AI activity into business impact: portfolio clarity, outcome framing, flow, and WIP in the age of agents.",
   "version": "1.0.0",
   "author": {
@@ -8,7 +8,7 @@
     "email": "yuval@yeretagility.com",
     "url": "https://yuvalyeret.com"
   },
-  "homepage": "https://github.com/yyeret/ai-impact",
+  "homepage": "https://github.com/yyeret/ai-activity-to-impact",
   "license": "CC-BY-4.0",
   "keywords": [
     "ai-transformation",

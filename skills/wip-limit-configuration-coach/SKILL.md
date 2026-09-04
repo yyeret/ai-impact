@@ -1,10 +1,15 @@
 ---
 name: wip-limit-configuration-coach
-description: Choose real starting numbers for active-stage and queue-stage WIP limits in a human-agent workflow, rather than a universal formula or people-divided-by-two. Interviews you on workflow, human-agent topology, agent autonomy, shared constraints and replenishment evidence; computes candidate limits and cross-checks them with Little's Law; returns one starting configuration translated into board and agent pull policies. Use when agents write much of the code and existing WIP limits no longer describe the system.
+description: Choose real starting numbers for active-stage and queue-stage WIP limits in a human-agent workflow, rather than a universal formula or people-divided-by-two. Interviews you on workflow, human-agent topology, agent autonomy, shared constraints and replenishment evidence; computes candidate limits and cross-checks them with Little's Law; returns one starting configuration translated into board and agent pull policies. Use when agents write much of the code and existing WIP limits no longer describe the system. For the prior question of whether flow metrics would help you at all, use flow-metrics-self-assessment.
 metadata:
   tags: flow-agile, ai-transformation
   version: 1.0.0
 ---
+
+> **Reading this as an agent:** you are the coach; "me" and "my" mean the person
+> you are talking to, not the author. Run it as a conversation — one or two
+> questions at a time, chosen from what they just said — and do not produce the
+> final output until you have enough to produce it honestly.
 
 Act as a pragmatic flow coach. Help me choose actual starting numbers for active-stage and queue-stage WIP limits in a human-agent, spec-driven workflow. Do not give me a universal formula or simply divide people by two. Coach me through why a number fits this system.
 
@@ -172,6 +177,8 @@ Tighten when work-item age, context-reload time, forgotten agent sessions, stale
 ---
 
 ## Source
+
+*If someone asks why a rule here exists and you can browse, fetch [Do WIP Limits Still Make Sense When Agents Write the Code?](https://yuvalyeret.com/blog/calculate-kanban-wip-limits-ai-age) and answer from it rather than paraphrasing — the reasoning is there and it is better than your summary of it. Never required: this skill runs fully offline.*
 
 Adapted from [Do WIP Limits Still Make Sense When Agents Write the Code?](https://yuvalyeret.com/blog/calculate-kanban-wip-limits-ai-age) by
 [Yuval Yeret](https://yuvalyeret.com). The article carries the reasoning behind the

@@ -1,7 +1,9 @@
-# ai-impact
+# ai-activity-to-impact
 
-Seven diagnostics you install into your own AI agent, for the work of turning AI
-activity into business impact.
+Diagnostics you install into your own AI agent, so the gap between AI activity
+and business impact becomes something you can see and argue about — where the
+constraint actually sits, which initiative is not as ready as its status says,
+what a WIP limit means once agents write the code.
 
 By [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
 Organizational AI Coaching.
@@ -34,15 +36,15 @@ with, and the good runs usually involve arguing.
 **As a Claude Code plugin:**
 
 ```
-/plugin marketplace add yyeret/ai-impact
-/plugin install ai-impact@ai-impact
+/plugin marketplace add yyeret/ai-activity-to-impact
+/plugin install ai-activity-to-impact@ai-activity-to-impact
 ```
 
 **Anywhere else.** Skills follow the standard `skills/<name>/SKILL.md` layout, so
 most agent tooling picks them up directly:
 
 ```bash
-git clone https://github.com/yyeret/ai-impact
+git clone https://github.com/yyeret/ai-activity-to-impact
 ```
 
 Point your agent at the folder, or copy the skills you want into wherever your
@@ -83,7 +85,9 @@ a plain interview with no data access at all.
 
 Start with `sniff-test` if you have one initiative you are unsure about, or
 `flow-metrics-self-assessment` if the problem is that delivery feels slow and you
-cannot say why.
+cannot say why. If you are pointing an agent at this folder rather than
+installing, [AGENTS.md](AGENTS.md) is the routing map — which skill for which
+question, and how they expect to be run.
 
 ## Running one
 
@@ -147,4 +151,4 @@ portfolio is running my questions, not my judgment. If you want the judgment,
 [talk to me](https://yuvalyeret.com/contact/).
 
 Found something wrong, or recognize your work here uncredited?
-[Open an issue](https://github.com/yyeret/ai-impact/issues).
+[Open an issue](https://github.com/yyeret/ai-activity-to-impact/issues).

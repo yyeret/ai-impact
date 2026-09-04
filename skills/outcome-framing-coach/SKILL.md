@@ -1,6 +1,6 @@
 ---
 name: outcome-framing-coach
-description: Reframe work from output/activity language to outcome language, on two surfaces — backlog items (Jira Epics and the like, classified on the Input→Activity→Output→Outcome→Impact taxonomy) and leadership asks (the drive-by directive that names a solution instead of a problem). Use when reviewing backlog epics in bulk, facilitating PI planning, running a value orientation audit, coaching a product owner on outcome-driven planning, or pressure-testing a message before a leader sends it.
+description: Reframe work from output/activity language to outcome language, on two surfaces — backlog items (Jira Epics and the like, classified on the Input→Activity→Output→Outcome→Impact taxonomy) and leadership asks (the drive-by directive that names a solution instead of a problem). Use when reviewing backlog epics in bulk, facilitating PI planning, running a value orientation audit, coaching a product owner on outcome-driven planning, or pressure-testing a message before a leader sends it. For whether an initiative is ready to commit rather than how it is worded, use sniff-test.
 metadata:
   tags: flow-agile, product-strategy
   version: 1.1.0
@@ -138,6 +138,8 @@ Rewrite this epic for our OKR planning session: [paste title]
 ---
 
 ## Source
+
+*If someone asks why a rule here exists and you can browse, fetch [Spec-Driven Agentic Harnesses and Outcome Framing](https://yuvalyeret.com/blog/spec-driven-agentic-harnesses-outcome-framing/) and answer from it rather than paraphrasing — the reasoning is there and it is better than your summary of it. Never required: this skill runs fully offline.*
 
 Adapted from [Spec-Driven Agentic Harnesses and Outcome Framing](https://yuvalyeret.com/blog/spec-driven-agentic-harnesses-outcome-framing/) by
 [Yuval Yeret](https://yuvalyeret.com). The article carries the reasoning behind

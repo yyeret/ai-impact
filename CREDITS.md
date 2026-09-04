@@ -193,5 +193,5 @@ run. See each skill's "Source" section, or start at
 
 If you recognize your work in one of these skills and it is not credited, or
 credited wrongly, that is a bug — please
-[open an issue](https://github.com/yyeret/ai-impact/issues) or
+[open an issue](https://github.com/yyeret/ai-activity-to-impact/issues) or
 [say so directly](https://yuvalyeret.com/contact/). It will be fixed.

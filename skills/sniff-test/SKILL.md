@@ -1,6 +1,6 @@
 ---
 name: sniff-test
-description: Run a lightweight, evidence-based "sniff test" on a single initiative (epic, project, or Tier-1 bet) to find where its clarity is insufficient for its stage in the delivery lifecycle, so you can drive the right investment/commit and derisking conversations. Best run pointed at where the initiative is managed (its folder/workspace, Confluence space, or Jira epic) or given its Lean Product Canvas plus a recent sponsor update; with little input it asks for context first. Use when pressure-testing an initiative before a Plan/Commit decision or Execute/Build commitment, checking whether a Lean Product Canvas and Discovery plan match the real risks, or coaching on leading indicators and risk-appropriate derisking. For multi-initiative board patterns, use the sniff-test-portfolio add-on.
+description: Run a lightweight, evidence-based "sniff test" on a single initiative (epic, project, or Tier-1 bet) to find where its clarity is insufficient for its stage in the delivery lifecycle, so you can drive the right investment/commit and derisking conversations. Best run pointed at where the initiative is managed (its folder/workspace, Confluence space, or Jira epic) or given its Lean Product Canvas plus a recent sponsor update; with little input it asks for context first. Use when pressure-testing an initiative before a Plan/Commit decision or Execute/Build commitment, checking whether a Lean Product Canvas and Discovery plan match the real risks, or coaching on leading indicators and risk-appropriate derisking. For multi-initiative board patterns, use the sniff-test-portfolio add-on. Not the right skill for org-level operating-model questions — that is portfolio-to-product-shift-coach.
 metadata:
   tags: flow-agile, product-strategy
   version: 1.0.0
@@ -133,6 +133,8 @@ Gothelf and Josh Seiden's [Lean Product Canvas](https://jeffgothelf.com/blog/the
 ---
 
 ## Source
+
+*If someone asks why a rule here exists and you can browse, fetch [Scaling Product Organizations with Portfolio Agility](https://yuvalyeret.com/blog/scaling-product-organizations-with-portfolio-agility/) and answer from it rather than paraphrasing — the reasoning is there and it is better than your summary of it. Never required: this skill runs fully offline.*
 
 Distilled from [Scaling Product Organizations with Portfolio Agility](https://yuvalyeret.com/blog/scaling-product-organizations-with-portfolio-agility/)
 by [Yuval Yeret](https://yuvalyeret.com), which carries the full lifecycle and the

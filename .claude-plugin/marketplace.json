@@ -1,6 +1,6 @@
 {
   "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
-  "name": "ai-impact",
+  "name": "ai-activity-to-impact",
   "owner": {
     "name": "Yuval Yeret",
     "email": "yuval@yeretagility.com",
@@ -10,7 +10,7 @@
   "version": "1.0.0",
   "plugins": [
     {
-      "name": "ai-impact",
+      "name": "ai-activity-to-impact",
       "source": "./",
       "displayName": "AI Impact",
       "description": "Seven diagnostics and coaches for leaders turning AI activity into business impact. They ask questions rather than hand you a framework.",
@@ -20,7 +20,7 @@
         "email": "yuval@yeretagility.com",
         "url": "https://yuvalyeret.com"
       },
-      "homepage": "https://github.com/yyeret/ai-impact",
+      "homepage": "https://github.com/yyeret/ai-activity-to-impact",
       "license": "CC-BY-4.0",
       "keywords": [
         "ai-transformation",
