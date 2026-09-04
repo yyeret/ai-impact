@@ -82,7 +82,9 @@ one work item when agents fan out, and why human attention rather than agent
 capacity is the governing constraint. The mechanism being applied is Anderson's.
 
 - *Kanban: Successful Evolutionary Change for Your Technology Business*, David J. Anderson
-- *The Goal*, Eliyahu M. Goldratt (drum-buffer-rope)
+- *The Goal*, Eliyahu M. Goldratt (drum-buffer-rope, and the Theory of
+  Constraints that `ai-activity-to-impact` leans on when it talks about finding
+  the constraint and subordinating the system to it)
 - [Kanban Guide](https://kanbanguides.org/)
 
 ## The Input → Activity → Output → Outcome → Impact ladder

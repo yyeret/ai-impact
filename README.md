@@ -27,6 +27,36 @@ That asking is what these skills do — and asking well is most of the work. A g
 run is closer to a hard conversation with someone who knows your context than to
 a report landing in your inbox.
 
+## Why this is called ai-impact
+
+Because impact is the third rung, and most organizations stall on the first two.
+
+**Activity** is tool access, pilots, training, hackathons, a committee. Real
+motion, and a reasonable place to start. It turns into theater when it plateaus
+there and the organization starts celebrating the activity itself — seats
+provisioned, people trained, pilots counted — because those are the easy things
+to measure.
+
+**Output** is a group, usually engineering, visibly shipping more. Better than
+activity, and still frequently invisible in the business. Revenue per person has
+not moved. Nothing downstream got easier.
+
+**Impact** is when the constraint *across the business* got attacked and a
+result changed. Not the place AI was easiest to apply — the place the outcome was
+actually waiting.
+
+There is no single move that gets you from the first rung to the third. It takes
+attention to how work actually flows, to the forces pulling on the organization,
+to the technology, and to the structure, the dynamics, and the hearts and minds
+around it — all at once. Anyone selling a silver bullet is selling something.
+
+That is why this is a library rather than a tool. Each skill works one of those
+surfaces, and [`ai-activity-to-impact`](skills/ai-activity-to-impact/) is the
+front door: it works out which surface is actually in your way, then hands you to
+the skill for it. If it turns out none of them fits — the constraint is in
+hiring, or pricing, or data access — it says so, which is better information than
+a forced fit.
+
 ## The job you are hiring this for
 
 Pick the row that sounds like your week. If none of them do, this probably is not
@@ -34,6 +64,7 @@ for you, and that is a fine outcome to reach in thirty seconds.
 
 | When you are stuck on | Run | You end up with |
 |---|---|---|
+| "We have pilots, licences and enthusiasm, and no idea what we are getting" | [`ai-activity-to-impact`](skills/ai-activity-to-impact/) | Whether you are at activity, output or impact; the constraint the result is actually waiting on; and which of the skills below is the one to run |
 | "We commit budget in three weeks and I don't know if this initiative is really ready" | [`sniff-test`](skills/sniff-test/) | Where clarity is thin *for the stage it claims*, whether the status label survives contact with the evidence, and the one conversation to have before the money moves |
 | "I inherited this board and I can't see the patterns in it" | [`sniff-test-portfolio`](skills/sniff-test-portfolio/) | Duplicated bets, hidden WIP, whether the risk balance is intentional, and what to raise at the next review |
 | "We say we're product-led but funding still runs by project" | [`portfolio-to-product-shift-coach`](skills/portfolio-to-product-shift-coach/) | Where you actually sit, which of five gaps is binding, and one experiment for the next month |
@@ -109,10 +140,11 @@ a plain interview with no data access at all.
 
 ## Where to start
 
-`sniff-test` if you have one initiative you are unsure about. `outcome-framing-coach`
-if you want the cheapest possible first run — paste a dozen epic titles and see
-what comes back. `flow-metrics-self-assessment` if the problem is that delivery
-feels slow and you cannot say why.
+**`ai-activity-to-impact` if you are not sure** — it exists to work that out and
+hand you on. Otherwise go straight to the narrow one: `sniff-test` for a single
+initiative you are unsure about, `outcome-framing-coach` for the cheapest possible
+first run (paste a dozen epic titles and see what comes back), or
+`flow-metrics-self-assessment` if delivery feels slow and you cannot say why.
 
 The three that overlap: `sniff-test` reads **one bet**, `sniff-test-portfolio`
 reads **the board**, `portfolio-to-product-shift-coach` reads **the operating

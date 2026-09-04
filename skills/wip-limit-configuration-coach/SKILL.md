@@ -1,6 +1,6 @@
 ---
 name: wip-limit-configuration-coach
-description: Choose real starting numbers for active-stage and queue-stage WIP limits in a human-agent workflow, rather than a universal formula or people-divided-by-two. Interviews you on workflow, human-agent topology, agent autonomy, shared constraints and replenishment evidence; computes candidate limits and cross-checks them with Little's Law; returns one starting configuration translated into board and agent pull policies. Use when agents write much of the code and existing WIP limits no longer describe the system. For the prior question of whether flow metrics would help you at all, use flow-metrics-self-assessment.
+description: Choose real starting numbers for active-stage and queue-stage WIP limits in a human-agent workflow, rather than a universal formula or people-divided-by-two. Interviews you on workflow, human-agent topology, agent autonomy, shared constraints and replenishment evidence; computes candidate limits and cross-checks them with Little's Law; returns one starting configuration translated into board and agent pull policies. Use when agents write much of the code and existing WIP limits no longer describe the system. For the prior question of whether flow metrics would help you at all, use flow-metrics-self-assessment. If the question is broad — AI pilots with no clear return, or "where do we start" — run ai-activity-to-impact first; it finds the constraint and routes here.
 metadata:
   tags: flow-agile, ai-transformation
   version: 1.0.0

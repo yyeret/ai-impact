@@ -1,6 +1,6 @@
 ---
 name: descaling-experiment-coach
-description: Find which scaling-framework concession has hardened into a constraint in your organization, then design one descaling experiment against it. Diagnoses across five named concessions, then produces a hypothesis, the smallest move, a leading indicator, the resistance to expect, and a retrospective question. Use when a scaling framework was adopted with compromises that were meant to be temporary and never revisited. Scoped to a scaling framework's own compromises — for the broader project-to-product operating-model question use portfolio-to-product-shift-coach, and for one initiative's readiness use sniff-test.
+description: Find which scaling-framework concession has hardened into a constraint in your organization, then design one descaling experiment against it. Diagnoses across five named concessions, then produces a hypothesis, the smallest move, a leading indicator, the resistance to expect, and a retrospective question. Use when a scaling framework was adopted with compromises that were meant to be temporary and never revisited. Scoped to a scaling framework's own compromises — for the broader project-to-product operating-model question use portfolio-to-product-shift-coach, and for one initiative's readiness use sniff-test. If the question is broad — AI pilots with no clear return, or "where do we start" — run ai-activity-to-impact first; it finds the constraint and routes here.
 metadata:
   tags: flow-agile, product-strategy
   version: 1.0.0

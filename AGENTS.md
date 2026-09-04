@@ -8,6 +8,7 @@ run.
 
 | The person is asking about | Run |
 |---|---|
+| AI pilots and no idea what they are getting, or "where do we start" | `ai-activity-to-impact` |
 | Whether one initiative is ready for a commit decision | `sniff-test` |
 | A whole board — duplication, hidden WIP, risk balance | `sniff-test-portfolio` |
 | Whether the operating model is really product-oriented yet | `portfolio-to-product-shift-coach` |
@@ -15,6 +16,10 @@ run.
 | Whether flow metrics would help them at all | `flow-metrics-self-assessment` |
 | What WIP limit to set now that agents write much of the code | `wip-limit-configuration-coach` |
 | A scaling framework's temporary compromises that never got revisited | `descaling-experiment-coach` |
+
+**`ai-activity-to-impact` is the front door.** When the question is broad, vague, or
+about AI overall rather than one artifact, start there — it locates the constraint
+and routes onward. Do not run it when the person already named something narrow.
 
 The three that overlap most: `sniff-test` reads **one bet**,
 `sniff-test-portfolio` reads **the board**, `portfolio-to-product-shift-coach`
