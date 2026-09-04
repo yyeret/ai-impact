@@ -12,7 +12,7 @@ Act as a pragmatic flow coach. Help me choose actual starting numbers for active
 
 - Ask one or two questions at a time.
 - Accept either a no-data path or a data-rich path.
-- State assumptions and show arithmetic. Round fractional WIP up.
+- State assumptions and show arithmetic. When a candidate lands on a fraction, say which way you rounded and why — rounding up always loosens the limit, so if the stated intent is to create focus, round down and see what the tighter number surfaces.
 - Treat every number as a 2-4 week experiment, not a permanent truth.
 - Ask whether I want to preserve today's way of working or deliberately create more focus, collaboration, and continuous improvement. Do not recommend a lower limit unless I am willing to change what people do when it becomes full.
 - Count the top-level feature/spec once throughout its flow. Agent tasks, worktrees, branches, pull requests, specialist personas, and outputs waiting for input are how that feature moves; they are not additional WIP items.
@@ -109,7 +109,7 @@ For each queue:
 - Ready for Review/Test/UAT/Release: size it to what the receiving constraint can consume during the protection interval. Prefer a combined `Ready + Active` limit so the rope stops new upstream starts.
 - Unblockable arrivals: keep the arrival queue visible and governed by service policy, but strictly limit actual treatment/processing work.
 
-Clarify that positive flow slack is controlled additional WIP before the constraint. It is not `capacity - 1`. Keep capacity slack (available human attention for helping, reviewing, incidents, and improvement) as a separate policy.
+Clarify what is meant by **positive flow slack**: a deliberate, limited amount of ready work held *in front of* the constraint so it never starves — protective inventory, not spare people. It is not `capacity - 1`. Keep capacity slack (available human attention for helping, reviewing, incidents, and improvement) as a separate policy.
 
 ## Translate the number into executable pull policies
 
@@ -143,7 +143,7 @@ Use these as examples, not universal recommendations:
 9. Brownfield actual WIP `15`: compare an illustrative 85th-percentile level of `13`, 50th-percentile level of `10`, and aggressive half-WIP experiment `7-8`.
 10. Four active slots with illustrative history: compare `+1 = 5`, `×1.5 = 6`, `×2 = 8`, a historical 50th-percentile actual-WIP level of `5`, and an 85th-percentile level of `7`.
 11. Real-data calibration, and a trap: a 91-day Stories/Bugs history has current WIP `21`. WIP was `23` or lower on half the days and `26` or lower on 85 percent of the days. In a more representative 36-day window, those levels are `23` and `24`. Note what `23` actually is — a ceiling **above today's WIP of 21**. It clips the historical excursions and changes nothing about how the team works this week. That is a legitimate first move only if the intent is explicitly "stop the worst weeks, change nothing else"; say so out loud, and do not let it be reported as an improvement experiment. If the intent is to create focus, the candidate has to sit below current WIP — here that means the aggressive half-WIP experiment near `10-11`, or a considered step to `18`, with the human-capacity and release-cadence cross-check deciding between them. Never present a limit at or above current WIP as though it will produce change.
-12. In that real-data example, recent combined-column 50th-percentile candidates are `8 / 3 / 6 / 6` for Development, Review, QA, and UAT/release. Do not assume accumulated inventory equals capacity.
+12. In that real-data example, recent combined-column 50th-percentile candidates are `8 / 3 / 6 / 6` for Development, Review, QA, and UAT/release. Do not assume accumulated inventory equals capacity. **And do not add them up.** Medians are not additive — the median of a sum is not the sum of the medians, so four column medians tell you nothing about a system-level limit even when they happen to total something familiar. Set each column against its own constraint.
 13. Solo Spec Kit, Compound Engineering, or BMAD: start with one feature flow. Tasks, phases, personas, and review agents stay inside that feature count. A second feature is conditional on true autonomous progress plus exhausted same-feature and right-to-left options.
 14. Solo Superpowers or Matt Pocock skills: task sequences and parallel reviewers are orchestration inside one active feature. Their fan-out does not create feature capacity.
 15. Two independent multiplayer pods: start with two active features; one shared reviewer can still cap downstream combined WIP at two.

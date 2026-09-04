@@ -35,7 +35,7 @@ Key principles that shape the read:
 ## Expected clarity, "what you can count on," smells, and watermelon risk by stage
 
 ### Explore  *(Explore & Define)*
-- **Expected**: Framing the problem — "is this worth investigating?" A **Lightweight Product Canvas** takes shape (problem, research of solutions and value, resources/topology for the next phase). Significant uncertainty is normal. EA gets a Direction Review based on Explore insights.
+- **Expected**: Framing the problem — "is this worth investigating?" An early, deliberately thin **Lean Product Canvas** takes shape (problem, research of solutions and value, resources/topology for the next phase). Significant uncertainty is normal. EA gets a Direction Review based on Explore insights.
 - **What you can count on**: There's a real, framed problem worth investigating — not just a solution someone wants built. Marks the Explore/Define completion view.
 - **Smell**: Solution-first framing with no problem/outcome; suspiciously high early clarity with no evidence (a watermelon in the making).
 - **Conversation**: What's the riskiest assumption, and is this even worth investigating further?

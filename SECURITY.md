@@ -8,9 +8,12 @@ question before you install anything is: *what leaves my building?*
 
 Nothing. These are Markdown files. There is no code that runs, no service, no
 telemetry, no analytics, no callback, no dependency to install. Nothing here
-phones home, because there is nothing here that executes. The only script in the
-repo is `scripts/validate_skills.py`, which is a CI check on the repo's own
-files and never touches yours.
+phones home, because nothing here runs on your machine. The repo does contain two
+pieces of automation, and both run in this project's own CI rather than on your
+side: `scripts/validate_skills.py`, which checks this repo's own files for
+structural problems, and an inline link check in `.github/workflows/validate.yml`
+which makes outbound requests to the URLs this repo cites. Neither is invoked by
+installing or running a skill, and neither reads anything of yours.
 
 Neither Yuval nor anyone else can see what you point a skill at, what it returns,
 or that you ran it at all.

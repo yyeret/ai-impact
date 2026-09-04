@@ -40,7 +40,7 @@ All three are hard — which is why teams default to easier-but-useless proxies.
 | **Input** | What the org spends money on | budget to test an improvement idea |
 | **Activity** | What people do | write code, hold meetings |
 | **Output** | What the org produces | releases, reviews |
-| **Outcome** | A new/improved capability the user experiences | user can save/earn more than before |
+| **Outcome** | A change in what the user actually does | users now save/earn more than before — observed, not merely enabled |
 | **Impact** | Results the org/investors achieve when users reach their outcomes | revenue, profit, market share |
 
 - **Outcome = the steerable one.** Someone doing something differently is observable well before the money lands, which is exactly why it is worth framing work at this level. Treat it as the leading edge of evidence, not as confirmation.

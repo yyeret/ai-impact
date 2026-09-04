@@ -75,6 +75,8 @@ portfolio, not a syllabus.
 - [Descale Your Portfolio by Organizing Around Products](https://yuvalyeret.com/blog/descale-your-portfolio-by-organizing-around-products/) — for the Descaling gap specifically.
 - [Your AI Portfolio Doesn't Need More Ideas, It Needs Less WIP](https://yuvalyeret.com/blog/your-ai-portfolio-doesnt-need-more-ideas-it-needs-less-wip/) — when the board is an idea pile.
 
+Not mine, and better on their own ground: **Mik Kersten's** *Project to Product* is the canonical statement of this shift, and **Marty Cagan's** *Empowered* is the reference on what an empowered product team actually is. If I am reaching for a concept that is really theirs, say so.
+
 ### Output Format
 
 End with:

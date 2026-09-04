@@ -30,6 +30,16 @@ PRIVATE_PATTERNS = [
 
 REQUIRED_FRONTMATTER = ("name", "description")
 
+# This library's central claim is that an outcome is a change in what someone
+# does, not a capability they gain. That correction was once made in one file and
+# not the four others that shared the taxonomy, which is how a skill ended up
+# teaching the construction its own body rejected. Guard it.
+BANNED_OUTCOME_DEFS = [
+    (r"Outcome[^|\n]*\|\s*A (?:new/improved )?capability", "defines Outcome as a capability"),
+    (r"Outcome \(user capability", "defines Outcome as a capability"),
+    (r"anchors to user capability", "anchors outcomes in capability rather than behaviour"),
+]
+
 # Kept small on purpose: a tag vocabulary that grows per-skill stops being a
 # vocabulary. Add to this deliberately, not incidentally.
 ALLOWED_TAGS = {"flow-agile", "product-strategy", "ai-transformation"}
@@ -74,6 +84,14 @@ def main() -> int:
                 errors.append(
                     f"{d.name}: frontmatter name '{fm['name']}' != directory name"
                 )
+
+        for md in [skill_md] + sorted(d.rglob("*.md")):
+            body = md.read_text(encoding="utf-8")
+            for pattern, label in BANNED_OUTCOME_DEFS:
+                if re.search(pattern, body):
+                    errors.append(
+                        f"{md.relative_to(ROOT)}: {label} — see outcome-framing-coach"
+                    )
 
         # Every skill states where it came from. That is the whole promise of
         # the README, and it is the thing that quietly rots.

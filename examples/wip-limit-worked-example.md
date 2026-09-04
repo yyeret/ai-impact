@@ -22,8 +22,8 @@ The opening message:
 > agents, one reviewer. Jira board attached. Our "in progress" count is 9 and I
 > don't know if that's bad.
 
-**Elapsed: about 35 minutes.** It is an interview, and the questions are the
-product — several of them the team had not asked itself.
+**Budget about 35 minutes.** It is an interview, and the questions are the
+product — several of them are ones a team typically has not asked itself.
 
 ---
 
@@ -41,8 +41,8 @@ The parts that changed the answer:
 - **Q7, guided vs. autonomous.** Agents run genuinely unattended for 20-40
   minutes at a stretch, a few times a day. Not the multi-hour autonomous loops
   that would license a second concurrent feature per person.
-- **Q11, fan-out.** This was the finding. Each feature lands as **4 to 7 pull
-  requests** across separate worktrees. Nobody had counted before being asked.
+- **Q11, fan-out.** This is the finding. Each feature lands as **4 to 7 pull
+  requests** across separate worktrees — a number most teams have never counted.
 
 ---
 
@@ -130,24 +130,25 @@ structural and no number fixes it.
 
 ---
 
-## What it actually changed
+## What a run like this is for
 
-The team stopped arguing about the number 9. The real finding was that they had
-one reviewer, an invisible queue, and five-PR features — none of which is a WIP
-limit problem, and all of which the WIP conversation surfaced.
+Again: constructed team, so no claim about what it changed for anyone. What the
+example is meant to show is that the number is not the point. The interview
+surfaces the things that actually cap the system — one reviewer, an unnamed queue,
+five-PR features — none of which a WIP limit fixes, and all of which the WIP
+conversation is unusually good at dragging into view.
 
-They set the limits, and then did the thing that mattered: split fewer, larger
-PRs and added a second reviewer.
+If a run ends with a number and no structural finding, you have paid 35 minutes
+for something you could have guessed.
 
-## What it got wrong
+## Where a run like this goes wrong
 
-- It initially treated the two pods as symmetric. One works on a legacy service
-  where review takes twice as long. The skill had asked about shared constraints,
-  not about *asymmetric* ones, and the lead had to raise it.
-- It suggested a Ready queue limit of 3 from the replenishment answer, then had
-  to walk it back when it emerged that "we groom weekly" actually meant "we groom
-  when someone remembers." Its arithmetic was fine; the input was wrong, and it
-  took the input at face value.
+- It can treat two pods as symmetric when one of them works on a legacy service
+  where review takes twice as long. The interview asks about *shared* constraints,
+  not asymmetric ones — you have to raise that yourself.
+- It computes a Ready queue limit from your replenishment answer. If "we groom
+  weekly" actually means "we groom when someone remembers," the arithmetic is fine
+  and the answer is wrong. It takes the input at face value.
 
 Both are the same lesson as everywhere else in this library: it reasons well over
 what you tell it, and it cannot tell when what you told it is optimistic.

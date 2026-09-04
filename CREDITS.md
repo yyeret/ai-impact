@@ -139,14 +139,31 @@ EBM itself, get it from the source.
 
 ## Queueing and product development flow — Donald Reinertsen
 
-The argument that high utilization is what makes queues explode — used in
-`flow-metrics-self-assessment/references/jira-rovo-agent.md` to explain why a
-fully-loaded team delivers more slowly — is queueing theory (Kingman's formula)
+The argument that queue time is driven by utilization *and* variability together
+— used in `flow-metrics-self-assessment/references/jira-rovo-agent.md` to explain
+why a fully-loaded team delivers more slowly — is queueing theory (Kingman's
+formula, whose two terms are exactly those)
 as it entered product development through **Donald Reinertsen's** *The Principles
 of Product Development Flow*. Cost of Delay and batch-size economics come from
 the same place.
 
 - *The Principles of Product Development Flow*, Donald G. Reinertsen
+
+## Terms of art used by name
+
+Three more that these skills use as vocabulary and did not invent:
+
+- **"Leap-of-faith assumptions"**, in `sniff-test/references/derisking-and-indicators.md`,
+  is **Eric Ries'**, from *The Lean Startup*.
+- **"Descaling"**, which `descaling-experiment-coach` is built on, is the
+  **LeSS** community's — **Craig Larman and Bas Vodde**, *Large-Scale Scrum*. The
+  skill argues about SAFe specifically; the idea that removing organizational
+  layers beats adding coordination is theirs.
+- **Project-to-product** as a framing, which `portfolio-to-product-shift-coach`
+  works inside, is most associated with **Mik Kersten's** *Project to Product* and
+  the Flow Framework. That skill approaches it from Lean Portfolio Management
+  rather than from Kersten's flow metrics, but it is the same shift and his is the
+  canonical statement of it.
 
 ## Trademarks
 

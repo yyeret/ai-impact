@@ -19,13 +19,13 @@ Confluence space attached:
 > the linked Confluence space — canvas, roadmap, the last two sponsor updates.
 > The board says Execute/Build. We commit budget for next year in three weeks.
 
-That is all the setup there was. The skill asked no clarifying questions, because
-the space had enough in it. With thinner input it would have asked first and said
-the run would be noisy.
+That is the whole setup. With a space this well-populated the skill goes straight
+to reading; with thinner input it asks for context first and warns that the run
+will be noisy.
 
-**Elapsed: about four minutes of reading, one page of output.** It is a
-conversation, so there was another ten minutes of back-and-forth afterwards, most
-of it on the stage mismatch below.
+**Budget roughly four minutes of reading and one page of output**, then ten or so
+minutes of argument — mostly about the stage mismatch below, which is where the
+argument should be.
 
 ---
 
@@ -105,28 +105,34 @@ the one week that would change the answer."
 
 ---
 
-## What it actually changed
+## What a run like this is for
 
-The stage flag. Nobody in the room had noticed the board said Execute/Build while
-no code had shipped — everyone was reading the label, not the evidence. The
-budget conversation moved from *how much* to *what we still do not know*, which
-is a different meeting.
+There was no room and no budget meeting — this is a constructed initiative, and
+inventing a story about what it changed would make this file the exact thing
+`sniff-test` exists to catch: a confident claim with nothing behind it.
 
-The clarity table itself was mostly confirmation. That is normal and worth saying:
-the ratings are how you get to the stage mismatch and the derisking misfit, and
-those are the findings. If a run gives you nothing but a table, it has failed.
+So, stated as design intent rather than as observed result: the stage flag is what
+this skill is *for*. The clarity table is the machinery that gets you there, and on
+its own it is usually confirmation of what the team already suspected. If a run
+gives you nothing but a table, it has failed. The finding you want is the mismatch
+— between the label and the evidence, or between where the derisking effort is
+going and where the open questions are.
 
-## What it got wrong
+**What this example cannot tell you** is how often that finding is right on real
+material. Nobody has published that, this repo included. Treat the output as a
+structured second opinion to argue with, not as a verdict to forward to a
+sponsor.
 
-Two things, in the ten minutes of argument afterwards:
+## Where a run like this goes wrong
 
-- It rated Users "partial" from the canvas alone. There had been a segmentation
-  workshop; the output just never made it into the space. The skill flagged what
-  was written down, not what was known. That is the correct behaviour and still
-  the wrong rating — it says so when it fills a rating from its own reading, and
-  it should be corrected when it does.
-- It called the missing vendor licence cost a Viability gap. Finance had it in a
-  separate model the skill was never pointed at.
+Two failure modes worth expecting, both constructed here to show the shape:
+
+- It rates a dimension from what is written down, not from what the team knows. A
+  segmentation workshop whose output never reached the space reads as a gap. That
+  is the correct behaviour and still the wrong rating — the skill says so when it
+  fills a rating from its own reading, and it should be corrected when it does.
+- It calls a cost a Viability gap when finance holds it in a model the skill was
+  never pointed at.
 
 Both are the same failure: it reads what you give it. Point it at more, and it
 flags less.

@@ -12,7 +12,7 @@ A sniff test rates clarity across two aligned layers: the **Lean Product Canvas*
 |---|---|---|
 | **Business Problem** | What problem are we focused on, and why now? | Solution-first framing with no named problem; a "project" with no outcome behind it. |
 | **Users** | Which users/customers and stakeholders are we focused on first? | "Everyone / the business" hand-waving; sponsors and end-users conflated; cross-functional stakeholders (enterprise architecture, security, data) unnamed. |
-| **Business Outcomes** | How will we know we solved it? What will we measure? | Outcomes stated as activity or output; no measure; only lagging totals. |
+| **Business Outcomes** | What changes in customer or user *behaviour* will tell us we solved a real problem? | Outcomes stated as activity or output; a metric with no behaviour behind it; "users will be able to…" offered as an outcome; only lagging totals. |
 | **User Outcomes & Benefits (JTBD)** | Why would the user seek this out — what changes for them? | Benefit asserted with no job-to-be-done; internal convenience mistaken for user value. |
 | **Solutions** | What could we build or change that solves the problem and meets the users' needs? | A single pre-decided solution presented as the only option; ideas never compared or costed. |
 | **Hypotheses** | "We believe that [business outcome] will be achieved if [user] attains [benefit] with [feature]." — the canvas's wording, and it deliberately wants one feature per hypothesis. | No falsifiable hypothesis; a plan with no belief to test; one hypothesis bundling several features so nothing can be falsified separately. |
