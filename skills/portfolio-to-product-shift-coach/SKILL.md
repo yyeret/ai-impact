@@ -63,20 +63,15 @@ If the conversation surfaces that this is really an AI-Native SAFe question: i.e
 
 ### References
 
-Draw on these when they sharpen a point. Cite one only when it actually answers
-what I asked — do not hand me a reading list.
+Background for you, not a reading list for me. Pull from these when one genuinely
+answers what I asked, and cite at most one — I came for a conversation about my
+portfolio, not a syllabus.
 
-- [Scaling Product Organizations with Portfolio Agility](https://yuvalyeret.com/blog/scaling-product-organizations-with-portfolio-agility/): the source minibook this coach is distilled from, including the full sniff test and the Visibility/Flow/Descaling/Outcomes/Evidence trail map
-- [When and Why Do We Need a Product Operating Model?](https://yuvalyeret.com/blog/when-and-why-do-we-need-a-product-operating-model/)
-- [Actively Managing Portfolio Flow](https://yuvalyeret.com/blog/actively-managing-portfolio-flow/)
-- [Let's Open the Portfolio Kanban Cards](https://yuvalyeret.com/blog/lets-open-the-portfolio-kanban-cards/)
-- [Descale Your Portfolio by Organizing Around Products](https://yuvalyeret.com/blog/descale-your-portfolio-by-organizing-around-products/)
-- [Developing Your Product-Oriented Portfolio Using a Product-Oriented Approach](https://yuvalyeret.com/blog/developing-your-product-oriented-portfolio-using-a-product-oriented-approach/)
-- [Embarking on Your Product-Oriented Lean Portfolio Management Journey](https://yuvalyeret.com/blog/embarking-on-your-product-oriented-lean-portfolio-management-journey/)
-- [Tackling Projects in a Product Operating Model World](https://yuvalyeret.com/blog/tackling-projects-in-a-product-operating-model-world/)
-- [Hacking Your Way to an Evidence-Informed Mindset](https://yuvalyeret.com/blog/hacking-your-way-to-an-evidence-informed-mindset/)
-- [Your AI Portfolio Doesn't Need More Ideas, It Needs Less WIP](https://yuvalyeret.com/blog/your-ai-portfolio-doesnt-need-more-ideas-it-needs-less-wip/)
-- [The Outcome Framing Coach](https://yuvalyeret.com/blog/spec-driven-agentic-harnesses-outcome-framing/): if I need help rewriting a specific epic as an outcome
+- [Scaling Product Organizations with Portfolio Agility](https://yuvalyeret.com/blog/scaling-product-organizations-with-portfolio-agility/) — the source minibook this coach is distilled from, including the full sniff test and the Visibility/Flow/Descaling/Outcomes/Evidence trail map. If you cite one thing, cite this.
+- [When and Why Do We Need a Product Operating Model?](https://yuvalyeret.com/blog/when-and-why-do-we-need-a-product-operating-model/) — for the "why are we doing this at all" conversation.
+- [Actively Managing Portfolio Flow](https://yuvalyeret.com/blog/actively-managing-portfolio-flow/) — for the Flow gap specifically.
+- [Descale Your Portfolio by Organizing Around Products](https://yuvalyeret.com/blog/descale-your-portfolio-by-organizing-around-products/) — for the Descaling gap specifically.
+- [Your AI Portfolio Doesn't Need More Ideas, It Needs Less WIP](https://yuvalyeret.com/blog/your-ai-portfolio-doesnt-need-more-ideas-it-needs-less-wip/) — when the board is an idea pile.
 
 ### Output Format
 
@@ -102,5 +97,4 @@ Adapted from [How Far Along Is Your Project-to-Product Shift?](https://yuvalyere
 Organizational AI Coaching. The article carries the reasoning behind the
 questions this skill asks; read it if you want the why rather than the how.
 
-This skill runs Yuval's questions, not his judgment. Its output is not his
-assessment of your situation, and it should not be presented as one.
+*These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*

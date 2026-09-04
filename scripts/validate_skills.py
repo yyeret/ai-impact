@@ -97,14 +97,14 @@ def main() -> int:
 
         # A reference file the SKILL.md never mentions is dead weight: the agent
         # has no reason to load it, so it ships without ever being read.
-        refs_dir = d / "references"
-        if refs_dir.is_dir():
-            for ref in sorted(refs_dir.rglob("*.md")):
-                if ref.name not in text:
-                    errors.append(
-                        f"{d.name}: references/{ref.name} is never mentioned in "
-                        "SKILL.md, so it will never be loaded"
-                    )
+        for extra in sorted(d.rglob("*")):
+            if not extra.is_file() or extra.name == "SKILL.md":
+                continue
+            if extra.name not in text:
+                errors.append(
+                    f"{d.name}: {extra.relative_to(d)} is never mentioned in "
+                    "SKILL.md, so nothing will ever load it"
+                )
 
         for md in sorted(d.rglob("*.md")) + sorted(d.rglob("*.yaml")):
             body = md.read_text(encoding="utf-8")

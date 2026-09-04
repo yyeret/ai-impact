@@ -44,8 +44,20 @@ git clone https://github.com/yyeret/ai-impact
 
 Point your agent at the folder, or copy the skills you want into wherever your
 harness keeps them — `~/.claude/skills/`, `~/.agents/skills/`, or the equivalent.
-Each skill is a single Markdown file, plus a `references/` folder it loads on
-demand for the larger ones. No install step, no dependencies, nothing to run.
+Each skill is a `SKILL.md`, plus for some a `references/` folder it loads on
+demand and an `agents/` folder holding config for a specific host (there is one,
+for an OpenAI-style agent). No install step, no dependencies, nothing to run.
+
+**Two shapes in here, deliberately.** `sniff-test`, `sniff-test-portfolio` and
+`outcome-framing-coach` are structured skill documents. The other four are the
+coaching prompts published alongside their articles, kept close to that wording
+on purpose — so what you install matches what you can read on the site and use in
+a plain chat window. If they read differently, that is why.
+
+**Before pointing one at anything confidential**, read [SECURITY.md](SECURITY.md)
+— short version: this repo runs nothing and sees nothing, but your agent will
+send whatever you give it to your model provider, and every skill also works as
+a plain interview with no data access at all.
 
 ## What's here
 
@@ -72,7 +84,10 @@ cannot say why.
 
 ## Running one
 
-They are conversational, not batch. The good ones want your real material:
+They are conversational, not batch, and they cost about what a good 1:1 costs:
+ten to twenty minutes for most, longer for `wip-limit-configuration-coach`, which
+works through a fifteen-question interview before it computes anything. The good
+ones want your real material:
 
 ```
 Use the sniff-test skill on the "Unified Billing" epic.

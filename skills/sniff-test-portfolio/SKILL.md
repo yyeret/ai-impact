@@ -84,5 +84,4 @@ by [Yuval Yeret](https://yuvalyeret.com), building on **Mark Richards'**
 portfolio-agility work and the **Lean Product Canvas** by **Jeff Gothelf and Josh
 Seiden**. Full credits and links to the originals: [CREDITS.md](../../CREDITS.md).
 
-This skill runs Yuval's questions, not his judgment. Its output is not his
-assessment of your situation, and it should not be presented as one.
+*These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*

@@ -180,5 +180,4 @@ what to do about what it shows. For what the terms actually mean, use the
 [Kanban Guide for Scrum Teams](https://www.scrum.org/resources/kanban-guide-scrum-teams)
 (short, free, co-authored by Yuval). See [CREDITS.md](../../CREDITS.md).
 
-This skill runs Yuval's questions, not his judgment. Its output is not his
-assessment of your situation, and it should not be presented as one.
+*These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*

@@ -67,5 +67,4 @@ Adapted from [Breaking the SAFe: Reclaiming Professional Scrum](https://yuvalyer
 Organizational AI Coaching. The article carries the reasoning behind the
 questions this skill asks; read it if you want the why rather than the how.
 
-This skill runs Yuval's questions, not his judgment. Its output is not his
-assessment of your situation, and it should not be presented as one.
+*These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*
