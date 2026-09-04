@@ -63,7 +63,7 @@ folder it loads on demand.
 | `yuval-ai-dlc-coach` | Coaching engineering and AI-enablement leaders through the AI development lifecycle |
 | `sdd-orchestrator` | Running spec-driven development so agents work against a real spec |
 | `descaling-experiment-coach` | A scaling framework was adopted with compromises that were meant to be temporary |
-| `earn-your-coordination-overhead` | An agentic SDLC has people asking whether the scaling apparatus is still needed, and you want to answer it mechanism by mechanism |
+| `scaled-agile-for-agentic-sdlc` | An agentic SDLC has people asking whether the scaled ways of working are still needed, and you want to answer it mechanism by mechanism |
 
 Several skills came from articles, and each one links back to the piece that
 explains the reasoning behind its questions.

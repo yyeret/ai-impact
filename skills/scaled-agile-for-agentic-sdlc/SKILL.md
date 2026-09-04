@@ -1,6 +1,6 @@
 ---
-name: earn-your-coordination-overhead
-description: Work out which of your scaled ways of working still earn their keep once agents write much of the code, and adjust the ones that do not. Inventories the coordination mechanisms you run, tests each against the problem it was bought to solve, decides whether human judgment belongs in the flow or on a cadence, and produces one experiment with a leading indicator. Use when an agentic SDLC has people asking whether the scaling apparatus is still needed.
+name: scaled-agile-for-agentic-sdlc
+description: Adapt your scaled agile ways of working for an agentic SDLC, deciding which coordination mechanisms still earn their keep once agents write much of the code. Inventories the events, boards, roles and gates you run, tests each against the problem it was bought to solve, decides whether human judgment belongs in the flow or on a cadence, and produces one experiment with a leading indicator. Use when adopting agentic engineering, spec-driven development or an AI SDLC raises the question of whether SAFe, LeSS, Nexus or your own scaling apparatus is still needed.
 metadata:
   version: 1.0.0
 ---
