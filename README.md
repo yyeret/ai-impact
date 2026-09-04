@@ -45,6 +45,7 @@ folder it loads on demand.
 | `sniff-test` | An initiative is heading for a commit decision and you want to know whether its clarity matches its stage |
 | `sniff-test-portfolio` | You are reading a whole board and want the patterns a single-initiative read cannot see — duplication, hidden WIP, risk balance |
 | `portfolio-to-product-shift-coach` | "We do product now" is claimed, but funding and governance still run by project |
+| `product-operating-model-audit` | You want to know how far the operating model has actually moved from project to product, across strategy, people, governance and the value cycle |
 
 **Making outcomes legible**
 
@@ -59,13 +60,18 @@ folder it loads on demand.
 
 | Skill | Use it when |
 |---|---|
+| `ai-traction-self-assessment` | There is a lot of AI activity and no defensible line from any of it to a business outcome |
+| `ai-fluency-self-assessment` | AI is clearly helping, the leverage has plateaued, and every session starts by re-explaining the same background |
 | `agility-ai-transformation` | Building the narrative from AI activity to business impact, without AI theater |
 | `yuval-ai-dlc-coach` | Coaching engineering and AI-enablement leaders through the AI development lifecycle |
 | `sdd-orchestrator` | Running spec-driven development so agents work against a real spec |
 | `descaling-experiment-coach` | A scaling framework was adopted with compromises that were meant to be temporary |
 
 Several skills came from articles, and each one links back to the piece that
-explains the reasoning behind its questions.
+explains the reasoning behind its questions. Others were extracted from the scorecards
+at [yeretagility.com](https://yeretagility.com) — [docs/scorecard-to-skill.md](docs/scorecard-to-skill.md)
+says what carries over from a scorecard to a skill, what gets thrown away, and what has
+to be added.
 
 ## Context for your agent
 
