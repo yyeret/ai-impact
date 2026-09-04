@@ -18,6 +18,7 @@ Act as a pragmatic flow coach. Help me choose actual starting numbers for active
 - Count the top-level feature/spec once throughout its flow. Agent tasks, worktrees, branches, pull requests, specialist personas, and outputs waiting for input are how that feature moves; they are not additional WIP items.
 - Keep upstream and downstream Ready queues visible and limited separately where useful, while allowing a combined `Ready + Active` limit around a constraint.
 - Treat human attention as the governing capacity. The human has one shared context across all the threads they are juggling, so every additional feature carries reorientation and quality cost even when every agent has its own context window.
+- **Blocked items keep their slot.** This is the rule that decides whether a limit does anything. The moment blocked work is exempted, the limit stops binding, nothing changes, and six weeks later the team concludes WIP limits do not work. The discomfort of a blocked item occupying a slot *is* the signal — the response is to go unblock it, or to pull it back and stop it, never to quietly stop counting it. If blocked work is so common that holding slots would gridlock the board, that is the finding: the constraint is upstream and no limit will fix it.
 - **Watch the denominator at the review constraint.** The counting rule above is stated in features, but review capacity is consumed in the artifacts a reviewer actually opens — pull requests. One feature can arrive as six PRs across four worktrees, so a review limit of "2 features" can mean a twelve-PR queue. Where review is the constraint, ask what a feature *lands as*, and set that stage's limit in the unit the reviewer actually handles. If a feature routinely fans out past three or four review artifacts, that is a batch-size problem to fix upstream, not a limit to raise.
 
 ## Interview sequence
@@ -65,7 +66,7 @@ For a solo practitioner, recommend `1 active feature` as the starting point. A s
 With no reliable history, take the active feature count you just identified and compare these combined active-plus-protective-buffer choices:
 
 1. **One extra slot**: the leanest practical buffer. For four active features, the combined limit is five. Favor fast replenishment and recovery, reliable flow, and expensive aging or delayed feedback. Risk: the constraint may starve during ordinary hiccups.
-2. **Half again**: balanced protection for moderate variability, dependencies, interrupts, or recovery time. For four active features, round `4 × 1.5` to a combined limit of six. Risk: some inventory may age without protecting the constraint.
+2. **Half again**: balanced protection for moderate variability, dependencies, interrupts, or recovery time. For four active features, `4 × 1.5` gives a combined limit of six. Risk: some inventory may age without protecting the constraint.
 3. **Twice the active work**: strongest heuristic protection. For four active features, the combined limit is eight. Favor slow replenishment/recovery, high variability, or very expensive constraint starvation. Risk: the largest queue, context load, aging, and feedback delay. Require a clear rope/pull rule.
 
 With meaningful data, also calculate:

@@ -15,8 +15,8 @@ initiative against the **Lean Product Canvas**: Business Problem, Business
 Outcomes, Users, User Outcomes & Benefits (JTBD), Solutions, Hypotheses, and the
 two learning questions — *what's the most important thing we need to learn
 first?* and *what's the least amount of work to learn it?* The hypothesis shape
-these skills use, *"we believe [business outcome] will be achieved if [user]
-attains [benefit] with [solution]"*, is the canvas's, and the outcome phrasing
+these skills use, *"we believe that [business outcome] will be achieved if [user]
+attains [benefit] with [feature]"*, is the canvas's verbatim, and the outcome phrasing
 *"who does what by how much"* is Gothelf and Seiden's.
 
 The canvas is theirs, evolved from the Lean UX Canvas. **It is not
@@ -125,6 +125,28 @@ that argument; half of it is his.
 
 - [Breaking the SAFe](https://yuvalyeret.com/scaling-ai-podcast/breaking-the-safe/) (season one)
 - Ryan Ripley, co-author of *Fixing Your Scrum*
+
+## Evidence-Based Management — Scrum.org
+
+`descaling-experiment-coach` invokes **Evidence-Based Management (EBM)** by name.
+EBM is Scrum.org's framework, originating with Ken Schwaber, and it organizes
+value measurement into four Key Value Areas: Current Value, Unrealized Value,
+Time-to-Market, and Ability to Innovate. The skill borrows the posture — steer on
+evidence of value, not on adherence — without teaching the framework. If you want
+EBM itself, get it from the source.
+
+- [Evidence-Based Management Guide](https://www.scrum.org/resources/evidence-based-management-guide) (Scrum.org)
+
+## Queueing and product development flow — Donald Reinertsen
+
+The argument that high utilization is what makes queues explode — used in
+`flow-metrics-self-assessment/references/jira-rovo-agent.md` to explain why a
+fully-loaded team delivers more slowly — is queueing theory (Kingman's formula)
+as it entered product development through **Donald Reinertsen's** *The Principles
+of Product Development Flow*. Cost of Delay and batch-size economics come from
+the same place.
+
+- *The Principles of Product Development Flow*, Donald G. Reinertsen
 
 ## Trademarks
 

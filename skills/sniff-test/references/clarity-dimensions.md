@@ -15,7 +15,7 @@ A sniff test rates clarity across two aligned layers: the **Lean Product Canvas*
 | **Business Outcomes** | How will we know we solved it? What will we measure? | Outcomes stated as activity or output; no measure; only lagging totals. |
 | **User Outcomes & Benefits (JTBD)** | Why would the user seek this out — what changes for them? | Benefit asserted with no job-to-be-done; internal convenience mistaken for user value. |
 | **Solutions** | What could we build or change that solves the problem and meets the users' needs? | A single pre-decided solution presented as the only option; ideas never compared or costed. |
-| **Hypotheses** | "We believe [business outcome] will be achieved if [user] attains [benefit] with [solution]." | No falsifiable hypothesis; a plan with no belief to test. A hypothesis that names a *feature* where the canvas asks for a *solution* — the slot is for the change you would make, not the thing you would build. |
+| **Hypotheses** | "We believe that [business outcome] will be achieved if [user] attains [benefit] with [feature]." — the canvas's wording, and it deliberately wants one feature per hypothesis. | No falsifiable hypothesis; a plan with no belief to test; one hypothesis bundling several features so nothing can be falsified separately. |
 | **Questions / Assumptions & Learning Priorities** | What's most important to learn first, and how cheaply? | No riskiest-assumption call-out; a learning plan that validates the already-known. |
 
 ## Layer 2 — DVF risk lens (the Discovery assumption set)

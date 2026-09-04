@@ -4,7 +4,7 @@ A sniff test asks not only "do we have enough clarity for the stage?" but "**is 
 
 ## The Risk/Derisking Matrix — match the approach to the risk
 
-Map the initiative by **risk level** (Low / Medium / High / Potential) against **knowledge** (Desirability / Viability / Feasibility), then pick a proportionate approach. Over-investing in discovery for a low-risk item wastes scarce enterprise capacity; under-investing on a high-risk Tier-1 bet burns money on the wrong thing.
+Map the initiative by **risk level** (Low / Medium / High) against **knowledge** (Desirability / Viability / Feasibility), then pick a proportionate approach. Over-investing in discovery for a low-risk item wastes scarce enterprise capacity; under-investing on a high-risk Tier-1 bet burns money on the wrong thing.
 
 | Risk level | Approach | When it fits |
 |---|---|---|
@@ -43,7 +43,8 @@ All three are hard — which is why teams default to easier-but-useless proxies.
 | **Outcome** | A new/improved capability the user experiences | user can save/earn more than before |
 | **Impact** | Results the org/investors achieve when users reach their outcomes | revenue, profit, market share |
 
-- **Impact/Outcome = high certainty, lagging.** You know for sure you achieved the result — but only after the fact.
+- **Outcome = the steerable one.** Someone doing something differently is observable well before the money lands, which is exactly why it is worth framing work at this level. Treat it as the leading edge of evidence, not as confirmation.
+- **Impact = high certainty, lagging.** You know for sure you achieved the business result — but only after the fact, when it is too late to steer.
 - **Input/Activity/Output = fast feedback, weak signal.** Quick to read, but what do they really say about progress toward the result?
 - **Goldilocks zone**: a leading indicator that gives feedback within a *reasonable time frame* **and** has *reasonable correlation* to the desired result. Aim here. Think **OMTM** (One Metric That Matters) for the current riskiest assumption.
 

@@ -29,21 +29,23 @@ Take the one real initiative I gave you and score it against these three criteri
 - **Strategic opportunity/risk**
 - **Level of cross-product collaboration needed**
 
-Add the three numbers:
+Do not add the three numbers. Summing ordinals lets one maxed dimension get
+washed out by two low ones — a very large but low-risk, low-dependency investment
+scores 3+1+1=5 and reads as "maybe," when the money alone makes it a portfolio
+decision. Read them individually instead:
 
-- **3-4:** this probably should NOT be a portfolio-level card: push the decision down to the product team.
-- **5-6:** worth a conversation about whether to track it at the portfolio level at all.
-- **7-9:** this legitimately belongs at the portfolio level.
+- **Portfolio level** if any one dimension is a 3, or if two are 2 or more.
+- **Push it down to the product team** otherwise.
 
-**Override, and apply it before you read the total: any single dimension at 3
-puts the item on the portfolio board regardless of the sum.** Adding three
-ordinals lets one maxed dimension get washed out by two low ones — a very large
-but low-risk, low-dependency investment scores 3+1+1=5 and reads as "maybe," when
-the money alone makes it a portfolio decision. The sum is a conversation starter,
-not an algorithm; when the override and the total disagree, say so and let the
-disagreement be the conversation.
+These are deliberately the same thresholds `sniff-test` uses for Tier-1 versus
+Tier-2, so the two skills cannot return opposite verdicts on the same initiative.
+If the organization has its own criteria, use those and say which you used.
 
-Tell me the score and what it implies. If most of what I describe scores 7-9, flag that as a signal, not a compliment: it usually means dependencies aren't localized yet.
+Tell me which dimensions drove the answer, not a score — "this is portfolio-level
+because the cross-product collaboration is a 3" is a sentence someone can argue
+with, and a 7 is not. If most of what I describe comes out portfolio-level, flag
+that as a signal rather than a compliment: it usually means dependencies aren't
+localized yet.
 
 #### Phase 2: Locate the real gap
 
