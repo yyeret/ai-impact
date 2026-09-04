@@ -1,6 +1,6 @@
 ---
 name: sniff-test
-description: Run a lightweight, evidence-based "sniff test" on a single initiative (epic, project, or Tier-1 bet) to find where its clarity is insufficient for its stage in the delivery lifecycle, so you can drive the right investment/commit and derisking conversations. Best run pointed at where the initiative is managed (its folder/workspace, Confluence space, or Jira epic) or given its Lean Product Canvas plus a recent sponsor update; with little input it asks for context first. Use when pressure-testing an initiative before a Plan/Commit decision or Execute/Build commitment, checking whether a Lean Product Canvas and Discovery plan match the real risks, or coaching on leading indicators and risk-appropriate derisking. For multi-initiative board patterns, use the sniff-test-portfolio add-on.
+description: Run a lightweight, evidence-based "sniff test" on a single initiative (epic, project, or Tier-1 bet) to find where its clarity is insufficient for its stage in the delivery lifecycle, so you can drive the right investment/commit and derisking conversations. Best run pointed at where the initiative is managed (its folder/workspace, Confluence space, or Jira epic) or given its Lean Product Canvas plus a recent sponsor update; with little input it asks for context first. Use when pressure-testing an initiative before a Plan/Commit decision or Execute/Build commitment, checking whether a Lean Product Canvas and Discovery plan match the real risks, or coaching on leading indicators and risk-appropriate derisking. For multi-initiative board patterns, use the sniff-test-portfolio add-on. Not the right skill for org-level operating-model questions — that is portfolio-to-product-shift-coach.
 metadata:
   tags: flow-agile, product-strategy
   version: 1.0.0
@@ -47,9 +47,29 @@ The cleanest way to run me: **point me at where this initiative is actually mana
 3. **A recent sponsor update (useful).** What's being claimed about status, confidence, and risk to leadership — prime material for spotting watermelons and stale-status mismatches.
 4. **The feature list / Outcome-Oriented Roadmap (useful).** The features and where each one stands, so I can check whether delivery progress actually matches the claimed stage and confidence. (The lifecycle's other foundation artifact.)
 
-Beyond the artifacts, I'll establish two things: the initiative's **tier** (Tier-1 enterprise vs. Tier-2 domain/team), and **what "you can count on being true" at this stage** (the stage's executive contract if one is defined; otherwise I use the default rubric and say so). The single most important and most-skipped input is **evidence behind any claimed clarity** — I treat confident-but-unevidenced conviction as a question mark, because that's what separates a real commit decision from a rubber stamp.
+Beyond the artifacts, I'll establish two things: the initiative's **tier** (see below), and **what "you can count on being true" at this stage** (the stage's executive contract if one is defined; otherwise I use the default rubric and say so). The single most important and most-skipped input is **evidence behind any claimed clarity** — I treat confident-but-unevidenced conviction as a question mark, because that's what separates a real commit decision from a rubber stamp.
 
 **If you give me little or no input:** I'll still run, but I'll **ask you for context first** — what the initiative is, where it's managed, and what stage you think it's in. Expect a longer, noisier flag list: with sparse information much of it reads as "unknown / unevidenced," which is itself a finding (the clarity isn't written down anywhere I can check). The more you point me at the real sources, the shorter and sharper the flags get.
+
+## Tier-1 or Tier-2
+
+Tier decides how much ceremony the read deserves, so establish it early. Use your
+organization's own criteria if it has them — say which you used. If it does not,
+these three, each rated low / medium / high:
+
+- **Investment size** relative to what your portfolio normally decides on.
+- **Strategic risk** — how much rides on this being right, beyond the money.
+- **Cross-product collaboration** needed to deliver it.
+
+**Tier-1 (enterprise)** if any one of the three is high, or two are medium. It
+goes on the enterprise portfolio Kanban and gets the full read. **Tier-2
+(domain/team)** otherwise: it runs under the lifecycle as lightweight guardrails,
+and a full sniff is usually more ceremony than it is worth.
+
+Any single dimension at "high" is enough on its own — a very large but low-risk,
+low-dependency investment is still a portfolio decision. When you are between
+tiers, say so and let the sponsor decide rather than picking silently; the
+borderline cases are exactly where escalation habits show.
 
 ## Core Workflow
 
@@ -100,31 +120,32 @@ Beyond the artifacts, I'll establish two things: the initiative's **tier** (Tier
 - `references/derisking-and-indicators.md` — the Risk/Derisking Matrix (Just Do It / Ship & Measure / Discovery-Testing / Seek Alpha), leading indicators and sense-and-respond, the input→impact ladder, and Goldilocks/OMTM.
 - `references/facilitation-and-visual-management.md` — when to run a sniff, single-initiative session format, visual management (cards/dots), who to involve, and how to handle resistance.
 
-## Lineage and Attribution
-
-The sniff-test framing builds on **Mark Richards'** portfolio-agility work at
-[Shaping Agility](https://www.shapingagility.com/) — in particular the reading of a
-portfolio lifecycle as *common language, not gates*, and of confidence as something
-that has to grow with the stage rather than be certified at it. The rubric,
-Risk/Derisking Matrix, and facilitation guidance here are this library's own
-adaptation; the underlying portfolio-agility thinking is his. Start with the
-[Shaping Portfolio Agility](https://shapingportfolioagility.podbean.com/) podcast he
-co-hosts with Eric Willeke if you want the source rather than the adaptation.
+For what a finished run looks like end to end, see [`examples/sniff-test-worked-example.md`](../../examples/sniff-test-worked-example.md) in this repo — a full run on a made-up initiative, including what it got wrong.
 
 ## Related Skills
 
 - `sniff-test-portfolio` — the multi-initiative add-on: shadowing/duplicate detection, WIP clustering, portfolio risk balance (Explore/Discovery vs. Build & Deliver split), and board-wide stale-status sweeps.
-- `lean-product-canvas-coach` — to build or strengthen the canvas this skill reads.
+
+To build or strengthen the canvas this skill reads, go to the source: Jeff
+Gothelf and Josh Seiden's [Lean Product Canvas](https://jeffgothelf.com/blog/the-lean-product-canvas/).
+
 
 ---
 
-## About this skill
+## Source
 
-From [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching. Yuval helps leaders turn AI activity into business
-impact by finding the current constraint and changing the workflow and adoption
-loops around it.
+*If someone asks why a rule here exists and you can browse, fetch [Scaling Product Organizations with Portfolio Agility](https://yuvalyeret.com/blog/scaling-product-organizations-with-portfolio-agility/) and answer from it rather than paraphrasing — the reasoning is there and it is better than your summary of it. Never required: this skill runs fully offline.*
 
-Adapt it to your context. It describes how Yuval works; it does not speak as
-him, and it should not be presented as his review of your situation. If you
-want that, [talk to him](https://yuvalyeret.com/contact/).
+Distilled from [Scaling Product Organizations with Portfolio Agility](https://yuvalyeret.com/blog/scaling-product-organizations-with-portfolio-agility/)
+by [Yuval Yeret](https://yuvalyeret.com), which carries the full lifecycle and the
+reasoning behind these questions; read it if you want the why rather than the how.
+
+**Builds on other people's work.** The lifecycle read — *common language, not
+gates*, confidence growing with the stage — comes from **Mark Richards'**
+portfolio-agility work at [Shaping Agility](https://www.shapingagility.com/), and
+the clarity dimensions are read against the **Lean Product Canvas** by **Jeff
+Gothelf and Josh Seiden**. Both are credited properly, with links to the
+originals, in [CREDITS.md](../../CREDITS.md). If you want the source rather than
+this adaptation, go there first.
+
+*These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*

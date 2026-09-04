@@ -21,13 +21,24 @@ Preferred shape:
 
 Alternative OKR-style shape:
 
-`[Who] will be able to [do what], resulting in [measurable change].`
+`[Who] [does what, observably] [how much or how often], driving [business result].`
+
+**Careful with "will be able to" — it does two different jobs here.** In the
+*ask* above it is doing useful work: "we need partners to be able to integrate
+in under an hour" names a need without prescribing how to meet it, which is the
+whole point of the rewrite. But it cannot be the *measure*. A capability nobody
+uses is still an output — the sentence stays true on launch day with zero users.
+So state the need as a capability if that reads naturally, and then state the
+success condition as behaviour: not "partners will be able to self-serve" but
+"partners self-serve on 70% of new integrations." The parent skill's taxonomy
+classifies a bare "will be able to" title as Output, and it is right to.
 
 ## Rewrite Checklist
 
 Make sure the rewrite:
 - names the problem first
-- states the outcome or impact
+- states the outcome as an observable change in what someone does, at a stated
+  rate — not merely a capability they would gain
 - includes a time or scale signal if known
 - avoids locking the team into one tactic too early
 - explicitly invites the team to shape the how
@@ -41,7 +52,7 @@ Coach it like this:
 - `This is a prescriptive output. You're telling them what to build, not why.`
 
 Rewrite:
-`Team, our new strategic partners are currently blocked from self-serving, and that is driving manual onboarding cost and delay. We need partners to be able to integrate with our platform in under an hour, resulting in an 80% reduction in onboarding effort and faster time-to-value. What's the best way to achieve that?`
+`Team, our new strategic partners are currently blocked from self-serving, and that is driving manual onboarding cost and delay. We need partners to be able to integrate with our platform in under an hour, so that most new partners are live without touching our onboarding team — today none are. What's the best way to achieve that?`
 
 ## Example 2
 
@@ -63,7 +74,7 @@ Coach it like this:
 - `This is a drive-by directive. It'll get heard as a command.`
 
 Rewrite:
-`Context: CS is flying blind on user engagement. Problem: they cannot proactively identify at-risk accounts. Outcome: they need a way to see the top 3-5 health metrics for key customers so they can intervene earlier. A dashboard is one idea, but you have more context. What do you think is the best path forward?`
+`Context: CS is flying blind on user engagement. Problem: they cannot proactively identify at-risk accounts. Outcome: CSMs reach out to at-risk accounts before renewal rather than after — today that is near zero, and we want it to be the majority of at-risk renewals next quarter. A dashboard is one idea, but you have more context. What do you think is the best path forward?`
 
 ## Output Template
 

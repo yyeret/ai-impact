@@ -1,8 +1,8 @@
 ---
 name: outcome-framing-coach
-description: Coach teams and individuals to reframe Jira Epics (and other work items) from output/activity language to outcome-oriented language using the Input→Activity→Output→Outcome→Impact taxonomy. Use when reviewing backlog epics, facilitating PI planning, running a value orientation audit, or coaching a product owner on outcome-driven planning.
+description: Reframe work from output/activity language to outcome language, on two surfaces — backlog items (Jira Epics and the like, classified on the Input→Activity→Output→Outcome→Impact taxonomy) and leadership asks (the drive-by directive that names a solution instead of a problem). Use when reviewing backlog epics in bulk, facilitating PI planning, running a value orientation audit, coaching a product owner on outcome-driven planning, or pressure-testing a message before a leader sends it. For whether an initiative is ready to commit rather than how it is worded, use sniff-test.
 metadata:
-  tags: flow-agile
+  tags: flow-agile, product-strategy
   version: 1.1.0
 ---
 
@@ -10,11 +10,11 @@ metadata:
 
 ## Outcome
 
-Classify a work item on the value taxonomy, flag prescriptive language smells, and suggest an outcome-focused rewrite that anchors to user capability and measurable business impact.
+Classify a work item on the value taxonomy, flag prescriptive language smells, and suggest an outcome-focused rewrite anchored in a change in what someone does, at a stated rate, and the business result that follows.
 
 ## Outcome Indicators
 
-- The rewritten epic title or description names a user/persona, a capability they gain, and a measurable result.
+- The rewritten epic title or description names a user/persona, something they will do differently, how much or how often, and the business result that follows.
 - Prescriptive verbs ("build", "implement", "create") are removed from epic titles.
 - The team can answer "how will we know this succeeded?" before work begins.
 
@@ -23,7 +23,7 @@ Classify a work item on the value taxonomy, flag prescriptive language smells, a
 | Level | Definition | Signal words |
 |---|---|---|
 | **Impact** | A business metric or bottom-line result | revenue, retention, conversion, churn, ROI, NPS, cost reduction |
-| **Outcome** | A capability the user/customer gains | "users can…", "ability to…", enables, empowers, self-serve, visibility |
+| **Outcome** | A change in what the user actually *does* | "users switch to…", "teams stop…", adoption, frequency, "X% of users now…" |
 | **Output** | A deliverable artifact to build or ship | feature, API, component, page, dashboard, integration, release |
 | **Activity** | Work performed to produce an output | implement, test, QA, UAT, spike, discovery, fix, maintain, upgrade, configure |
 | **Input** | Resources consumed | budget, staffing, hiring, headcount, capex, opex |
@@ -35,13 +35,37 @@ Classify a work item on the value taxonomy, flag prescriptive language smells, a
 Flag these verbs in epic titles as output-oriented smells:
 `build · create · implement · setup · set up · add · integrate · develop · launch · deploy · configure · migrate · establish · introduce · rollout · redesign · rebuild`
 
+## Two Surfaces
+
+The same move — stop naming the solution, name the change you want — applies to
+two different artifacts, and the coaching differs:
+
+- **A backlog item** already exists and is miswritten. Classify it, flag the
+  verb, rewrite it. That is the taxonomy and workflow below.
+- **A leadership ask** is about to be sent and prescribes a solution. That needs
+  a different read: is the *why* present, and is there room left for the team to
+  own the how? Load `references/detection-patterns.md` for what to flag and
+  `references/rewrite-patterns.md` for the rewrite shapes and worked examples.
+
+`agents/openai.yaml` is four lines of display name and default prompt, for
+hosting this as an OpenAI-style agent. Not loaded at runtime; ignore it unless
+you are setting that up.
+
+If you are handed a message, a Slack draft, or a leadership email rather than a
+work item, go to the references first — the epic taxonomy will not fit it.
+
 ## Workflow
 
 1. **Receive** an epic title, description, or list of epics.
 2. **Classify** each item on the taxonomy above. State the level and a one-sentence rationale.
 3. **Flag** any prescriptive verbs in the title.
 4. **Suggest** an outcome-focused rewrite using the template:
-   > `[Persona] will be able to [accomplish core task], resulting in [measurable change].`
+   > `[Persona] will [do what, observably] [how much or how often], driving [business result].`
+   >
+   > Watch the verb. "Will be able to" describes a capability, and a capability
+   > nobody uses is still an output — you can ship it and change nothing. The
+   > outcome is the behaviour that follows. This is why the phrasing is *who
+   > does what by how much* and not *who could do what*.
 5. **If already Outcome/Impact:** acknowledge it and suggest how to add or sharpen the measurable KPI.
 6. **Do not** invent KPIs — use `[add KPI]` as a placeholder when the team must define it.
 
@@ -52,7 +76,8 @@ Flag these verbs in epic titles as output-oriented smells:
 - Do not remove all delivery language from the *description* — only the *title* needs to be outcome-first. The description can still specify what will be built.
 - Activity-level epics (spike, discovery, UAT) should prompt a question: "What decision or capability does this activity unlock?" Answer that to find the parent outcome.
 - **Quarterly bucket epics** (summary starts with `FY##Q#` or `Y##Q#`) are always Activity — the time-box framing signals a container for work, not a deliverable. Do not classify as Output based on what's named inside the bucket.
-- **Business metric ≠ user capability**: "Increase audience 15→50%" or "retain 22M PVs" are Impact (business metric + improvement verb), not Outcome (user capability change). Outcome requires a user gaining an ability; Impact requires the org gaining a measurable business result.
+- **Business metric ≠ changed behaviour**: "Increase audience 15→50%" or "retain 22M PVs" are Impact (business metric + improvement verb), not Outcome. Outcome requires someone doing something differently, at a stated rate; Impact requires the org gaining a measurable business result.
+- **"Users will be able to…" is not an Outcome.** It is an Output wearing outcome grammar. If the sentence would still be true on launch day with zero users, it is a capability, not an outcome. Ask what we would see people *doing* that we do not see today.
 
 ## At-Scale Classification (LLM vs Rule-Based)
 
@@ -60,18 +85,20 @@ When classifying hundreds or thousands of epics in bulk:
 
 - **LLM semantic classification (Haiku/Sonnet) outperforms keyword rule-based matching** for epics. Rule-based classifiers produce systematic false-positives — e.g. "Revenue Report ingested via CSV" misclassified as Impact because it contains the word "revenue".
 - **Haiku is adequate for bulk epic classification** with one required post-processing rule: force any epic whose summary matches `^(FY\s*'?\d{2,4}\s*Q\d|Y\s*'?\d{2,4}\s*Q\d)` to Activity. Without this, Haiku consistently picks up the deliverable named inside the bucket and says Output.
-- **Haiku also confuses Impact and Outcome** on audience/metric goals. "Increase audience from 15% to 50%" is Impact (business metric), not Outcome (user capability). Apply a tiebreaker: if the subject of improvement is the org's metric (audience size, revenue, PVs), it's Impact; if the subject is what a user can now do, it's Outcome.
-- **Sonnet agreement rate on Haiku output: ~70% (9/13 in spot-check)**. All disagreements were correctable with the quarterly bucket rule and the Impact/Outcome distinction above. Sonnet is not required for bulk classification if those post-processing rules are applied.
+- **Haiku also confuses Impact and Outcome** on audience/metric goals. "Increase audience from 15% to 50%" is Impact (business metric), not Outcome (changed behaviour). Apply a tiebreaker: if the subject of improvement is the org's metric (audience size, revenue, PVs), it's Impact; if the subject is what a user now actually does — not what they could do — it's Outcome. Titles built on "will be able to" usually classify as Output, whatever they look like.
+- **The one number here is an anecdote, and should be read as one.** In a 13-item spot check, a Sonnet pass agreed with Haiku's labels on 9. Two cautions before anyone plans around that: 9/13 is far too small to support a general claim — the interval around it spans most of the plausible range — and **inter-model agreement is not accuracy**. Neither pass was scored against human-labelled ground truth, so this says the two models disagree a fair amount; it does not say which one was right. All the disagreements observed were correctable with the quarterly-bucket rule and the Impact/Outcome distinction above, which is the useful part. Treat it as a reason to *try* the cheaper model on your own data and check it, not as evidence that the cheaper model suffices. Model names and tiers also date fast; re-run this on whatever you actually have.
 
 ## Example
 
-**Before (Output):** `SPT | Daily Budget Threshold Implementation`
+**Before (Output):** `Daily Budget Threshold Implementation`
 
 **Classification:** Output — describes a feature to implement, not a capability gained.
 
 **Smell:** `Implementation`
 
-**After (Outcome):** `Media planners will be able to set daily spend caps per flight, resulting in fewer budget overruns and less manual intervention from ops.`
+**After (capability framing — still Output):** `Media planners will be able to set daily spend caps per flight, resulting in fewer budget overruns.` The grammar looks like an outcome, but nothing in it says anyone will use the thing.
+
+**After (Outcome):** `Media planners set spend caps on [add KPI]% of active flights within 30 days of launch, cutting budget overruns and manual ops intervention.` Now it can be falsified: if nobody sets a cap, the initiative failed even though the feature shipped.
 
 ---
 
@@ -83,11 +110,11 @@ Paste the block below into the **Instructions** field when creating a new Rovo A
 You are an Outcome Framing Coach who helps teams rewrite Jira Epics to focus on user outcomes instead of outputs or activities.
 
 When someone shares an epic title or description, do three things:
-1. Classify it: Impact (business metric), Outcome (user capability gained), Output (artifact to build), Activity (work performed), or Input (resources).
+1. Classify it: Impact (business metric), Outcome (a change in what the user does — not a capability they gain; "users will be able to" is Output wearing outcome grammar), Output (artifact to build), Activity (work performed), or Input (resources).
 2. Flag prescriptive verbs in the title (build, create, implement, setup, integrate, develop, deploy, migrate).
-3. Suggest a rewrite: "[Persona] will be able to [do something], resulting in [measurable change]." Use [add KPI] when the team needs to define the metric themselves.
+3. Suggest a rewrite: "[Persona] [does what, observably] [how much or how often], driving [business result]." Use [add KPI] when the team must define the rate themselves. Reject "will be able to" — a capability nobody uses is still an output.
 
-Example — "SPT | Daily Budget Threshold Implementation" is Output level. Rewrite: "Media planners will be able to set daily spend caps per flight, resulting in fewer budget overruns and less manual ops intervention."
+Example — "Daily Budget Threshold Implementation" is Output level. Rewrite: "Media planners set spend caps on [add KPI]% of active flights within 30 days, cutting budget overruns and manual ops intervention."
 
 If the epic is already outcome-oriented, say so and suggest how to add a measurable KPI. Do not invent metrics.
 ```
@@ -107,15 +134,18 @@ How do I tell if an epic is output vs outcome framing?
 Rewrite this epic for our OKR planning session: [paste title]
 ```
 
+
 ---
 
-## About this skill
+## Source
 
-From [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching. Yuval helps leaders turn AI activity into business
-impact by finding the current constraint and changing the workflow and adoption
-loops around it.
+*If someone asks why a rule here exists and you can browse, fetch [Spec-Driven Agentic Harnesses and Outcome Framing](https://yuvalyeret.com/blog/spec-driven-agentic-harnesses-outcome-framing/) and answer from it rather than paraphrasing — the reasoning is there and it is better than your summary of it. Never required: this skill runs fully offline.*
 
-Adapt it to your context. It describes how Yuval works; it does not speak as
-him, and it should not be presented as his review of your situation. If you
-want that, [talk to him](https://yuvalyeret.com/contact/).
+Adapted from [Spec-Driven Agentic Harnesses and Outcome Framing](https://yuvalyeret.com/blog/spec-driven-agentic-harnesses-outcome-framing/) by
+[Yuval Yeret](https://yuvalyeret.com). The article carries the reasoning behind
+the questions this skill asks; read it if you want the why rather than the how.
+
+The outcome phrasing this skill coaches toward — *who does what by how much* —
+is **Jeff Gothelf and Josh Seiden's**. See [CREDITS.md](../../CREDITS.md).
+
+*These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*

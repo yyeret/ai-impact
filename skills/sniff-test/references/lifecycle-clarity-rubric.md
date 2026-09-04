@@ -4,6 +4,20 @@ The purpose of a sniff test: **find where an initiative's clarity is insufficien
 
 > **Verify the stage first.** Don't trust the status label — corroborate it against evidence (downstream artifacts, shipped output, go-live state, git history, decision records). A stale label can invalidate the whole clarity-vs-stage read and is often the highest-signal finding. See the main skill's "Stage Is a Required, Verified Input."
 
+**These stage names and artifacts are one shape, not the shape.** The rubric below
+names stages ("Explore", "Plan / Commit"), review points ("Direction Review") and
+artifacts ("Target Initiative Completion Date", "Outcome-Oriented Roadmap") the
+way one enterprise lifecycle does. **Yours will call them something else, or will
+not have them at all.** Read them as *the kind of thing that happens here*, map
+them onto whatever your organization actually calls it, and say in your output
+which local artifact you mapped each one to. Do not tell a team they are missing
+a "Direction Review" — ask who signs off on direction, and when.
+
+Abbreviations used below: **EA** enterprise architecture, **IS** information
+security, **UAT** user acceptance testing, **DVF** desirability/viability/feasibility,
+**BAU** business as usual.
+
+
 ## Lifecycle stages
 
 The lifecycle is two macro-phases — **Explore & Define** (framing, testing assumptions) and **Build & Deliver** (delivering, realizing value) — then **BAU**:
@@ -21,7 +35,7 @@ Key principles that shape the read:
 ## Expected clarity, "what you can count on," smells, and watermelon risk by stage
 
 ### Explore  *(Explore & Define)*
-- **Expected**: Framing the problem — "is this worth investigating?" A **Lightweight Product Canvas** takes shape (problem, research of solutions and value, resources/topology for the next phase). Significant uncertainty is normal. EA gets a Direction Review based on Explore insights.
+- **Expected**: Framing the problem — "is this worth investigating?" An early, deliberately thin **Lean Product Canvas** takes shape (problem, research of solutions and value, resources/topology for the next phase). Significant uncertainty is normal. EA gets a Direction Review based on Explore insights.
 - **What you can count on**: There's a real, framed problem worth investigating — not just a solution someone wants built. Marks the Explore/Define completion view.
 - **Smell**: Solution-first framing with no problem/outcome; suspiciously high early clarity with no evidence (a watermelon in the making).
 - **Conversation**: What's the riskiest assumption, and is this even worth investigating further?

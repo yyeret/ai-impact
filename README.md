@@ -1,91 +1,191 @@
 # ai-impact
 
-Skills you install into your own AI agent, for the work of turning AI activity
-into business impact.
+**Scaling AI activity into business impact — as thinking tools your own AI agent
+runs with you, on your real portfolio, in the tooling you already use.**
+
+Some are reflection: noticing what hardened into a constraint while nobody was
+looking. Some are working a number through until it fits your system instead of a
+formula. Some are diagnosis: reading an initiative's clarity against the stage it
+claims. All of them ask rather than answer.
 
 By [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
 Organizational AI Coaching.
 
-## What this is
+## The problem these exist for
 
-Most organizations running AI pilots have more activity than evidence. There
-are demos, a committee, a few teams shipping faster, and no clear line from any
-of it to a business outcome anyone would defend in a budget conversation.
+Most organizations running AI pilots have more activity than evidence. There are
+demos, a committee, a few teams shipping faster, and no clear line from any of it
+to a business outcome anyone would defend in a budget conversation.
 
-These are the diagnostics and coaches Yuval uses on that problem, packaged so
-your agent can run them. They ask questions rather than hand you a framework:
-where the constraint actually sits, whether an initiative has enough clarity
-for the stage it claims, what a starting WIP limit should be when agents write
-much of the code, whether flow metrics would tell you anything you would act on.
+The gap is rarely the technology. It is that nobody can say which initiative is
+actually ready to commit to, where the constraint has moved now that code is
+cheap, or what would have to change for the next quarter's spend to be
+defensible. Those are answerable questions. They just require someone to ask them
+properly, against your real material, and to not flinch at the answer.
 
-They are meant to be run against your real situation, with your real data, in
-your own tooling. That is deliberate — a hosted chatbot that answers about
-Yuval is less useful than something that works inside the loop you already run.
+That asking is what these skills do — and asking well is most of the work. A good
+run is closer to a hard conversation with someone who knows your context than to
+a report landing in your inbox.
+
+## The job you are hiring this for
+
+Pick the row that sounds like your week. If none of them do, this probably is not
+for you, and that is a fine outcome to reach in thirty seconds.
+
+| When you are stuck on | Run | You end up with |
+|---|---|---|
+| "We commit budget in three weeks and I don't know if this initiative is really ready" | [`sniff-test`](skills/sniff-test/) | Where clarity is thin *for the stage it claims*, whether the status label survives contact with the evidence, and the one conversation to have before the money moves |
+| "I inherited this board and I can't see the patterns in it" | [`sniff-test-portfolio`](skills/sniff-test-portfolio/) | Duplicated bets, hidden WIP, whether the risk balance is intentional, and what to raise at the next review |
+| "We say we're product-led but funding still runs by project" | [`portfolio-to-product-shift-coach`](skills/portfolio-to-product-shift-coach/) | Where you actually sit, which of five gaps is binding, and one experiment for the next month |
+| "Our epics are written as output and nobody can say what would change if they shipped" | [`outcome-framing-coach`](skills/outcome-framing-coach/) | Each item classified, the prescriptive verbs flagged, and rewrites stated as behaviour someone can falsify |
+| "Delivery feels slow and I can't say why" | [`flow-metrics-self-assessment`](skills/flow-metrics-self-assessment/) | Whether flow metrics would tell you anything you would act on — and which one to start with, or a clear no |
+| "Agents write most of our code and our WIP limits stopped meaning anything" | [`wip-limit-configuration-coach`](skills/wip-limit-configuration-coach/) | Starting numbers derived from your actual constraint, with the arithmetic shown and the traps named |
+| "We adopted a scaling framework and its temporary compromises never got revisited" | [`descaling-experiment-coach`](skills/descaling-experiment-coach/) | Which concession hardened into a constraint, and one small experiment against it |
+
+**The common shape:** each one ends in a conversation to have or an experiment to
+run in the next two to four weeks, with a leading indicator you could actually
+watch. None of them ends in a score.
+
+## How they work
+
+They are mostly questions, run as a conversation — your agent asks one or two at
+a time and follows what you say, rather than dumping a survey. What that
+conversation is doing varies:
+
+- **Reflection.** `descaling-experiment-coach` and `portfolio-to-product-shift-coach`
+  mostly help you see your own situation clearly — which compromise hardened, where
+  you actually sit — before anyone proposes anything.
+- **Thinking a thing through.** `wip-limit-configuration-coach` deliberately
+  refuses to hand you a formula. It walks you to a number that fits your system and
+  makes you able to defend it, which is the part that survives after the run.
+- **Diagnosis.** `sniff-test` and `sniff-test-portfolio` do read your material and
+  come back with findings — the closest thing here to an assessment.
+
+Most runs are some of each. Some carry a rubric behind the questions, because you
+cannot judge clarity against a stage without saying what the stages are. Where they do, they say the shape is one shape and not
+the shape, and tell you to map it onto whatever your organization actually calls
+things.
+
+They are meant to run against your real situation, with your real data, in your
+own tooling. That is deliberate — a hosted chatbot that answers questions about
+me is less useful than something that works inside the loop you already run.
+
+**What they are not:** a maturity model, a scoring rubric to send upward, or a
+substitute for knowing your own organization. Every one of them can be argued
+with, and the good runs usually involve arguing.
 
 ## Install
 
-Skills follow the standard `skills/<name>/SKILL.md` layout, so most agent
-tooling picks them up directly.
+**As a Claude Code plugin:**
+
+```
+/plugin marketplace add yyeret/ai-impact
+/plugin install ai-impact@ai-impact
+```
+
+**Anywhere else.** Skills follow the standard `skills/<name>/SKILL.md` layout, so
+most agent tooling picks them up directly:
 
 ```bash
 git clone https://github.com/yyeret/ai-impact
 ```
 
 Point your agent at the folder, or copy the skills you want into wherever your
-harness keeps them — `~/.claude/skills/`, `~/.agents/skills/`, or the
-equivalent. Each skill is a single Markdown file plus, for some, a `references/`
-folder it loads on demand.
+harness keeps them — `~/.claude/skills/`, `~/.agents/skills/`, or the equivalent.
+Each skill is a `SKILL.md`, plus for some a `references/` folder it loads on
+demand and an `agents/` folder holding config for a specific host (there is one,
+for an OpenAI-style agent). No install step, no dependencies, nothing to run.
 
-## What's here
+**Two shapes in here, deliberately.** `sniff-test`, `sniff-test-portfolio` and
+`outcome-framing-coach` are structured skill documents. The other four are the
+coaching prompts published alongside their articles, kept close to that wording
+on purpose — so what you install matches what you can read on the site and use in
+a plain chat window. If they read differently, that is why.
 
-**Diagnosing where you actually are**
+**Before pointing one at anything confidential**, read [SECURITY.md](SECURITY.md)
+— short version: this repo runs nothing and sees nothing, but your agent will
+send whatever you give it to your model provider, and every skill also works as
+a plain interview with no data access at all.
 
-| Skill | Use it when |
-|---|---|
-| `sniff-test` | An initiative is heading for a commit decision and you want to know whether its clarity matches its stage |
-| `sniff-test-portfolio` | You are reading a whole board and want the patterns a single-initiative read cannot see — duplication, hidden WIP, risk balance |
-| `portfolio-to-product-shift-coach` | "We do product now" is claimed, but funding and governance still run by project |
+## Where to start
 
-**Making outcomes legible**
+`sniff-test` if you have one initiative you are unsure about. `outcome-framing-coach`
+if you want the cheapest possible first run — paste a dozen epic titles and see
+what comes back. `flow-metrics-self-assessment` if the problem is that delivery
+feels slow and you cannot say why.
 
-| Skill | Use it when |
-|---|---|
-| `outcome-framing-coach` | Epics are written as output and nobody can say what would change if they shipped |
-| `flow-coaching` | You want flow to be visible and steerable rather than reported |
-| `flow-metrics-self-assessment` | Before adopting flow metrics, to decide whether they would tell you anything you would act on |
-| `wip-limit-configuration-coach` | Agents write much of the code and your existing WIP limits no longer describe the system |
+The three that overlap: `sniff-test` reads **one bet**, `sniff-test-portfolio`
+reads **the board**, `portfolio-to-product-shift-coach` reads **the operating
+model around both**. Start with the narrowest one that fits — the wider
+conversations usually come after it, not before.
 
-**AI transformation and delivery**
+If you are pointing an agent at this folder rather than installing,
+[AGENTS.md](AGENTS.md) is the routing map, plus how the skills expect to be run.
 
-| Skill | Use it when |
-|---|---|
-| `agility-ai-transformation` | Building the narrative from AI activity to business impact, without AI theater |
-| `yuval-ai-dlc-coach` | Coaching engineering and AI-enablement leaders through the AI development lifecycle |
-| `sdd-orchestrator` | Running spec-driven development so agents work against a real spec |
-| `descaling-experiment-coach` | A scaling framework was adopted with compromises that were meant to be temporary |
+## Running one
 
-Several skills came from articles, and each one links back to the piece that
-explains the reasoning behind its questions.
+They are conversational, not batch, and they cost about what a good 1:1 costs:
+ten to twenty minutes for most, longer for `wip-limit-configuration-coach`, which
+works through a fifteen-question interview before it computes anything. The good
+ones want your real material:
 
-## Context for your agent
+```
+Use the sniff-test skill on the "Unified Billing" epic.
+The board is in Confluence at <link>; the canvas and last sponsor update are there.
+I think it's in Plan/Commit but I'm not sure that's still true.
+```
 
-Yuval publishes a dossier — what he works on, how he thinks about problems, and
-the boundaries on speaking for him. It lives on the site rather than in this
-repo, so there is one copy and it cannot drift:
+The skill will verify the stage against the evidence before it rates anything,
+because a status label is the thing most likely to be stale. With thin input it
+will ask you for context first and tell you the run will be noisy — that is
+working as intended, not a failure.
 
-- Skill: <https://yuvalyeret.com/ai/yuval-agent-skill/SKILL.md>
-- Full dossier: <https://yuvalyeret.com/ai/yuval-agent-dossier.md>
-- Paste-in snippet for an existing `AGENTS.md`: <https://yuvalyeret.com/ai/yuval-agent-dossier/AGENTS.md>
+Give it less and it still runs:
 
-## Attribution and boundaries
+```
+Use the outcome-framing-coach skill on these twelve epic titles: <paste>
+```
 
-These skills describe how Yuval works. They do not speak as him, and their
-output is not his assessment of your situation. If you want that,
-[talk to him](https://yuvalyeret.com/contact/).
+**Four things that make a run worth the time:**
 
-Where a skill builds on someone else's published work, it says so and links to
-the source. `sniff-test` draws on Mark Richards' portfolio-agility work at
-[Shaping Agility](https://www.shapingagility.com/).
+1. **Point it at the system of record, not a summary you wrote.** The stale
+   status label, the roadmap with no confidence range, the eleven features all
+   sitting in "not started" — those are the findings, and they only exist in the
+   real material. A tidy briefing hides exactly what you want found.
+2. **Argue with it.** These produce confident-sounding output from whatever you
+   fed them. When a rating is wrong because the evidence lives somewhere the agent
+   never saw, say so and re-run that dimension — the good sessions are half
+   correction.
+3. **Answer honestly about intent.** Several skills ask whether you want to
+   preserve current behaviour or change it. Answer "change it" and mean it, or
+   you will get a number that ratifies what you already do.
+4. **Stop at the experiment.** Each one ends in one thing to try in two to four
+   weeks with an indicator to watch. That is the deliverable. A run that produces
+   a table and no next move has failed, and the skills say so themselves.
+
+**No web access, or working on something confidential?** Every skill runs as a
+plain interview with no data access at all — you answer from material the agent
+never sees. You lose `sniff-test`'s evidence-based stage check, which is the most
+valuable thing it does; the rest of the read still works. See
+[SECURITY.md](SECURITY.md) for what does and does not leave your building.
+
+**Want to see what comes back before you spend the time?** Two full runs, both on
+made-up teams, each showing what went in, what came out, how long it took, what it
+changed, and what it got wrong:
+
+- [A `sniff-test` run](examples/sniff-test-worked-example.md) — one initiative, four minutes of reading.
+- [A `wip-limit-configuration-coach` run](examples/wip-limit-worked-example.md) — the long one, 35 minutes, including where the skill contradicts its own default and why.
+
+## Credits
+
+These skills borrow. The Lean Product Canvas they read against is **Jeff
+Gothelf and Josh Seiden's**; the portfolio lifecycle framing is **Mark
+Richards'**; the flow metrics are **Daniel Vacanti's**. Who owns what, and links
+to the originals, is in [CREDITS.md](CREDITS.md) — read that before you cite any
+of this as mine.
+
+If a skill is useful to you, the source it came from is usually more useful.
+Every skill says which one and links it.
 
 ## License
 
@@ -94,3 +194,17 @@ it, with attribution. Any scripts are [MIT](LICENSE-CODE).
 
 Attribution means naming Yuval Yeret and linking back. If a skill helped, that
 link is the whole ask.
+
+Note that the CC BY 4.0 grant covers *this library's* text. It does not extend to
+the third-party frameworks named in [CREDITS.md](CREDITS.md) — those carry their
+owners' terms, and the Lean Product Canvas in particular is all rights reserved.
+
+## Boundaries
+
+These skills describe how I work. They do not speak as me, and their output is
+not my assessment of your situation — an agent running `sniff-test` on your
+portfolio is running my questions, not my judgment. If you want the judgment,
+[talk to me](https://yuvalyeret.com/contact/).
+
+Found something wrong, or recognize your work here uncredited?
+[Open an issue](https://github.com/yyeret/ai-impact/issues).
