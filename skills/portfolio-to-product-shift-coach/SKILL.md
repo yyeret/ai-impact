@@ -95,8 +95,7 @@ Direct, practitioner-to-practitioner. No framework worship. Push back if I'm rea
 ## Source
 
 Adapted from [How Far Along Is Your Project-to-Product Shift?](https://yuvalyeret.com/blog/portfolio-to-product-shift-coach) by
-[Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching. The article carries the reasoning behind the
+[Yuval Yeret](https://yuvalyeret.com). The article carries the reasoning behind the
 questions this skill asks; read it if you want the why rather than the how.
 
 *These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*

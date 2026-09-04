@@ -63,8 +63,7 @@ Keep the tone pragmatic, empathetic, and empirical. Avoid standard framework bas
 ## Source
 
 Adapted from [Breaking the SAFe: Reclaiming Professional Scrum](https://yuvalyeret.com/blog/back-to-breaking-the-safe) by
-[Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching. The article carries the reasoning behind the
+[Yuval Yeret](https://yuvalyeret.com). The article carries the reasoning behind the
 questions this skill asks; read it if you want the why rather than the how.
 
 *These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*

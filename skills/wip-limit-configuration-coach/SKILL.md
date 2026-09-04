@@ -170,8 +170,7 @@ Tighten when work-item age, context-reload time, forgotten agent sessions, stale
 ## Source
 
 Adapted from [Do WIP Limits Still Make Sense When Agents Write the Code?](https://yuvalyeret.com/blog/calculate-kanban-wip-limits-ai-age) by
-[Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching. The article carries the reasoning behind the
+[Yuval Yeret](https://yuvalyeret.com). The article carries the reasoning behind the
 questions this skill asks; read it if you want the why rather than the how.
 
 The flow metrics themselves — WIP, Cycle Time, Throughput, Work Item Age, and the

@@ -119,8 +119,7 @@ Keep the tone direct and practical. Avoid agile jargon unless I use it first.
 ## Source
 
 Adapted from [Why Focus on Flow Metrics?](https://yuvalyeret.com/blog/why-focus-on-flow-metrics) by
-[Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
-Organizational AI Coaching. The article carries the reasoning behind the
+[Yuval Yeret](https://yuvalyeret.com). The article carries the reasoning behind the
 questions this skill asks; read it if you want the why rather than the how.
 
 The flow metrics themselves — WIP, Cycle Time, Throughput, Work Item Age, and the
