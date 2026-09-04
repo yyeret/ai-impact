@@ -42,9 +42,16 @@ jobs:
                  | tr -d '<>' | sed 's/[.,]*$//' | sort -u)
           fail=0
           for u in $urls; do
-            code=$(curl -sS -o /dev/null -w '%{http_code}' -L --max-time 25 "$u" || echo 000)
+            # This repo's own URLs 404 until it is public. Nothing to check.
+            case "$u" in https://github.com/yyeret/ai-impact*) continue ;; esac
+
+            code=$(curl -sS -o /dev/null -w '%{http_code}' -L --max-time 25 \
+                     -A 'Mozilla/5.0 (compatible; ai-impact link check)' "$u" || echo 000)
             case "$code" in
               2*|3*) ;;
+              # Alive, but gated against bots (scrum.org does this). A link
+              # checker that calls these dead just trains you to ignore it.
+              401|403|405|406|429) echo "note: $code (bot-gated, treating as live) $u" ;;
               *) echo "::warning::$code $u"; fail=1 ;;
             esac
           done
