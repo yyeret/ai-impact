@@ -42,11 +42,14 @@ jobs:
                  | tr -d '<>' | sed 's/[.,]*$//' | sort -u)
           fail=0
           for u in $urls; do
-            # This repo's own URLs 404 until it is public. Nothing to check.
-            case "$u" in https://github.com/yyeret/ai-impact*) continue ;; esac
+              # Every github.com link in this repo is a self-reference, and they
+            # cannot be checked from CI: they 404 while the repo is private, and
+            # they point at the intended name during a rename. Skip by owner so
+            # neither a rename nor going public can stale this.
+            case "$u" in "https://github.com/${GITHUB_REPOSITORY%%/*}/"*) continue ;; esac
 
             code=$(curl -sS -o /dev/null -w '%{http_code}' -L --max-time 25 \
-                     -A 'Mozilla/5.0 (compatible; ai-impact link check)' "$u" || echo 000)
+                     -A 'Mozilla/5.0 (compatible; repo link check)' "$u" || echo 000)
             case "$code" in
               2*|3*) ;;
               # Alive, but gated against bots (scrum.org does this). A link
