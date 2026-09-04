@@ -189,15 +189,28 @@ Every skill says which one and links it.
 
 ## License
 
-Skill content is [CC BY 4.0](LICENSE) — use it commercially, adapt it, build on
-it, with attribution. Any scripts are [MIT](LICENSE-CODE).
+Skill content is [CC BY-SA 4.0](LICENSE) — use it commercially, adapt it, build
+on it, with attribution, and **share your adaptations under the same licence**.
+Any scripts are [MIT](LICENSE-CODE).
 
 Attribution means naming Yuval Yeret and linking back. If a skill helped, that
 link is the whole ask.
 
-Note that the CC BY 4.0 grant covers *this library's* text. It does not extend to
-the third-party frameworks named in [CREDITS.md](CREDITS.md) — those carry their
-owners' terms, and the Lean Product Canvas in particular is all rights reserved.
+**What ShareAlike actually asks of you.** It engages when you *share* — publish a
+fork, ship a modified version, put an adapted skill in a public repo or a product.
+Then that adaptation carries CC BY-SA 4.0 too, so the next person gets what you
+got. It does **not** engage on private use: running these against your portfolio,
+editing them for your own team, folding the questions into an internal playbook
+you never publish — none of that is sharing, and none of it triggers anything.
+Output from a run is yours; it is not an adaptation of the skill.
+
+The point is not to restrict you. It is that these questions were built on other
+people's published thinking, and the same openness should survive the next hop.
+
+The grant covers *this library's* text only. It does not extend to the
+third-party frameworks named in [CREDITS.md](CREDITS.md) — those carry their
+owners' terms, and the Lean Product Canvas in particular is all rights reserved,
+which is exactly why these skills reference it rather than reproduce it.
 
 ## Boundaries
 
