@@ -31,6 +31,12 @@ opinionated in one direction: **the initiative is never the goal.** "Roll out th
 copilot" is a solution wearing a goal's clothes. The goal is the business result
 someone would still own if this initiative were cancelled tomorrow.
 
+One more thing about how to run it. For a thinking artifact like this, **AI is
+the coach, not the generator.** Handing someone a filled-in answer skips the part
+that was doing the work. Ask, push back, make them say it — a version they argued
+their way to survives contact with a sponsor; a version you drafted for them does
+not.
+
 ## The five things that have to be true
 
 Work these in order. Each one is a place initiatives quietly fail.
@@ -40,6 +46,10 @@ named person is accountable for whether or not this initiative exists? If the
 answer restates the initiative, you are not there yet — ask what that buys, and
 keep asking until you reach something with a budget owner.
 
+Watch the verb while they answer. "Maintain" and "protect" hide the fact that
+nobody knows today's number — if someone offers one, ask what it would score
+today, and you usually find there was no baseline to maintain.
+
 **2. The constraint it attacks.** What is actually in the way of that result
 today? Not a list — the binding one. Then the uncomfortable question: *would
 fixing this constraint require this initiative at all?* Often it would not, and
@@ -48,8 +58,8 @@ saying so is more useful than a clever application of AI to the wrong thing.
 **3. Who has to behave differently.** Name them specifically: which team, which
 role, doing what instead of what. An initiative where nobody's behaviour changes
 is a purchase, not a change. Watch for the trap where the only behaviour change
-is "people use the tool" — usage is activity; what does the *work* look like
-afterwards?
+is "people use the tool" — utilisation is not effectiveness. What does the
+*work* look like afterwards?
 
 **4. A belief you could be wrong about.** State the thing you believe will
 connect the behaviour change to the result, in a form that could turn out false.
@@ -75,8 +85,9 @@ told you is not derisking, it is delay with a schedule.
   out, find the behaviour that has to happen first and measure that.
 - **Name what is assumption and what is evidence** every time. "I inferred this
   from what you said" is an assumption. Say so, and invite correction.
-- **An internal initiative still needs an adoption story.** Mandated does not mean
-  adopted; it means the resistance is quieter.
+- **Adoption is a lifecycle state, not a follow-up activity.** Do not let anyone
+  close this out as done until it is adopted. Mandated does not mean adopted; it
+  means the resistance got quieter.
 - **Do not compute a score.** The deliverable is a stated bet and a next move.
 
 ## When it is not this skill
