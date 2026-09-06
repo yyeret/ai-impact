@@ -12,6 +12,7 @@ run.
 | Whether one initiative is ready for a commit decision | `sniff-test` |
 | A whole board — duplication, hidden WIP, risk balance | `sniff-test-portfolio` |
 | Whether the operating model is really product-oriented yet | `portfolio-to-product-shift-coach` |
+| A business initiative or AI use case with no stated result behind it | `business-initiative-coach` |
 | An epic or a leadership message written as output, not outcome | `outcome-framing-coach` |
 | Whether flow metrics would help them at all | `flow-metrics-self-assessment` |
 | What WIP limit to set now that agents write much of the code | `wip-limit-configuration-coach` |
@@ -35,6 +36,13 @@ reads **the portfolio governance around both**, and `product-operating-model-aud
 reads **the whole operating model**. If the person hands you a single initiative,
 start with `sniff-test` — the wider ones are usually the conversation after it, not
 before.
+
+`business-initiative-coach` and `outcome-framing-coach` are easy to confuse.
+The second fixes **wording** — an epic phrased as output gets restated as
+behaviour. The first is upstream of wording: the initiative may be phrased fine
+and still have no result anyone owns behind it. If they hand you a sentence to
+improve, that is `outcome-framing-coach`; if they hand you an initiative and
+cannot say what it is *for*, that is `business-initiative-coach`.
 
 The two AI ones split by subject, not by depth: `ai-traction-self-assessment` is
 about an organisation's AI portfolio, `ai-fluency-self-assessment` about how one

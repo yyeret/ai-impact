@@ -10,8 +10,8 @@ reviewed these skills or are affiliated with them.
 
 ## Lean Product Canvas and Lean Strategy Canvas — Jeff Gothelf and Josh Seiden
 
-`sniff-test`, `sniff-test-portfolio`, and `outcome-framing-coach` read an
-initiative against the **Lean Product Canvas**: Business Problem, Business
+`sniff-test`, `sniff-test-portfolio`, `outcome-framing-coach` and
+`business-initiative-coach` read an initiative against the **Lean Product Canvas**: Business Problem, Business
 Outcomes, Users, User Outcomes & Benefits (JTBD), Solutions, Hypotheses, and the
 two learning questions — *what's the most important thing we need to learn
 first?* and *what's the least amount of work to learn it?* The hypothesis shape
@@ -19,17 +19,30 @@ these skills use, *"we believe that [business outcome] will be achieved if [user
 attains [benefit] with [feature]"*, is the canvas's verbatim, and the outcome phrasing
 *"who does what by how much"* is Gothelf and Seiden's.
 
-The canvas is theirs, evolved from the Lean UX Canvas. **It is not
-Creative Commons — it is all rights reserved by Sense & Respond Learning.**
-These skills reference it by name and ask their own questions against it; they
-do not reproduce it. Get the real thing from the source:
+The canvas is theirs, evolved from the Lean UX Canvas, and the artifact
+itself carries a **CC BY-NC-SA** mark. (An earlier version of this file said it
+was all rights reserved — that was wrong. The senseandrespond.co page footer
+carries an all-rights-reserved notice for the *site*; the canvas PDF is
+CC BY-NC-SA. The NonCommercial term is why nothing in this repo, which is
+CC BY-SA, is built as a derivative of it.)
+
+These skills reference the canvas by name and ask their own questions against
+it; they do not reproduce it. Get the real thing from the source:
 
 - The Lean Product Canvas: <https://jeffgothelf.com/blog/the-lean-product-canvas/>
 - Canvas download and the Lean Strategy Canvas: <https://www.senseandrespond.co/the-lean-product-canvas>
 - *Who Does What By How Much?* (Gothelf and Seiden, on OKRs) and *Lean UX* (Gothelf and Seiden)
 
 If you are working the canvas seriously, use their material, not this
-adaptation of it.
+adaptation of it. Sense & Respond Learning run a **Lean Product Discovery** class
+through their Certified Training Partners, and *Yuval Yeret is one of those
+Certified Training Partners* — so that pointer carries an interest, and you should
+discount it accordingly.
+
+**The canvas is one option among several.** A SAFe epic hypothesis statement
+(© Scaled Agile, Inc.), a feature canvas — Mark Richards' is credited below — or a
+frame you shape yourself can each be the right instrument for a given piece of
+work. The canvas is Yuval's default, not a prescription.
 
 ## Portfolio agility and the lifecycle read — Mark Richards
 
