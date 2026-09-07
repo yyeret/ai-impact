@@ -162,6 +162,7 @@ Once the constraint is named, route to the skill built for it and say why:
 | One initiative that may not be ready to commit to | `sniff-test` |
 | A whole portfolio you cannot see the patterns in | `sniff-test-portfolio` |
 | Funding and governance still running by project | `portfolio-to-product-shift-coach` |
+| A single business initiative or AI use case with no result behind it | `business-initiative-coach` |
 | Work framed as output, with no stated change to look for | `outcome-framing-coach` |
 | Flow you cannot see, and no agreed way to see it | `flow-metrics-self-assessment` |
 | Too much in flight now that agents write the code | `wip-limit-configuration-coach` |
