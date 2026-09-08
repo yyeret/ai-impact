@@ -138,7 +138,9 @@ discount it accordingly — the underlying material is Gothelf and Seiden's eith
 way, and their books cover the thinking without a class.
 
 The canvas is one of several ways to frame intent, not the only one — a SAFe epic
-hypothesis statement, a feature canvas, or something you shape yourself can each
-be the right instrument. See [CREDITS.md](../../CREDITS.md).
+hypothesis statement ([Scaled Agile](https://framework.scaledagile.com/epic/)), a
+[feature template](https://www.shapingagility.com/blog/feature-template) (Mark
+Richards'), or something you shape yourself can each be the right instrument.
+See [CREDITS.md](../../CREDITS.md).
 
 *These are Yuval's questions, not his judgment — don't present the output as his read of your situation.*

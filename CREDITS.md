@@ -40,7 +40,9 @@ Certified Training Partners* — so that pointer carries an interest, and you sh
 discount it accordingly.
 
 **The canvas is one option among several.** A SAFe epic hypothesis statement
-(© Scaled Agile, Inc.), a feature canvas — Mark Richards' is credited below — or a
+([© Scaled Agile, Inc.](https://framework.scaledagile.com/epic/)), a
+[feature template](https://www.shapingagility.com/blog/feature-template) — Mark
+Richards', credited below — or a
 frame you shape yourself can each be the right instrument for a given piece of
 work. The canvas is Yuval's default, not a prescription.
 
