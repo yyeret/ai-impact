@@ -205,4 +205,15 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    status = main()
+    if status == 0:
+        # Keep the regression suite on the existing CI validation entrypoint.
+        # Tests import main() directly, so this does not recursively run them.
+        import subprocess
+
+        status = subprocess.run(
+            [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"],
+            cwd=ROOT,
+            check=False,
+        ).returncode
+    raise SystemExit(status)
