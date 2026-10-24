@@ -99,8 +99,13 @@ def main() -> int:
 
         # Every skill states where it came from. That is the whole promise of
         # the README, and it is the thing that quietly rots.
-        if "## Source" not in text:
-            errors.append(f"{d.name}: no '## Source' section")
+        if not re.search(
+            r"^## (?:Source|References/Inspiration/Credits)[ \t]*$", text, re.M
+        ):
+            errors.append(
+                f"{d.name}: no attribution section "
+                "('## Source' or '## References/Inspiration/Credits')"
+            )
 
         meta = re.search(r"^metadata:\n((?:  .*\n)+)", text, re.M)
         if not meta:
@@ -200,4 +205,15 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    status = main()
+    if status == 0:
+        # Keep the regression suite on the existing CI validation entrypoint.
+        # Tests import main() directly, so this does not recursively run them.
+        import subprocess
+
+        status = subprocess.run(
+            [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"],
+            cwd=ROOT,
+            check=False,
+        ).returncode
+    raise SystemExit(status)

@@ -7,14 +7,14 @@
     "url": "https://yuvalyeret.com"
   },
   "description": "Outcome framing, evidence for steering, and practical coaching for agentic workflows and AI transformation.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "plugins": [
     {
       "name": "ai-impact",
       "source": "./",
       "displayName": "AI Impact",
       "description": "Turn AI activity into business impact with your own agent and material. Frame intent before specification with outcomes, assumptions, and leading indicators; assess initiative readiness, portfolio patterns, AI traction, operating-model reality, flow metrics, and WIP. Produce usable evidence for the next decision while coaching through the work.",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "author": {
         "name": "Yuval Yeret",
         "email": "yuval@yeretagility.com",

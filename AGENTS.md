@@ -13,7 +13,7 @@ run.
 | A whole board — duplication, hidden WIP, risk balance | `sniff-test-portfolio` |
 | Whether the operating model is really product-oriented yet | `portfolio-to-product-shift-coach` |
 | Intent for an agentic workflow: desired outcomes, assumptions, and leading indicators before discovery or specification | `frame-intent` |
-| An epic or a leadership message written as output, not outcome | `outcome-framing-coach` |
+| A work item or message whose established intent needs clearer outcome wording | `outcome-framing-coach` |
 | Whether flow metrics would help them at all | `flow-metrics-self-assessment` |
 | What WIP limit to set now that agents write much of the code | `wip-limit-configuration-coach` |
 | A scaling framework's temporary compromises that never got revisited | `descaling-experiment-coach` |
@@ -33,12 +33,13 @@ that one.
 The four that overlap most: `sniff-test` reads **one bet**,
 `sniff-test-portfolio` reads **the board**, `portfolio-to-product-shift-coach`
 reads **the portfolio governance around both**, and `product-operating-model-audit`
-reads **the whole operating model**. If the person hands you a single initiative,
-start with `sniff-test` — the wider ones are usually the conversation after it, not
-before.
+reads **the whole operating model**. For one item, infer the question:
+`frame-intent` establishes its purpose, assumptions, and indicators; `sniff-test`
+assesses its readiness against evidence. Item type or size alone does not choose
+the skill. The wider conversations usually follow those questions.
 
 `frame-intent` and `outcome-framing-coach` are easy to confuse.
-The second fixes **wording** — an epic phrased as output gets restated as
+The second fixes **wording** — work phrased as output gets restated as
 behaviour. The first is upstream of wording: the initiative may be phrased fine
 and still have no result anyone owns behind it. If they hand you a sentence to
 improve, that is `outcome-framing-coach`; if they hand you an initiative and
@@ -93,7 +94,7 @@ confident-sounding output and the wrong one is confidently wrong.
 ## If you are being asked to modify this repo
 
 Run `python3 scripts/validate_skills.py` before you finish. It fails on private
-paths, references nothing will load, missing `## Source` sections, unknown tags,
+paths, references nothing will load, missing attribution sections, unknown tags,
 broken relative links, and the one definition this library keeps getting wrong
 (an outcome is a change in what someone does, not a capability they gain).
 
