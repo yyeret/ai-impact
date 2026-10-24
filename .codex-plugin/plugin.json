@@ -1,6 +1,6 @@
 {
   "name": "ai-impact",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Turn AI activity into business impact with your own agent and material. Frame intent before specification with outcomes, assumptions, and leading indicators; assess initiative readiness, portfolio patterns, AI traction, operating-model reality, flow metrics, and WIP. Produce usable evidence for the next decision while coaching through the work.",
   "skills": "./skills/",
   "author": {

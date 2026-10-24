@@ -12,3 +12,4 @@
 *.skill
 *.lnk
 .DS_Store
+__pycache__/

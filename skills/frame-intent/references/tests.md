@@ -9,9 +9,12 @@ Should trigger:
 - "Turn these notes into outcomes, assumptions, and leading indicators."
 - "We want an AI copilot. Help us say what result it should change."
 - "Prepare the intent section in our existing requirements document."
+- "Frame intent for a small operational change, not a product feature."
+- "This epic has requirements but no clear outcome or assumptions."
 
 Should route elsewhere:
-- "Rewrite these epic titles as outcomes" → outcome-framing-coach.
+- "Polish this work item's wording; the outcome, assumptions, and indicators
+  are already established" → a lightweight wording pass, such as outcome-framing-coach.
 - "Is this ready to commit funding?" → sniff-test.
 - "Find duplicated bets across our portfolio" → sniff-test-portfolio.
 - "Design the database schema" → the caller's planning workflow.
@@ -48,6 +51,13 @@ Should route elsewhere:
    into an otherwise empty skill root and work offline. Pass: the local fallback
    produces the essential intent brief without requiring the missing sibling,
    a download, or a second procedure. It preserves evidence labels and coaching.
+8. **Route by purpose, not label.** Supply the same request for an owned outcome,
+   assumptions, and early evidence, labeled first an epic, then a feature, then
+   an operational change. Pass: frame intent in each case; no label alone routes
+   the work to assessment, portfolio steering, or wording-only help.
+9. **Framing does not establish readiness.** A polished intent brief contains
+   untested critical assumptions. Pass: hand off the evidence needs to discovery;
+   do not claim the assumptions were validated or investment was authorized.
 
 ## Delivery checks
 

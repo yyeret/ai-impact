@@ -52,6 +52,10 @@ work. The canvas is Yuval's default, not a prescription.
 
 ## Portfolio agility and the lifecycle read — Mark Richards
 
+`frame-intent` also points readers to Mark's
+[feature template for shaping and communicating intent](https://framework.scaledagile.com/blog/crafting-clarity-using-feature-templates-to-shape-and-communicate-intent/)
+as a further example. It does not reproduce or require that artifact.
+
 `sniff-test` and `sniff-test-portfolio` build on **Mark Richards'**
 portfolio-agility work at [Shaping Agility](https://www.shapingagility.com/):
 in particular reading a portfolio lifecycle as *common language, not gates*, and

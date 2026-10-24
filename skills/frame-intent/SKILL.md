@@ -1,9 +1,9 @@
 ---
 name: frame-intent
-description: Frame intent for an agentic workflow with a desired outcome, explicit assumptions, and leading indicators so specification is grounded in purpose. Use before discovery or specification, when an initiative is described as the thing being built, or when a product, AI use case, internal capability, or operating change lacks evidence for steering. Produce a usable intent brief while coaching the human on outcome thinking and discovery through the decisions at hand. For wording alone use outcome-framing-coach; for investment readiness use sniff-test.
+description: Frame intent for an agentic workflow with a desired outcome, explicit assumptions, and leading indicators so specification is grounded in purpose. Use before discovery or specification, when work is described as the thing being built, or when a product, AI use case, internal capability, or operating change lacks evidence for steering. Produce a usable intent brief while coaching the human on outcome thinking and discovery through the decisions at hand. Applies at any scale of work and supplies intent to the receiving workflow's discovery, specification, and planning steps.
 metadata:
   tags: product-strategy, ai-transformation
-  version: 2.0.0
+  version: 2.0.1
 ---
 
 # Frame Intent
@@ -131,31 +131,42 @@ Human approvals remain human.
 
 ## Boundaries
 
-- Wording of a well-framed epic → `outcome-framing-coach`.
-- Investment readiness → `sniff-test`.
-- Patterns across initiatives → `sniff-test-portfolio`.
-- Broad AI activity without a defensible result → `ai-activity-to-impact`.
-- Detailed requirements and implementation design → the receiving workflow's
-  specification and planning steps. This skill supplies their intent.
+Use this at any scale: a product opportunity, feature, experiment, internal
+capability, operational change, or portfolio investment. Route by the question
+and next decision, not by the work item's label or the framework's vocabulary.
+
+- **Own the intent and its evidence needs.** Clarify the desired outcome,
+  assumptions, leading indicators, and next decision. Recommend discovery where
+  evidence is weak, but do not imply that framing has tested an assumption,
+  completed discovery, or authorized a commitment.
+- **Keep the next steps linked.** Discovery tests assumptions; specification
+  derives requirements and acceptance scenarios; planning chooses an approach.
+  Hand them the intent and unresolved questions without taking over those steps
+  or imposing a different framework, artifact, or stage sequence.
+- **Use lighter help when intent is already established.** If only wording needs
+  work, reframe the statement without restarting the full process.
+  `outcome-framing-coach` is one option when available.
+- **Separate framing from assessment and portfolio steering.** Assessing whether
+  evidence supports investment is a readiness question; comparing several bets
+  is a portfolio question. `sniff-test` and `sniff-test-portfolio` can support
+  those questions when available. Neither the size of the work nor the presence
+  of an existing document is a reason to skip intent framing when it is needed.
+
+Human investment, priority, and approval decisions stay with their owners.
 
 For maintenance or evaluation, read [references/tests.md](references/tests.md)
 for trigger cases and behavioral acceptance scenarios.
 
-## Source
+## References/Inspiration/Credits
 
-Evolved from this repository's `business-initiative-coach`. The intent handoff and
-coaching through workflow decisions reflect [Yuval Yeret's](https://yuvalyeret.com)
-practice. Broader exploration is tracked in
-[portfolio-pdlc issue 11](https://github.com/yyeret/portfolio-pdlc/issues/11).
+The inspiration for this skill is Yuval's work introducing intent framing into portfolio/product development life cycles and coaching product professionals to shift from specifying requirements to framing intent.
 
-Inspired by the **Lean Product Canvas**, by **Jeff Gothelf and Josh Seiden**:
-business results, users, falsifiable hypotheses, and the smallest useful learning
-step. "Who does what by how much" is their phrasing. This skill uses its own
-intent brief and does not reproduce their canvas. Get the original material from
-[Sense & Respond](https://www.senseandrespond.co/the-lean-product-canvas) or
-[Jeff Gothelf](https://jeffgothelf.com/blog/the-lean-product-canvas/).
-Sense & Respond Learning offers Lean Product Discovery through Certified Training
-Partners, including Yuval; that recommendation carries an interest.
+To dive deeper into examples of intent framing in modern product management,
+check out the [Lean Product Canvas](https://www.senseandrespond.co/the-lean-product-canvas)
+by Jeff Gothelf and Josh Seiden, and
+[Mark Richards' feature canvas](https://framework.scaledagile.com/blog/crafting-clarity-using-feature-templates-to-shape-and-communicate-intent/).
+These illustrate ways to frame intent; this skill does not require or reproduce
+either artifact. "Who does what by how much" is Gothelf and Seiden's phrasing.
 See [CREDITS.md](../../CREDITS.md) for the wider lineage.
 
 These are Yuval's methods, not his personal assessment of a particular initiative.
