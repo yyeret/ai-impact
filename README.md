@@ -6,7 +6,8 @@ runs with you, on your real portfolio, in the tooling you already use.**
 Some are reflection: noticing what hardened into a constraint while nobody was
 looking. Some are working a number through until it fits your system instead of a
 formula. Some are diagnosis: reading an initiative's clarity against the stage it
-claims. All of them ask rather than answer.
+claims. Most work through questions. `frame-intent` also synthesizes supplied
+context into intent the next agent can use.
 
 By [Yuval Yeret](https://yuvalyeret.com) — AI Transformation Advisory and
 Organizational AI Coaching.
@@ -68,7 +69,7 @@ for you, and that is a fine outcome to reach in thirty seconds.
 | "We commit budget in three weeks and I don't know if this initiative is really ready" | [`sniff-test`](skills/sniff-test/) | Where clarity is thin *for the stage it claims*, whether the status label survives contact with the evidence, and the one conversation to have before the money moves |
 | "I inherited this board and I can't see the patterns in it" | [`sniff-test-portfolio`](skills/sniff-test-portfolio/) | Duplicated bets, hidden WIP, whether the risk balance is intentional, and what to raise at the next review |
 | "We say we're product-led but funding still runs by project" | [`portfolio-to-product-shift-coach`](skills/portfolio-to-product-shift-coach/) | Where you actually sit, which of five gaps is binding, and one experiment for the next month |
-| "We have an AI use case and I cannot connect it to a business result" | [`business-initiative-coach`](skills/business-initiative-coach/) | A result someone owns, the constraint it attacks, who has to behave differently, and a belief stated so it could turn out false |
+| "Our agentic workflow needs a desired outcome before specification" | [`frame-intent`](skills/frame-intent/) | An intent brief with owned outcomes, explicit assumptions, and leading indicators for steering; coaching through the decisions where needed |
 | "Our epics are written as output and nobody can say what would change if they shipped" | [`outcome-framing-coach`](skills/outcome-framing-coach/) | Each item classified, the prescriptive verbs flagged, and rewrites stated as behaviour someone can falsify |
 | "Delivery feels slow and I can't say why" | [`flow-metrics-self-assessment`](skills/flow-metrics-self-assessment/) | Whether flow metrics would tell you anything you would act on — and which one to start with, or a clear no |
 | "Agents write most of our code and our WIP limits stopped meaning anything" | [`wip-limit-configuration-coach`](skills/wip-limit-configuration-coach/) | Starting numbers derived from your actual constraint, with the arithmetic shown and the traps named |
@@ -79,15 +80,17 @@ for you, and that is a fine outcome to reach in thirty seconds.
 | "AI is clearly helping me and the leverage has plateaued" | [`ai-fluency-self-assessment`](skills/ai-fluency-self-assessment/) | Which rung is actually binding across automation, augmentation, agency and context, and one habit change with an artifact at the end of it |
 | "We say we do product now, and I want to know how far that is actually true" | [`product-operating-model-audit`](skills/product-operating-model-audit/) | Where you sit across strategy, people, governance and the value cycle, the shape rather than the average, and the gravity your one experiment will meet |
 
-**The common shape:** each one ends in a conversation to have or an experiment to
-run in the next two to four weeks, with a leading indicator you could actually
-watch. None of them ends in a score.
+**The common shape:** a concrete next decision or experiment, with evidence you can
+watch. `frame-intent` supplies the outcome, assumptions, and leading indicators for
+the next discovery or specification step. None of them ends in a score.
 
 ## How they work
 
-They are mostly questions, run as a conversation — your agent asks one or two at
-a time and follows what you say, rather than dumping a survey. What that
-conversation is doing varies:
+Most run as a conversation: your agent asks one or two questions at a time and
+follows what you say. `frame-intent` drafts directly when context is sufficient;
+when it needs questions, it asks only about gaps that change the next decision.
+It explains outcome, discovery, and indicator choices through the work, so a human
+can learn while the next agent receives a usable brief. The other runs vary:
 
 - **Reflection.** `descaling-experiment-coach` and `portfolio-to-product-shift-coach`
   mostly help you see your own situation clearly — which compromise hardened, where
@@ -190,7 +193,12 @@ If you are pointing an agent at this folder rather than installing,
 
 ## Running one
 
-They are conversational, not batch, and they cost about what a good 1:1 costs:
+For intent before specification, use `frame-intent` with your existing request,
+evidence, and receiving artifact. It can run from supplied context, including
+without an available human, and labels assumptions and unknowns. The former
+`business-initiative-coach` command remains a compatibility route to it.
+
+Most are conversational and cost about what a good 1:1 costs:
 ten to twenty minutes for most, longer for `wip-limit-configuration-coach`, which
 works through a fifteen-question interview before it computes anything. The good
 ones want your real material:

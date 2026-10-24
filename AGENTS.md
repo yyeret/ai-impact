@@ -12,7 +12,7 @@ run.
 | Whether one initiative is ready for a commit decision | `sniff-test` |
 | A whole board — duplication, hidden WIP, risk balance | `sniff-test-portfolio` |
 | Whether the operating model is really product-oriented yet | `portfolio-to-product-shift-coach` |
-| A business initiative or AI use case with no stated result behind it | `business-initiative-coach` |
+| Intent for an agentic workflow: desired outcomes, assumptions, and leading indicators before discovery or specification | `frame-intent` |
 | An epic or a leadership message written as output, not outcome | `outcome-framing-coach` |
 | Whether flow metrics would help them at all | `flow-metrics-self-assessment` |
 | What WIP limit to set now that agents write much of the code | `wip-limit-configuration-coach` |
@@ -37,12 +37,12 @@ reads **the whole operating model**. If the person hands you a single initiative
 start with `sniff-test` — the wider ones are usually the conversation after it, not
 before.
 
-`business-initiative-coach` and `outcome-framing-coach` are easy to confuse.
+`frame-intent` and `outcome-framing-coach` are easy to confuse.
 The second fixes **wording** — an epic phrased as output gets restated as
 behaviour. The first is upstream of wording: the initiative may be phrased fine
 and still have no result anyone owns behind it. If they hand you a sentence to
 improve, that is `outcome-framing-coach`; if they hand you an initiative and
-cannot say what it is *for*, that is `business-initiative-coach`.
+cannot say what it is *for*, that is `frame-intent`.
 
 The two AI ones split by subject, not by depth: `ai-traction-self-assessment` is
 about an organisation's AI portfolio, `ai-fluency-self-assessment` about how one
@@ -54,9 +54,10 @@ confident-sounding output and the wrong one is confidently wrong.
 
 ## How they expect to be run
 
-- **They are conversations, not batch jobs.** Ask one or two questions at a
-  time, chosen from what the person just said. A skill that dumps its whole
-  interview at once has failed before it started.
+- **Most are conversations.** Ask one or two consequential questions at a time.
+  `frame-intent` produces a usable intent brief directly when context supports it;
+  it coaches through decisions where needed and can draft provisionally without
+  a human. Do not force an interview when the supplied material is enough.
 - **In the prompt-shaped skills, "me" and "my" mean the person you are talking
   to**, not the author. Four of those are the published coaching prompts, kept
   close to their original wording on purpose; the three scorecard-derived ones say
