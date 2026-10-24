@@ -44,6 +44,10 @@ Should route elsewhere:
    or a custom requirements artifact. Pass: load the canonical skill once,
    preserve the native format, link outcomes/assumptions/indicators, and leave
    technical design to planning.
+7. **Standalone old-name installation.** Copy only the compatibility directory
+   into an otherwise empty skill root and work offline. Pass: the local fallback
+   produces the essential intent brief without requiring the missing sibling,
+   a download, or a second procedure. It preserves evidence labels and coaching.
 
 ## Delivery checks
 
