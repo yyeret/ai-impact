@@ -3,7 +3,7 @@ name: ai-activity-to-impact
 description: The front door to this library — triage, not assessment. Works out whether an organization's AI effort is producing activity, output or impact, which surface the constraint sits on (ways of working, structure, funding, culture, evidence, or technology), and therefore which skill to run. Deliberately fast and shallow: it ends by handing off. Use when someone has AI pilots and no credible line to a business result, when engineering ships faster and the business does not, or when someone asks where to start. Go straight to the specific skill when the question is already narrow, and to ai-traction-self-assessment when they want a real evidence-based read of whether the AI work is producing traction — this skill routes there rather than duplicating it.
 metadata:
   tags: ai-transformation, product-strategy
-  version: 1.0.0
+  version: 1.0.1
 ---
 
 # From AI Activity to Impact
@@ -162,7 +162,7 @@ Once the constraint is named, route to the skill built for it and say why:
 | One initiative that may not be ready to commit to | `sniff-test` |
 | A whole portfolio you cannot see the patterns in | `sniff-test-portfolio` |
 | Funding and governance still running by project | `portfolio-to-product-shift-coach` |
-| A single business initiative or AI use case with no result behind it | `business-initiative-coach` |
+| A single business initiative or AI use case with no result behind it | `frame-intent` |
 | Work framed as output, with no stated change to look for | `outcome-framing-coach` |
 | Flow you cannot see, and no agreed way to see it | `flow-metrics-self-assessment` |
 | Too much in flight now that agents write the code | `wip-limit-configuration-coach` |

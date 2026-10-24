@@ -1,7 +1,7 @@
 {
   "name": "ai-impact",
-  "version": "1.1.0",
-  "description": "Turn AI activity into business impact with your own agent and your own material. Start by locating whether you are at activity, output or impact and which constraint the result is waiting on, then work the specific thing: AI traction from what you shipped, initiative readiness, portfolio patterns, operating-model reality, outcome framing, flow metrics, WIP limits once agents write the code. Reflection, working-through and diagnosis \u2014 conversational, ending in an experiment rather than a score.",
+  "version": "1.2.0",
+  "description": "Turn AI activity into business impact with your own agent and material. Frame intent before specification with outcomes, assumptions, and leading indicators; assess initiative readiness, portfolio patterns, AI traction, operating-model reality, flow metrics, and WIP. Produce usable evidence for the next decision while coaching through the work.",
   "skills": "./skills/",
   "author": {
     "name": "Yuval Yeret",
@@ -19,12 +19,13 @@
     "outcome-framing",
     "wip-limits",
     "kanban",
-    "okrs"
+    "okrs",
+    "intent-framing"
   ],
   "interface": {
     "displayName": "AI Impact",
-    "shortDescription": "Turn AI activity into business impact with your own agent and your own material. Start by locating whether you are at...",
-    "longDescription": "Turn AI activity into business impact with your own agent and your own material. Start by locating whether you are at activity, output or impact and which constraint the result is waiting on, then work the specific thing: AI traction from what you shipped, initiative readiness, portfolio patterns, operating-model reality, outcome framing, flow metrics, WIP limits once agents write the code. Reflection, working-through and diagnosis \u2014 conversational, ending in an experiment rather than a score.",
+    "shortDescription": "Frame outcomes, assumptions, and evidence for agentic work.",
+    "longDescription": "Turn AI activity into business impact with your own agent and material. Frame intent before specification with outcomes, assumptions, and leading indicators; assess initiative readiness, portfolio patterns, AI traction, operating-model reality, flow metrics, and WIP. Produce usable evidence for the next decision while coaching through the work.",
     "developerName": "Yuval Yeret",
     "category": "AI Transformation"
   }

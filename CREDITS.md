@@ -10,8 +10,12 @@ reviewed these skills or are affiliated with them.
 
 ## Lean Product Canvas and Lean Strategy Canvas — Jeff Gothelf and Josh Seiden
 
-`sniff-test`, `sniff-test-portfolio`, `outcome-framing-coach` and
-`business-initiative-coach` read an initiative against the **Lean Product Canvas**: Business Problem, Business
+`frame-intent` uses its own intent brief, inspired by the outcome and hypothesis
+discipline of Gothelf and Seiden. It preserves that attribution without requiring
+a canvas. Its older `business-initiative-coach` name remains a compatibility route.
+
+`sniff-test`, `sniff-test-portfolio` and `outcome-framing-coach`
+read an initiative against the **Lean Product Canvas**: Business Problem, Business
 Outcomes, Users, User Outcomes & Benefits (JTBD), Solutions, Hypotheses, and the
 two learning questions — *what's the most important thing we need to learn
 first?* and *what's the least amount of work to learn it?* The hypothesis shape
