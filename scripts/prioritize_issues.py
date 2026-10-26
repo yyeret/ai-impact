@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Prioritize repository open issues by value/outcome framing.
+"""Prioritize repository open issues by value/outcome framing and repo goals.
 
 Can be run in any local git repository workspace with a GitHub origin,
 or pointed at a remote repository with `--repo owner/name`.
 
 Applies the Outcome Framing taxonomy (Input -> Activity -> Output -> Outcome -> Impact)
-to classify open backlog items, identify prescriptive phrasing, and surface
-high-leverage work.
+and compares detected outcomes/deliverables against repository strategic goals
+to classify and rank open backlog items.
 """
 
 from __future__ import annotations
@@ -18,9 +18,9 @@ import re
 import subprocess
 import sys
 from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple
 
-VERSION = "outcome-prioritize-1.0.0"
+VERSION = "outcome-prioritize-1.1.0"
 LEVELS = ["Impact", "Outcome", "Output", "Activity", "Input", "Unknown"]
 
 QUARTERLY_BUCKET_RE = re.compile(
@@ -56,7 +56,6 @@ ACTIVITY_SIGNALS = [
     r"\bexploring\b",
     r"\btraining\b",
     r"\blearn\b",
-    r"\bonboard\b",
     r"\bmaintenance\b",
     r"\bupgrade\b",
     r"\bupgrades\b",
@@ -70,33 +69,11 @@ ACTIVITY_SIGNALS = [
     r"\bmeeting\b",
     r"\bgrooming\b",
     r"\bplanning\b",
-    r"\bdeploy\b",
-    r"\bdeployment\b",
-    r"\bconfigure\b",
-    r"\bsetup\b",
-    r"\bset up\b",
-    r"\bmonitor\b",
-    r"\bmonitoring\b",
-    r"\bscan\b",
-    r"\bscanning\b",
     r"\bcleanup\b",
     r"\bcleaning\b",
     r"\bpatch\b",
     r"\bhardening\b",
-    r"\bdevops\b",
     r"\bci\/cd\b",
-    r"\bpipeline\b",
-    r"\binfrastructure\b",
-    r"\bsecurity\b",
-    r"\bcompliance\b",
-    r"\bingest\b",
-    r"\bingestion\b",
-    r"\bimport\b",
-    r"\bexport\b",
-    r"\bextract\b",
-    r"\bparsing\b",
-    r"\bprocessing\b",
-    r"\bsync\b",
     r"\bscrape\b",
     r"\bcrawl\b",
 ]
@@ -136,6 +113,7 @@ OUTPUT_SIGNALS = [
 ]
 
 OUTCOME_SIGNALS = [
+    # Direct user/customer capability & behavior
     r"\busers? can\b",
     r"\bability to\b",
     r"\bempower\b",
@@ -147,6 +125,27 @@ OUTCOME_SIGNALS = [
     r"\bself.?service\b",
     r"\b(enable|allow)\b.{0,30}\busers?\b",
     r"\busers?.{0,30}\b(enable|allow|can|able to)\b",
+    # Generic intent, JTBD, and observable delta signals
+    r"\bjob to be done\b",
+    r"\bjtbd\b",
+    r"\bdesired outcome\b",
+    r"\bobservable (?:change|delta|behavior|behaviour)\b",
+    r"\b(?:behavior|behaviour|reader|user|team|developer) (?:change|delta)\b",
+    r"\bintent\b\s*:",
+    r"\bshiny dime\b",
+    r"\bhypothesis\b\s*:",
+    r"\bleading indicator\b\s*:",
+    r"\bchanges? what (?:the|a|users?|readers?|teams?) does\b",
+]
+
+TITLE_INTENT_SIGNALS = [
+    r"\?$",                                          # Direct question / dilemma hook
+    r"\bnow what\b",                                # Dilemma / pivot point
+    r"\bfrom \b.+\b to \b",                         # Paradigm / behavioral shift
+    r"\b(?:doesn't|didn't|isn't|can't)\b.+\b(?:mean|require|fix|solve|scale)\b", # Belief reframing
+    r"\b(?:why|how to|how do we|how i)\b",          # Direct inquiry / problem exploration
+    r"\b(?:bottleneck|too late|too early)\b",       # Friction / flow constraint
+    r"\b(?:before you|try this)\b",                 # Actionable decision gate
 ]
 
 IMPACT_SIGNALS = [
@@ -192,6 +191,7 @@ INPUT_RE = _compile_patterns(INPUT_SIGNALS)
 ACTIVITY_RE = _compile_patterns(ACTIVITY_SIGNALS)
 OUTPUT_RE = _compile_patterns(OUTPUT_SIGNALS)
 OUTCOME_RE = _compile_patterns(OUTCOME_SIGNALS)
+TITLE_INTENT_RE = _compile_patterns(TITLE_INTENT_SIGNALS)
 IMPACT_RE = _compile_patterns(IMPACT_SIGNALS)
 
 
@@ -207,7 +207,7 @@ def _rationale(level: str, scores: Dict[str, int]) -> str:
     if level == "Output":
         return f"Describes deliverable artifact or feature. Signal: {signal_str}"
     if level == "Outcome":
-        return f"References user behavior or observable experience change. Signal: {signal_str}"
+        return f"References user/reader intent, observable behavioral change, or JTBD. Signal: {signal_str}"
     if level == "Impact":
         return f"References business metric or bottom-line result. Signal: {signal_str}"
     if level == "Input":
@@ -216,7 +216,7 @@ def _rationale(level: str, scores: Dict[str, int]) -> str:
 
 
 def classify_issue_content(title: str, body: Optional[str] = None) -> Dict[str, Any]:
-    """Classify an issue's content using the outcome taxonomy."""
+    """Classify an issue's content using the outcome taxonomy and intent cues."""
     clean_title = (title or "").strip()
     clean_body = (body or "").strip()
     content = f"{clean_title}\n{clean_body}".strip()
@@ -242,7 +242,7 @@ def classify_issue_content(title: str, body: Optional[str] = None) -> Dict[str, 
             "body_available": bool(clean_body),
         }
 
-    # Bug / fix override
+    # Bug / fix override in title
     is_bug = bool(re.match(r"^(?:fix(?:es|ed)?|bug)(?:\b|\()", clean_title, re.I))
     if is_bug:
         return {
@@ -254,23 +254,29 @@ def classify_issue_content(title: str, body: Optional[str] = None) -> Dict[str, 
         }
 
     s = content.lower()
+    title_lower = clean_title.lower()
+
+    title_intent_score = _score(title_lower, TITLE_INTENT_RE)
     scores = {
         "Impact": _score(s, IMPACT_RE),
-        "Outcome": _score(s, OUTCOME_RE),
+        "Outcome": _score(s, OUTCOME_RE) + (2 if title_intent_score > 0 else 0),
         "Output": _score(s, OUTPUT_RE),
         "Activity": _score(s, ACTIVITY_RE),
         "Input": _score(s, INPUT_RE),
     }
 
+    # Exclude data artifacts from Impact
     if scores["Impact"] > 0 and DATA_ARTIFACT_EXCLUSION_RE.search(s):
         scores["Impact"] = 0
 
-    if scores["Impact"] > 0 and scores["Activity"] >= 2:
-        scores["Impact"] = 0
-
-    if scores["Output"] > 0 and scores["Activity"] > scores["Output"]:
+    # If title itself is explicitly an activity/chore, don't let body make it Output
+    is_activity_title = bool(
+        re.match(r"^(?:chore|spike|investigate|debug|test|audit|cleanup|maintenance)\b", clean_title, re.I)
+    )
+    if is_activity_title and scores["Outcome"] == 0 and scores["Impact"] == 0:
         scores["Output"] = 0
 
+    # Precedence: Impact -> Outcome -> Output -> Activity -> Input
     for level in ["Impact", "Outcome", "Output", "Activity", "Input"]:
         if scores[level] > 0:
             return {
@@ -290,12 +296,155 @@ def classify_issue_content(title: str, body: Optional[str] = None) -> Dict[str, 
     }
 
 
+def discover_repo_goals(cwd: Optional[str] = None) -> Optional[Dict[str, Any]]:
+    """Attempt to discover declared goals and mission from local repo context."""
+    root = cwd or os.getcwd()
+    candidate_files = [
+        "AGENTS.md",
+        "README.md",
+        "GOALS.md",
+        "docs/goals.md",
+    ]
+
+    for rel in candidate_files:
+        path = os.path.join(root, rel)
+        if os.path.isfile(path):
+            try:
+                with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                    content = f.read()
+                goals = parse_goals_text(content, source_name=rel)
+                if goals and goals["keywords"]:
+                    return goals
+            except Exception:
+                continue
+    return None
+
+
+def parse_goals_text(text: str, source_name: str = "custom") -> Dict[str, Any]:
+    """Extract key themes, sections, and keywords from goals text."""
+    clean_text = text.strip()
+    if not clean_text:
+        return {"source": source_name, "raw": "", "keywords": set(), "themes": []}
+
+    # Extract goal/outcome sections if markdown headers exist
+    goal_sections = []
+    lines = clean_text.splitlines()
+    in_goal_section = False
+    current_sec = []
+
+    for line in lines:
+        if re.match(r"^#{1,3}\s+.*(?:goal|mission|outcome|purpose|intent|pillar|priority|priorities|focus)", line, re.I):
+            in_goal_section = True
+            current_sec.append(line)
+        elif in_goal_section and re.match(r"^#{1,2}\s+", line):
+            # Next major heading
+            if current_sec:
+                goal_sections.append("\n".join(current_sec))
+                current_sec = []
+            in_goal_section = False
+        elif in_goal_section:
+            current_sec.append(line)
+
+    if current_sec:
+        goal_sections.append("\n".join(current_sec))
+
+    distilled_text = "\n\n".join(goal_sections) if goal_sections else clean_text
+
+    # Extract meaningful keywords (words >= 4 chars, excluding stopwords)
+    stop_words = {
+        "this", "that", "with", "from", "have", "more", "will", "your", "what", "when",
+        "where", "which", "about", "into", "over", "after", "before", "their", "there",
+        "should", "would", "could", "these", "those", "other", "using", "under", "while",
+    }
+    raw_tokens = re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", distilled_text.lower())
+    keywords = {t for t in raw_tokens if t not in stop_words and not t.isdigit()}
+
+    # Extract short theme phrases (e.g. bullets or bolded items)
+    themes = []
+    for line in lines:
+        m = re.match(r"^\s*[-*•]\s+\*{0,2}([^:*]+?)\*{0,2}(?::|\s*[-—])\s*(.*)", line)
+        if m:
+            theme_title = m.group(1).strip()
+            if 3 < len(theme_title) < 50:
+                themes.append(theme_title)
+
+    return {
+        "source": source_name,
+        "raw": clean_text[:2000],
+        "distilled": distilled_text[:2000],
+        "keywords": keywords,
+        "themes": themes[:10],
+    }
+
+
+def load_repo_goals(
+    goals_input: Optional[str] = None,
+    cwd: Optional[str] = None,
+    auto_discover: bool = True,
+) -> Optional[Dict[str, Any]]:
+    """Load repo goals from explicit string, file path, or auto-discovery."""
+    if goals_input:
+        arg_path = goals_input.strip()
+        if os.path.isfile(arg_path):
+            with open(arg_path, "r", encoding="utf-8", errors="ignore") as f:
+                return parse_goals_text(f.read(), source_name=os.path.basename(arg_path))
+        return parse_goals_text(goals_input, source_name="command-line")
+
+    if auto_discover:
+        return discover_repo_goals(cwd=cwd)
+
+    return None
+
+
+def assess_goal_alignment(
+    title: str,
+    body: str,
+    repo_goals: Optional[Dict[str, Any]],
+) -> Dict[str, Any]:
+    """Score how well an issue aligns with declared repository goals."""
+    if not repo_goals or not repo_goals.get("keywords"):
+        return {
+            "alignment": "Unspecified",
+            "score": 0,
+            "matched_terms": [],
+        }
+
+    issue_text = f"{title}\n{body}".lower()
+    issue_tokens = set(re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", issue_text))
+    goal_keywords: Set[str] = repo_goals["keywords"]
+
+    # Match tokens
+    matched = sorted(issue_tokens.intersection(goal_keywords))
+    
+    # Check title matches specifically (title matches have higher weight)
+    title_tokens = set(re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", title.lower()))
+    title_matched = sorted(title_tokens.intersection(goal_keywords))
+
+    score = len(matched) + (len(title_matched) * 2)
+
+    # Thresholds:
+    # High: at least 3 matching points or >= 2 title matches
+    # Medium: at least 2 matching points or 1 title match
+    # Low: 0 or 1 incidental body match
+    if score >= 3 or len(title_matched) >= 2:
+        alignment = "High"
+    elif score >= 2 or len(title_matched) >= 1:
+        alignment = "Medium"
+    else:
+        alignment = "Low"
+
+    return {
+        "alignment": alignment,
+        "score": score,
+        "matched_terms": matched[:8],
+    }
+
+
 def parse_repo_from_remote(remote_url: str) -> Optional[str]:
     """Extract owner/repo from a git remote URL (HTTPS or SSH)."""
     if not remote_url:
         return None
     url = remote_url.strip()
-    # SSH: git@github.com:owner/repo.git
     m = re.search(r"github\.com[:/]([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+?)(?:\.git)?$", url)
     if m:
         return m.group(1)
@@ -304,7 +453,6 @@ def parse_repo_from_remote(remote_url: str) -> Optional[str]:
 
 def detect_repository(cwd: Optional[str] = None) -> Optional[str]:
     """Detect GitHub owner/repo from current workspace."""
-    # 1. Try git remote origin url
     try:
         res = subprocess.run(
             ["git", "config", "--get", "remote.origin.url"],
@@ -320,7 +468,6 @@ def detect_repository(cwd: Optional[str] = None) -> Optional[str]:
     except Exception:
         pass
 
-    # 2. Try gh repo view
     try:
         res = subprocess.run(
             ["gh", "repo", "view", "--json", "nameWithOwner", "-q", ".nameWithOwner"],
@@ -379,17 +526,35 @@ def calculate_days_ago(date_str: Optional[str], now: Optional[datetime] = None) 
 def analyze_and_prioritize_issues(
     raw_issues: List[Dict[str, Any]],
     stale_days_threshold: int = 90,
+    repo_goals: Optional[Dict[str, Any]] = None,
     now: Optional[datetime] = None,
 ) -> Dict[str, Any]:
-    """Classify issues and group them into prioritized tiers."""
+    """Classify issues and group them into prioritized tiers based on outcome and goals."""
     now = now or datetime.now(timezone.utc)
     items = []
     level_counts = dict.fromkeys(LEVELS, 0)
     stale_count = 0
     smell_count = 0
 
-    # Weighting rank for sorting: Impact > Outcome > Output > Activity > Input > Unknown
-    tier_rank = {
+    has_goals = bool(repo_goals and repo_goals.get("keywords"))
+
+    # Priority rank mapping:
+    # 2D Grid if goals present:
+    # P0: High Alignment + Impact/Outcome
+    # P1: High Alignment + Output
+    # P2: Medium Alignment (Outcome/Output) OR High Alignment Activity (Critical Enabler)
+    # P3: Routine Maintenance & Chores
+    # P4: Low Alignment / Unanchored
+    tier_rank_with_goals = {
+        "P0": 1,
+        "P1": 2,
+        "P2": 3,
+        "P3": 4,
+        "P4": 5,
+    }
+
+    # 1D Altitude fallback:
+    tier_rank_1d = {
         "Impact": 1,
         "Outcome": 2,
         "Output": 3,
@@ -420,20 +585,57 @@ def analyze_and_prioritize_issues(
         if has_smell:
             smell_count += 1
 
-        coaching = None
-        if level in ("Output", "Activity") and has_smell:
-            coaching = f"Reframe away from '{classification['prescriptive_verbs']}': What observable user behavior change does this deliver?"
-        elif level == "Output" and not classification["body_available"]:
-            coaching = "Add an outcome hypothesis: Who uses this and how will their behavior change?"
-        elif level in ("Outcome", "Impact"):
-            coaching = "High-leverage value driver. Ensure measurable KPI or leading indicator is defined."
+        # Goal alignment evaluation
+        goal_eval = assess_goal_alignment(title, body, repo_goals)
+        alignment = goal_eval["alignment"]
+        matched_terms = goal_eval["matched_terms"]
+
+        # Determine Tier
+        if has_goals:
+            if alignment == "High" and level in ("Impact", "Outcome"):
+                priority_tier = "P0"
+                tier_label = "P0: Strategic Value Driver"
+                coaching = "Core strategic driver aligned to repo goals. Ensure falsifiable metric or acceptance delta is defined."
+            elif alignment == "High" and level == "Output":
+                priority_tier = "P1"
+                tier_label = "P1: Strategic Deliverable"
+                coaching = f"Aligned to repo goals, but framed as output ({classification['prescriptive_verbs'] or 'artifact'}). Reframe to clarify user outcome before pulling."
+            elif (alignment == "Medium" and level in ("Impact", "Outcome", "Output")) or (alignment == "High" and level == "Activity"):
+                priority_tier = "P2"
+                tier_label = "P2: Supporting & Operational Runway"
+                coaching = "Supporting outcome or critical enabling runway. Pull after P0/P1 items or when unblocking flow."
+            elif level in ("Activity", "Input"):
+                priority_tier = "P3"
+                tier_label = "P3: Routine Maintenance & Chores"
+                coaching = "Routine maintenance or defect repair. Group into cohesive maintenance blocks."
+            else:
+                priority_tier = "P4"
+                tier_label = "P4: Unanchored / Distraction"
+                coaching = "Low alignment to declared repo goals. Review whether to close, archive, or reframe."
+            sort_rank = tier_rank_with_goals.get(priority_tier, 99)
+        else:
+            priority_tier = None
+            tier_label = None
+            sort_rank = tier_rank_1d.get(level, 99)
+            if level in ("Output", "Activity") and has_smell:
+                coaching = f"Reframe away from '{classification['prescriptive_verbs']}': What observable user behavior change does this deliver?"
+            elif level == "Output" and not classification["body_available"]:
+                coaching = "Add an outcome hypothesis: Who uses this and how will their behavior change?"
+            elif level in ("Outcome", "Impact"):
+                coaching = "High-leverage value driver. Ensure measurable KPI or leading indicator is defined."
+            else:
+                coaching = None
 
         items.append({
             "number": num,
             "title": title,
             "url": url,
             "level": level,
-            "tier_rank": tier_rank.get(level, 99),
+            "tier_rank": sort_rank,
+            "priority_tier": priority_tier,
+            "priority_tier_label": tier_label,
+            "goal_alignment": alignment,
+            "matched_terms": matched_terms,
             "rationale": classification["rationale"],
             "prescriptive_verbs": classification["prescriptive_verbs"],
             "body_available": classification["body_available"],
@@ -447,16 +649,25 @@ def analyze_and_prioritize_issues(
         })
 
     # Sort prioritized backlog:
-    # 1. Tier (Impact, Outcome, Output, Activity...)
-    # 2. Staleness (active first: not stale before stale)
+    # 1. Tier rank (P0 -> P4 or Tier 1 -> Tier 3)
+    # 2. Staleness (active before stale)
     # 3. Recency of update (days_since_update ascending)
     items.sort(key=lambda x: (x["tier_rank"], 1 if x["is_stale"] else 0, x["days_since_update"]))
 
-    grouped = {
-        "value_drivers": [i for i in items if i["level"] in ("Impact", "Outcome")],
-        "deliverables": [i for i in items if i["level"] == "Output"],
-        "tasks_and_maintenance": [i for i in items if i["level"] in ("Activity", "Input", "Unknown")],
-    }
+    if has_goals:
+        grouped = {
+            "p0_strategic_drivers": [i for i in items if i["priority_tier"] == "P0"],
+            "p1_strategic_deliverables": [i for i in items if i["priority_tier"] == "P1"],
+            "p2_supporting_operations": [i for i in items if i["priority_tier"] == "P2"],
+            "p3_maintenance_chores": [i for i in items if i["priority_tier"] == "P3"],
+            "p4_unanchored_distractions": [i for i in items if i["priority_tier"] == "P4"],
+        }
+    else:
+        grouped = {
+            "value_drivers": [i for i in items if i["level"] in ("Impact", "Outcome")],
+            "deliverables": [i for i in items if i["level"] == "Output"],
+            "tasks_and_maintenance": [i for i in items if i["level"] in ("Activity", "Input", "Unknown")],
+        }
 
     return {
         "version": VERSION,
@@ -465,6 +676,9 @@ def analyze_and_prioritize_issues(
         "stale_count": stale_count,
         "stale_days_threshold": stale_days_threshold,
         "prescriptive_smell_count": smell_count,
+        "repo_goals_source": repo_goals.get("source") if repo_goals else None,
+        "repo_goals_themes": repo_goals.get("themes") if repo_goals else [],
+        "has_goals": has_goals,
         "items": items,
         "grouped": grouped,
     }
@@ -490,54 +704,70 @@ def format_prioritized_report(summary: Dict[str, Any], repo_name: Optional[str] 
         f"Signals: {summary['prescriptive_smell_count']} prescriptive wording smells | "
         f"{summary['stale_count']} stale issues (>= {summary['stale_days_threshold']} days untouched)"
     )
+
+    if summary.get("has_goals"):
+        src = summary.get("repo_goals_source", "custom")
+        themes = summary.get("repo_goals_themes", [])
+        theme_str = f" | Themes: {', '.join(themes[:4])}" if themes else ""
+        lines.append(f"Strategic Alignment Context: Goals loaded from '{src}'{theme_str}")
     lines.append("")
 
     grouped = summary["grouped"]
 
-    def _render_section(title: str, items: List[Dict[str, Any]], explanation: str):
-        lines.append(f"### {title} ({len(items)})")
+    def _render_item(item: Dict[str, Any]):
+        stale_tag = " [STALE]" if item["is_stale"] else ""
+        verbs_tag = f" [Smell: {item['prescriptive_verbs']}]" if item["prescriptive_verbs"] else ""
+        align_tag = f" [Align: {item['goal_alignment']}]" if item.get("goal_alignment") and item["goal_alignment"] != "Unspecified" else ""
+        lines.append(f"  • #{item['number']} [{item['level']}]{align_tag}{stale_tag}{verbs_tag}: {item['title']}")
+        lines.append(f"    Reason: {item['rationale']}")
+        if item.get("matched_terms"):
+            lines.append(f"    Matched Goals: {', '.join(item['matched_terms'])}")
+        if item.get("coaching_hint"):
+            lines.append(f"    -> Coaching: {item['coaching_hint']}")
+        if item.get("labels"):
+            lines.append(f"    Labels: {', '.join(item['labels'])}")
+        lines.append("")
+
+    if summary.get("has_goals"):
+        sections = [
+            ("P0: High-Leverage Strategic Value Drivers", grouped.get("p0_strategic_drivers", []),
+             "Top investment priority: Direct alignment with repo goals expressed as observable outcomes."),
+            ("P1: Strategic Deliverables (Needs Outcome Hypothesis)", grouped.get("p1_strategic_deliverables", []),
+             "Core repo deliverables: Reframe from solution output to user outcome before pulling into work."),
+            ("P2: Supporting Outcomes & Operational Runway", grouped.get("p2_supporting_operations", []),
+             "Secondary scope: Supporting deliverables, adjacent outcomes, or critical enabler runway."),
+            ("P3: Routine Maintenance & Chores", grouped.get("p3_maintenance_chores", []),
+             "Operational health: Fixes and chores. Keep batch-sized and prevent starvation of P0."),
+            ("P4: Unanchored Outputs / Distractions", grouped.get("p4_unanchored_distractions", []),
+             "Strategic drift: Low alignment to declared repo goals. Review for parking, closing, or reframing."),
+        ]
+    else:
+        sections = [
+            ("Tier 1: High-Leverage Value Drivers (Impact & Outcome)", grouped.get("value_drivers", []),
+             "Highest priority for work: Expresses clear user behavioral changes or measurable business metrics."),
+            ("Tier 2: Output Deliverables (Features & Artifacts)", grouped.get("deliverables", []),
+             "Secondary priority: Expresses a deliverable. Reframe to clarify who uses it and what behavior changes."),
+            ("Tier 3: Maintenance, Bugs & Chores (Activity & Input)", grouped.get("tasks_and_maintenance", []),
+             "Operational work: Fixes, chores, and maintenance. Triage and prevent unbounded growth."),
+        ]
+
+    for title, sec_items, explanation in sections:
+        lines.append(f"### {title} ({len(sec_items)})")
         lines.append(f"    {explanation}")
         lines.append("-" * 72)
-        if not items:
+        if not sec_items:
             lines.append("    (No items in this category)")
             lines.append("")
-            return
-
-        for item in items:
-            stale_tag = " [STALE]" if item["is_stale"] else ""
-            verbs_tag = f" [Smell: {item['prescriptive_verbs']}]" if item["prescriptive_verbs"] else ""
-            lines.append(f"  • #{item['number']} [{item['level']}]{stale_tag}{verbs_tag}: {item['title']}")
-            lines.append(f"    Reason: {item['rationale']}")
-            if item.get("coaching_hint"):
-                lines.append(f"    -> Coaching: {item['coaching_hint']}")
-            if item.get("labels"):
-                lines.append(f"    Labels: {', '.join(item['labels'])}")
-            lines.append("")
-
-    _render_section(
-        "Tier 1: High-Leverage Value Drivers (Impact & Outcome)",
-        grouped["value_drivers"],
-        "Highest priority for work: Expresses clear user behavioral changes or measurable business metrics.",
-    )
-
-    _render_section(
-        "Tier 2: Output Deliverables (Features & Artifacts)",
-        grouped["deliverables"],
-        "Secondary priority: Expresses a deliverable. Reframe to clarify who uses it and what behavior changes.",
-    )
-
-    _render_section(
-        "Tier 3: Maintenance, Bugs & Chores (Activity & Input)",
-        grouped["tasks_and_maintenance"],
-        "Operational work: Fixes, chores, and maintenance. Triage and prevent unbounded growth.",
-    )
+            continue
+        for it in sec_items:
+            _render_item(it)
 
     return "\n".join(lines)
 
 
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Analyze and prioritize GitHub open issues by value/outcome framing."
+        description="Analyze and prioritize GitHub open issues by value/outcome framing and repo goals."
     )
     parser.add_argument(
         "--repo",
@@ -556,6 +786,16 @@ def main(argv: Optional[List[str]] = None) -> int:
         type=int,
         default=90,
         help="Days since last update to consider an issue stale (default: 90)",
+    )
+    parser.add_argument(
+        "--goals",
+        "-g",
+        help="Repository goals text or path to a goals file (e.g. README.md, AGENTS.md, or custom goals)",
+    )
+    parser.add_argument(
+        "--no-auto-goals",
+        action="store_true",
+        help="Disable automatic discovery of goals from local README.md/AGENTS.md",
     )
     parser.add_argument(
         "--json",
@@ -581,9 +821,16 @@ def main(argv: Optional[List[str]] = None) -> int:
         sys.stderr.write(f"Error fetching issues: {e}\n")
         return 1
 
+    # Load repo goals if provided or discoverable
+    repo_goals = load_repo_goals(
+        goals_input=args.goals,
+        auto_discover=not args.no_auto_goals,
+    )
+
     analysis = analyze_and_prioritize_issues(
         raw_issues,
         stale_days_threshold=args.stale_days,
+        repo_goals=repo_goals,
     )
 
     if args.json:

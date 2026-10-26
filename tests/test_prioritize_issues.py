@@ -7,10 +7,13 @@ from unittest.mock import MagicMock, patch
 
 from scripts.prioritize_issues import (
     analyze_and_prioritize_issues,
+    assess_goal_alignment,
     classify_issue_content,
     detect_repository,
     format_prioritized_report,
+    load_repo_goals,
     main,
+    parse_goals_text,
     parse_repo_from_remote,
     fetch_open_issues,
 )
@@ -34,13 +37,27 @@ class TestPrioritizeIssues(unittest.TestCase):
         self.assertIsNone(parse_repo_from_remote(""))
 
     def test_classify_issue_content_levels(self):
-        # Outcome
+        # Outcome - SaaS phrasing
         res = classify_issue_content(
             "Self-service onboarding flow",
             "Users can configure their own settings without engineering support.",
         )
         self.assertEqual(res["level"], "Outcome")
         self.assertFalse(res["defaulted"])
+
+        # Outcome - Generic title question / hook
+        res = classify_issue_content(
+            "AI Coding Made Code Review the Bottleneck. Now What?",
+            "Analysis of review queue arrival rates.",
+        )
+        self.assertEqual(res["level"], "Outcome")
+
+        # Outcome - Generic shift & JTBD
+        res = classify_issue_content(
+            "From Vibe Coding to Developing the Company",
+            "JTBD: Reader delta shifts from babysitting prompt outputs to developing workflow specifications.",
+        )
+        self.assertEqual(res["level"], "Outcome")
 
         # Impact
         res = classify_issue_content("Increase checkout conversion by 15%", "")
@@ -71,7 +88,93 @@ class TestPrioritizeIssues(unittest.TestCase):
         res = classify_issue_content("", "")
         self.assertEqual(res["level"], "Unknown")
 
-    def test_analyze_and_prioritize_ordering(self):
+    def test_parse_goals_and_alignment(self):
+        goals_text = """
+        # Project Goals & Strategy
+        Our mission is to help engineering organizations scale agentic workflows from activity to impact.
+        ## Strategic Pillars
+        - Developing the Factory: build repeatable spec-driven software factories.
+        - Product Outcome Loop: focus on business metrics and user intent before code.
+        - Flow at Agent Speed: manage review bottlenecks and WIP limits.
+        """
+        parsed = parse_goals_text(goals_text, source_name="README.md")
+        self.assertIn("factory", parsed["keywords"])
+        self.assertIn("bottlenecks", parsed["keywords"])
+        self.assertIn("agentic", parsed["keywords"])
+
+        # Test High Alignment Issue (Outcome aligned to factory/loop)
+        high_align = assess_goal_alignment(
+            "From Babysitting AI to Developing the Factory",
+            "Observable delta: readers build repeatable spec-driven software factories instead of correcting prompts.",
+            parsed,
+        )
+        self.assertEqual(high_align["alignment"], "High")
+        self.assertIn("factory", high_align["matched_terms"])
+
+        # Test Low Alignment Issue (Pre-AI generic topic)
+        low_align = assess_goal_alignment(
+            "Retro: Team retrospective templates for sprint 12",
+            "Discussion points on team feelings and icebreakers.",
+            parsed,
+        )
+        self.assertEqual(low_align["alignment"], "Low")
+
+    def test_analyze_and_prioritize_with_goals_2d_grid(self):
+        now = datetime(2026, 10, 26, 12, 0, 0, tzinfo=timezone.utc)
+        goals = parse_goals_text(
+            "Goals: Develop agentic software factory and optimize review bottlenecks.",
+            source_name="GOALS.md",
+        )
+
+        issues = [
+            {
+                "number": 1,
+                "title": "Build a generic database connector",  # Aligned? Low. Output.
+                "body": "Implement mongo adapter.",
+                "updatedAt": "2026-10-25T10:00:00Z",
+            },
+            {
+                "number": 2,
+                "title": "Develop agentic software factory specification",  # High align, Output
+                "body": "Build the spec-driven framework for agents.",
+                "updatedAt": "2026-10-24T10:00:00Z",
+            },
+            {
+                "number": 3,
+                "title": "Code review bottleneck: now what?",  # High align, Outcome
+                "body": "Intent: Users can manage review bottlenecks under high agent PR volume.",
+                "updatedAt": "2026-10-23T10:00:00Z",
+            },
+            {
+                "number": 4,
+                "title": "fix: crash in websocket ping",  # Activity
+                "body": "Fix nil pointer exception.",
+                "updatedAt": "2026-10-22T10:00:00Z",
+            },
+        ]
+
+        summary = analyze_and_prioritize_issues(issues, repo_goals=goals, now=now)
+        self.assertTrue(summary["has_goals"])
+
+        # Verify P0 -> P1 -> P3 -> P4
+        items_by_num = {it["number"]: it for it in summary["items"]}
+        self.assertEqual(items_by_num[3]["priority_tier"], "P0")  # High + Outcome
+        self.assertEqual(items_by_num[2]["priority_tier"], "P1")  # High + Output
+        self.assertEqual(items_by_num[4]["priority_tier"], "P3")  # Activity
+        self.assertEqual(items_by_num[1]["priority_tier"], "P4")  # Low align Output
+
+        # Verify order: P0 (#3) comes first, then P1 (#2)
+        ranked_numbers = [item["number"] for item in summary["items"]]
+        self.assertEqual(ranked_numbers[0], 3)
+        self.assertEqual(ranked_numbers[1], 2)
+
+        # Check report formatting includes 2D sections
+        report = format_prioritized_report(summary, repo_name="owner/repo")
+        self.assertIn("P0: High-Leverage Strategic Value Drivers", report)
+        self.assertIn("P1: Strategic Deliverables", report)
+        self.assertIn("P4: Unanchored Outputs / Distractions", report)
+
+    def test_analyze_and_prioritize_ordering_without_goals(self):
         now = datetime(2026, 10, 26, 12, 0, 0, tzinfo=timezone.utc)
         issues = [
             {
@@ -108,7 +211,7 @@ class TestPrioritizeIssues(unittest.TestCase):
             },
         ]
 
-        summary = analyze_and_prioritize_issues(issues, stale_days_threshold=90, now=now)
+        summary = analyze_and_prioritize_issues(issues, stale_days_threshold=90, repo_goals=None, now=now)
         self.assertEqual(summary["total_open_issues"], 4)
         self.assertEqual(summary["counts_by_level"]["Outcome"], 1)
         self.assertEqual(summary["counts_by_level"]["Output"], 1)
@@ -119,18 +222,10 @@ class TestPrioritizeIssues(unittest.TestCase):
         ranked_numbers = [item["number"] for item in summary["items"]]
         self.assertEqual(ranked_numbers[0], 103)
         self.assertEqual(ranked_numbers[1], 101)
-        # Active Activity #102 should come before stale Activity #104
         self.assertEqual(ranked_numbers[2], 102)
         self.assertEqual(ranked_numbers[3], 104)
 
-        # Check grouped structure
-        self.assertEqual(len(summary["grouped"]["value_drivers"]), 1)
-        self.assertEqual(summary["grouped"]["value_drivers"][0]["number"], 103)
-        self.assertEqual(len(summary["grouped"]["deliverables"]), 1)
-        self.assertEqual(summary["grouped"]["deliverables"][0]["number"], 101)
-        self.assertEqual(len(summary["grouped"]["tasks_and_maintenance"]), 2)
-
-    def test_format_prioritized_report(self):
+    def test_format_prioritized_report_classic(self):
         now = datetime(2026, 10, 26, 12, 0, 0, tzinfo=timezone.utc)
         issues = [
             {
@@ -140,7 +235,7 @@ class TestPrioritizeIssues(unittest.TestCase):
                 "updatedAt": "2026-10-25T10:00:00Z",
             }
         ]
-        summary = analyze_and_prioritize_issues(issues, now=now)
+        summary = analyze_and_prioritize_issues(issues, repo_goals=None, now=now)
         report = format_prioritized_report(summary, repo_name="acme/platform")
         self.assertIn("Value Prioritization Report: acme/platform", report)
         self.assertIn("Tier 1: High-Leverage Value Drivers", report)
@@ -189,7 +284,7 @@ class TestPrioritizeIssues(unittest.TestCase):
 
         # Test human-readable output
         with patch("builtins.print") as mock_print:
-            code = main(["--repo", "yyeret/ai-impact"])
+            code = main(["--repo", "yyeret/ai-impact", "--no-auto-goals"])
             self.assertEqual(code, 0)
             mock_print.assert_called()
             output_text = mock_print.call_args[0][0]
@@ -197,7 +292,7 @@ class TestPrioritizeIssues(unittest.TestCase):
 
         # Test json output
         with patch("builtins.print") as mock_print:
-            code = main(["--repo", "yyeret/ai-impact", "--json"])
+            code = main(["--repo", "yyeret/ai-impact", "--json", "--no-auto-goals"])
             self.assertEqual(code, 0)
             mock_print.assert_called()
             json_output = json.loads(mock_print.call_args[0][0])
