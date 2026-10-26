@@ -100,6 +100,23 @@ When classifying hundreds or thousands of epics in bulk:
 
 **After (Outcome):** `Media planners set spend caps on [add KPI]% of active flights within 30 days of launch, cutting budget overruns and manual ops intervention.` Now it can be falsified: if nobody sets a cap, the initiative failed even though the feature shipped.
 
+## Local Workspace Issue Prioritization
+
+To prioritize open issues in a local GitHub repository workspace directly:
+
+```bash
+# In the target repository workspace:
+python3 scripts/prioritize_issues.py
+
+# Or pointing to any repository:
+python3 scripts/prioritize_issues.py --repo owner/repo
+
+# Output JSON for programmatic or agent consumption:
+python3 scripts/prioritize_issues.py --json
+```
+
+This classifies open backlog items into three actionable tiers (High-Leverage Value Drivers, Output Deliverables, and Maintenance Tasks), surfaces prescriptive language smells, and flags stale issues.
+
 ---
 
 ## Rovo Agent Configuration
