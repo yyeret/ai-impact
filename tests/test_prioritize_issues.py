@@ -59,9 +59,26 @@ class TestPrioritizeIssues(unittest.TestCase):
         )
         self.assertEqual(res["level"], "Outcome")
 
-        # Impact
-        res = classify_issue_content("Increase checkout conversion by 15%", "")
+        # Impact - Measuring business impact
+        res = classify_issue_content(
+            "You Can't Measure AI Impact If You Never Measured Delivery Before AI",
+            "Baseline delivery metrics before AI adoption.",
+        )
         self.assertEqual(res["level"], "Impact")
+
+        # Outcome - Who can question and belief reframing
+        res = classify_issue_content(
+            "Who Can Actually Say No? AI Enablement Without Product Ownership",
+            "Analysis of decision authority in product teams.",
+        )
+        self.assertEqual(res["level"], "Outcome")
+
+        # Outcome - Friction constraint and bottleneck
+        res = classify_issue_content(
+            "My AI Bottleneck Wasn't Tokens. It Was Finishing.",
+            "Finishing is the real flow constraint.",
+        )
+        self.assertEqual(res["level"], "Outcome")
 
         # Output
         res = classify_issue_content("Build CSV export dashboard modal", "")
@@ -91,7 +108,7 @@ class TestPrioritizeIssues(unittest.TestCase):
     def test_parse_goals_and_alignment(self):
         goals_text = """
         # Project Goals & Strategy
-        Our mission is to help engineering organizations scale agentic workflows from activity to impact.
+        Our mission is to help engineering organizations scale AI and agentic workflows from activity to impact.
         ## Strategic Pillars
         - Developing the Factory: build repeatable spec-driven software factories.
         - Product Outcome Loop: focus on business metrics and user intent before code.
@@ -101,6 +118,8 @@ class TestPrioritizeIssues(unittest.TestCase):
         self.assertIn("factory", parsed["keywords"])
         self.assertIn("bottlenecks", parsed["keywords"])
         self.assertIn("agentic", parsed["keywords"])
+        self.assertIn("ai", parsed["keywords"])
+        self.assertIn("wip", parsed["keywords"])
 
         # Test High Alignment Issue (Outcome aligned to factory/loop)
         high_align = assess_goal_alignment(

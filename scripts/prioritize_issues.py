@@ -139,13 +139,13 @@ OUTCOME_SIGNALS = [
 ]
 
 TITLE_INTENT_SIGNALS = [
-    r"\?$",                                          # Direct question / dilemma hook
+    r"\?",                                           # Direct question / dilemma hook anywhere in title
     r"\bnow what\b",                                # Dilemma / pivot point
     r"\bfrom \b.+\b to \b",                         # Paradigm / behavioral shift
-    r"\b(?:doesn't|didn't|isn't|can't)\b.+\b(?:mean|require|fix|solve|scale)\b", # Belief reframing
-    r"\b(?:why|how to|how do we|how i)\b",          # Direct inquiry / problem exploration
-    r"\b(?:bottleneck|too late|too early)\b",       # Friction / flow constraint
-    r"\b(?:before you|try this)\b",                 # Actionable decision gate
+    r"\b(?:doesn't|didn't|isn't|can't|won't)\b.+\b(?:mean|require|fix|solve|scale|if|without|unless|until|before)\b", # Belief reframing
+    r"\b(?:why|how to|how do we|how i|who can|who should|what if)\b", # Direct inquiry / problem exploration
+    r"\b(?:bottleneck|bottlenecks|too late|too early|failure mode|breakdown)\b", # Friction / flow constraint
+    r"\b(?:before you|try this|instead of)\b",      # Actionable decision gate
 ]
 
 IMPACT_SIGNALS = [
@@ -155,6 +155,7 @@ IMPACT_SIGNALS = [
     r"\b(reduce|minimize|minimise|decrease|lower|cut|eliminate)\b.{0,60}\b(churn|cac|friction|dropout|attrition)\b",
     r"\b(reduce|cut|lower)\b.{0,30}\bcosts?\b.{0,20}\b(by|through|via|target|goal|objective)\b",
     r"\b(revenue|conversion|profit|nps|satisfaction|margin|ltv|roi|arr|mrr)\b.{0,60}\b(growth|increase|improvement|goal|target|objective|uplift|opportunity)\b",
+    r"\b(measure|measuring|evaluating|tracking|quantifying)\b.{0,30}\b(impact|outcomes?|roi|value|effect|benefit)\b",
     r"\bbusiness (result|objective|goal|kpi|impact|value proposition)\b",
     r"\b(unlock|drive|generate|capture)\b.{0,40}\b(revenue|value|growth|profit|market)\b",
     r"\breturn on investment\b",
@@ -320,6 +321,19 @@ def discover_repo_goals(cwd: Optional[str] = None) -> Optional[Dict[str, Any]]:
     return None
 
 
+MEANINGFUL_SHORT_TOKENS = {
+    "ai", "ui", "ml", "qa", "ci", "cd", "api", "cli", "sdk", "llm", "app", "bot",
+    "wip", "sdd", "kpi", "roi", "sla", "slo", "dev", "ops", "sec", "git", "web",
+    "db", "sql", "cpu", "gpu", "ram", "rpc", "pr", "prs", "pbi", "k8s", "os"
+}
+
+
+def _tokenize_words(text: str) -> List[str]:
+    """Tokenize text into lowercase words, including meaningful 2-letter domain acronyms."""
+    raw = re.findall(r"\b[a-zA-Z0-9_\-]{2,}\b", text.lower())
+    return [t for t in raw if len(t) >= 3 or t in MEANINGFUL_SHORT_TOKENS]
+
+
 def parse_goals_text(text: str, source_name: str = "custom") -> Dict[str, Any]:
     """Extract key themes, positive keywords, and anti-goal terms from goals text."""
     clean_text = text.strip()
@@ -364,12 +378,15 @@ def parse_goals_text(text: str, source_name: str = "custom") -> Dict[str, Any]:
         "for", "the", "are", "not", "but", "all", "can", "out", "was", "has", "had",
         "its", "etc", "com", "http", "https", "www", "you", "our", "one", "get", "make",
         "set", "see", "run", "let", "via", "per", "any", "how", "why", "who", "whom",
+        "new", "old", "use", "way", "may", "now", "too", "own", "two", "few", "did",
+        "put", "say", "got", "she", "him", "her", "his", "top", "end", "bit", "far",
+        "big", "day", "off",
     }
 
-    pos_tokens = re.findall(r"\b[a-zA-Z0-9_\-]{4,}\b", pos_text.lower())
+    pos_tokens = _tokenize_words(pos_text)
     keywords = {t for t in pos_tokens if t not in stop_words and not t.isdigit()}
 
-    anti_tokens = re.findall(r"\b[a-zA-Z0-9_\-]{4,}\b", anti_text.lower())
+    anti_tokens = _tokenize_words(anti_text)
     anti_keywords = {t for t in anti_tokens if t not in stop_words and not t.isdigit()}
 
     # Extract short theme phrases (from positive sections only)
@@ -425,7 +442,7 @@ def assess_goal_alignment(
         }
 
     issue_text = f"{title}\n{body}".lower()
-    issue_tokens = set(re.findall(r"\b[a-zA-Z0-9_\-]{4,}\b", issue_text))
+    issue_tokens = set(_tokenize_words(issue_text))
     goal_keywords: Set[str] = repo_goals["keywords"]
     anti_keywords: Set[str] = repo_goals.get("anti_keywords", set())
 
@@ -433,7 +450,7 @@ def assess_goal_alignment(
     matched = sorted(issue_tokens.intersection(goal_keywords))
     
     # Check title matches specifically (title matches have higher weight)
-    title_tokens = set(re.findall(r"\b[a-zA-Z0-9_\-]{4,}\b", title.lower()))
+    title_tokens = set(_tokenize_words(title))
     title_matched = sorted(title_tokens.intersection(goal_keywords))
 
     pos_score = len(matched) + (len(title_matched) * 2)
@@ -458,12 +475,6 @@ def assess_goal_alignment(
         "score": pos_score,
         "matched_terms": matched[:8],
         "matched_anti_terms": matched_anti[:5],
-    }
-
-    return {
-        "alignment": alignment,
-        "score": score,
-        "matched_terms": matched[:8],
     }
 
 
