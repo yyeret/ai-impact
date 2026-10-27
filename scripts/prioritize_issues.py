@@ -321,48 +321,61 @@ def discover_repo_goals(cwd: Optional[str] = None) -> Optional[Dict[str, Any]]:
 
 
 def parse_goals_text(text: str, source_name: str = "custom") -> Dict[str, Any]:
-    """Extract key themes, sections, and keywords from goals text."""
+    """Extract key themes, positive keywords, and anti-goal terms from goals text."""
     clean_text = text.strip()
     if not clean_text:
-        return {"source": source_name, "raw": "", "keywords": set(), "themes": []}
+        return {"source": source_name, "raw": "", "keywords": set(), "anti_keywords": set(), "themes": []}
 
-    # Extract goal/outcome sections if markdown headers exist
-    goal_sections = []
-    lines = clean_text.splitlines()
-    in_goal_section = False
-    current_sec = []
+    # Separate positive goal sections from anti-goal/de-emphasized sections
+    pos_lines = []
+    anti_lines = []
+    current_target = pos_lines
+    in_any_section = False
 
-    for line in lines:
-        if re.match(r"^#{1,3}\s+.*(?:goal|mission|outcome|purpose|intent|pillar|priority|priorities|focus)", line, re.I):
-            in_goal_section = True
-            current_sec.append(line)
-        elif in_goal_section and re.match(r"^#{1,2}\s+", line):
-            # Next major heading
-            if current_sec:
-                goal_sections.append("\n".join(current_sec))
-                current_sec = []
-            in_goal_section = False
-        elif in_goal_section:
-            current_sec.append(line)
+    for line in clean_text.splitlines():
+        if re.match(r"^#{1,3}\s+.*(?:anti-goal|de-emphasiz|out of scope|non-goal)", line, re.I):
+            current_target = anti_lines
+            in_any_section = True
+            current_target.append(line)
+        elif re.match(r"^#{1,3}\s+.*(?:goal|mission|outcome|purpose|intent|pillar|priority|priorities|focus)", line, re.I):
+            current_target = pos_lines
+            in_any_section = True
+            current_target.append(line)
+        elif in_any_section and re.match(r"^#{1,2}\s+", line):
+            # A new major section that isn't explicitly goal/anti-goal
+            in_any_section = False
+            current_target = pos_lines
+        elif in_any_section or not re.match(r"^#{1,3}\s+", line):
+            current_target.append(line)
 
-    if current_sec:
-        goal_sections.append("\n".join(current_sec))
+    pos_text = "\n".join(pos_lines) if pos_lines else clean_text
+    anti_text = "\n".join(anti_lines)
 
-    distilled_text = "\n\n".join(goal_sections) if goal_sections else clean_text
-
-    # Extract meaningful keywords (words >= 4 chars, excluding stopwords)
+    # Comprehensive stopwords (filter out prepositions, conjunctions, pronouns, and web artifacts)
     stop_words = {
         "this", "that", "with", "from", "have", "more", "will", "your", "what", "when",
         "where", "which", "about", "into", "over", "after", "before", "their", "there",
         "should", "would", "could", "these", "those", "other", "using", "under", "while",
+        "also", "than", "then", "them", "they", "been", "being", "were", "does", "done",
+        "doing", "some", "such", "only", "same", "just", "very", "much", "even", "most",
+        "here", "both", "each", "well", "down", "once", "such", "through", "across",
+        "between", "without", "again", "further", "because", "cannot", "above", "below",
+        "during", "always", "every", "many", "ours", "yours", "theirs", "whose", "and",
+        "for", "the", "are", "not", "but", "all", "can", "out", "was", "has", "had",
+        "its", "etc", "com", "http", "https", "www", "you", "our", "one", "get", "make",
+        "set", "see", "run", "let", "via", "per", "any", "how", "why", "who", "whom",
     }
-    raw_tokens = re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", distilled_text.lower())
-    keywords = {t for t in raw_tokens if t not in stop_words and not t.isdigit()}
 
-    # Extract short theme phrases (e.g. bullets or bolded items)
+    pos_tokens = re.findall(r"\b[a-zA-Z0-9_\-]{4,}\b", pos_text.lower())
+    keywords = {t for t in pos_tokens if t not in stop_words and not t.isdigit()}
+
+    anti_tokens = re.findall(r"\b[a-zA-Z0-9_\-]{4,}\b", anti_text.lower())
+    anti_keywords = {t for t in anti_tokens if t not in stop_words and not t.isdigit()}
+
+    # Extract short theme phrases (from positive sections only)
     themes = []
-    for line in lines:
-        m = re.match(r"^\s*[-*•]\s+\*{0,2}([^:*]+?)\*{0,2}(?::|\s*[-—])\s*(.*)", line)
+    for line in pos_lines:
+        m = re.match(r"^\s*[-*•\d.]+\s+\*{0,2}([^:*]+?)\*{0,2}(?::|\s*[-—])\s*(.*)", line)
         if m:
             theme_title = m.group(1).strip()
             if 3 < len(theme_title) < 50:
@@ -371,8 +384,9 @@ def parse_goals_text(text: str, source_name: str = "custom") -> Dict[str, Any]:
     return {
         "source": source_name,
         "raw": clean_text[:2000],
-        "distilled": distilled_text[:2000],
+        "distilled": pos_text[:2000],
         "keywords": keywords,
+        "anti_keywords": anti_keywords,
         "themes": themes[:10],
     }
 
@@ -401,37 +415,50 @@ def assess_goal_alignment(
     body: str,
     repo_goals: Optional[Dict[str, Any]],
 ) -> Dict[str, Any]:
-    """Score how well an issue aligns with declared repository goals."""
+    """Score how well an issue aligns with declared repository goals vs anti-goals."""
     if not repo_goals or not repo_goals.get("keywords"):
         return {
             "alignment": "Unspecified",
             "score": 0,
             "matched_terms": [],
+            "matched_anti_terms": [],
         }
 
     issue_text = f"{title}\n{body}".lower()
-    issue_tokens = set(re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", issue_text))
+    issue_tokens = set(re.findall(r"\b[a-zA-Z0-9_\-]{4,}\b", issue_text))
     goal_keywords: Set[str] = repo_goals["keywords"]
+    anti_keywords: Set[str] = repo_goals.get("anti_keywords", set())
 
-    # Match tokens
+    # Match positive tokens
     matched = sorted(issue_tokens.intersection(goal_keywords))
     
     # Check title matches specifically (title matches have higher weight)
-    title_tokens = set(re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", title.lower()))
+    title_tokens = set(re.findall(r"\b[a-zA-Z0-9_\-]{4,}\b", title.lower()))
     title_matched = sorted(title_tokens.intersection(goal_keywords))
 
-    score = len(matched) + (len(title_matched) * 2)
+    pos_score = len(matched) + (len(title_matched) * 2)
 
-    # Thresholds:
-    # High: at least 3 matching points or >= 2 title matches
-    # Medium: at least 2 matching points or 1 title match
-    # Low: 0 or 1 incidental body match
-    if score >= 3 or len(title_matched) >= 2:
+    # Match anti-goal tokens
+    matched_anti = sorted(issue_tokens.intersection(anti_keywords))
+    title_anti = sorted(title_tokens.intersection(anti_keywords))
+    anti_score = len(matched_anti) + (len(title_anti) * 2)
+
+    # If strongly matched against anti-goals / de-emphasized scope without strong positive goal alignment
+    if anti_score > 0 and anti_score >= pos_score:
+        alignment = "Low"
+    elif pos_score >= 3 or len(title_matched) >= 2:
         alignment = "High"
-    elif score >= 2 or len(title_matched) >= 1:
+    elif pos_score >= 2 or len(title_matched) >= 1:
         alignment = "Medium"
     else:
         alignment = "Low"
+
+    return {
+        "alignment": alignment,
+        "score": pos_score,
+        "matched_terms": matched[:8],
+        "matched_anti_terms": matched_anti[:5],
+    }
 
     return {
         "alignment": alignment,
