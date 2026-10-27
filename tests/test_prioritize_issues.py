@@ -10,6 +10,7 @@ from scripts.prioritize_issues import (
     assess_goal_alignment,
     classify_issue_content,
     detect_repository,
+    discover_repo_goals,
     format_prioritized_report,
     load_repo_goals,
     main,
@@ -137,6 +138,21 @@ class TestPrioritizeIssues(unittest.TestCase):
             parsed,
         )
         self.assertEqual(low_align["alignment"], "Low")
+
+    @patch("subprocess.run")
+    def test_discover_repo_goals_remote(self, mock_run):
+        import base64
+        readme_sample = b"# uv\nAn extremely fast Python package manager written in Rust.\n## Highlights\n- 10-100x faster than pip\n- Universal lockfile"
+        b64_content = base64.b64encode(readme_sample).decode("utf-8")
+        
+        mock_run.return_value.returncode = 0
+        mock_run.return_value.stdout = b64_content
+
+        goals = discover_repo_goals(repo="astral-sh/uv")
+        self.assertIsNotNone(goals)
+        self.assertIn("fast", goals["keywords"])
+        self.assertIn("python", goals["keywords"])
+        self.assertEqual(goals["source"], "remote:astral-sh/uv/README.md")
 
     def test_analyze_and_prioritize_with_goals_2d_grid(self):
         now = datetime(2026, 10, 26, 12, 0, 0, tzinfo=timezone.utc)

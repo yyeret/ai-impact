@@ -297,27 +297,56 @@ def classify_issue_content(title: str, body: Optional[str] = None) -> Dict[str, 
     }
 
 
-def discover_repo_goals(cwd: Optional[str] = None) -> Optional[Dict[str, Any]]:
-    """Attempt to discover declared goals and mission from local repo context."""
+def discover_repo_goals(
+    cwd: Optional[str] = None,
+    repo: Optional[str] = None,
+) -> Optional[Dict[str, Any]]:
+    """Attempt to discover declared goals and mission from local repo context or remote README."""
     root = cwd or os.getcwd()
-    candidate_files = [
-        "AGENTS.md",
-        "README.md",
-        "GOALS.md",
-        "docs/goals.md",
-    ]
+    local_repo = detect_repository(root)
 
-    for rel in candidate_files:
-        path = os.path.join(root, rel)
-        if os.path.isfile(path):
-            try:
-                with open(path, "r", encoding="utf-8", errors="ignore") as f:
-                    content = f.read()
-                goals = parse_goals_text(content, source_name=rel)
+    # 1. If repo matches local repo (or repo not specified), check local candidate files first
+    if not repo or (local_repo and local_repo.lower() == repo.lower()):
+        candidate_files = [
+            "context/repo-goals.md",
+            ".agents/goals.md",
+            "GOALS.md",
+            "docs/goals.md",
+            "AGENTS.md",
+            "README.md",
+        ]
+
+        for rel in candidate_files:
+            path = os.path.join(root, rel)
+            if os.path.isfile(path):
+                try:
+                    with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                        content = f.read()
+                    goals = parse_goals_text(content, source_name=rel)
+                    if goals and goals["keywords"]:
+                        return goals
+                except Exception:
+                    continue
+
+    # 2. If a remote repo is specified (or local check found nothing), fetch remote README via gh api
+    if repo:
+        try:
+            res = subprocess.run(
+                ["gh", "api", f"repos/{repo}/readme", "--jq", ".content"],
+                capture_output=True,
+                text=True,
+                check=True,
+            )
+            raw_b64 = res.stdout.strip()
+            if raw_b64:
+                import base64
+                decoded = base64.b64decode(raw_b64).decode("utf-8", errors="ignore")
+                goals = parse_goals_text(decoded, source_name=f"remote:{repo}/README.md")
                 if goals and goals["keywords"]:
                     return goals
-            except Exception:
-                continue
+        except Exception:
+            pass
+
     return None
 
 
@@ -411,6 +440,7 @@ def parse_goals_text(text: str, source_name: str = "custom") -> Dict[str, Any]:
 def load_repo_goals(
     goals_input: Optional[str] = None,
     cwd: Optional[str] = None,
+    repo: Optional[str] = None,
     auto_discover: bool = True,
 ) -> Optional[Dict[str, Any]]:
     """Load repo goals from explicit string, file path, or auto-discovery."""
@@ -422,7 +452,7 @@ def load_repo_goals(
         return parse_goals_text(goals_input, source_name="command-line")
 
     if auto_discover:
-        return discover_repo_goals(cwd=cwd)
+        return discover_repo_goals(cwd=cwd, repo=repo)
 
     return None
 
@@ -862,6 +892,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     # Load repo goals if provided or discoverable
     repo_goals = load_repo_goals(
         goals_input=args.goals,
+        repo=repo,
         auto_discover=not args.no_auto_goals,
     )
 
