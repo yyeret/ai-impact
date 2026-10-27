@@ -94,6 +94,14 @@ class TestPrioritizeIssues(unittest.TestCase):
         res = classify_issue_content("Upgrade dependencies and run regression tests", "")
         self.assertEqual(res["level"], "Activity")
 
+        # Activity - Dependency bump / CVE upkeep
+        res = classify_issue_content("Please update 'quinn-proto', 'zerovec-derive', 'zerovec'", "Security vulnerability")
+        self.assertEqual(res["level"], "Activity")
+
+        # Activity - Support question / usage inquiry (should not be elevated to Outcome by '?')
+        res = classify_issue_content("Is there a way to exclude musl support?", "Configuration question", labels=["question"])
+        self.assertEqual(res["level"], "Activity")
+
         # Activity - Quarterly bucket
         res = classify_issue_content("FY26Q3 platform roadmap initiatives", "All key outputs")
         self.assertEqual(res["level"], "Activity")

@@ -216,7 +216,11 @@ def _rationale(level: str, scores: Dict[str, int]) -> str:
     return ""
 
 
-def classify_issue_content(title: str, body: Optional[str] = None) -> Dict[str, Any]:
+def classify_issue_content(
+    title: str,
+    body: Optional[str] = None,
+    labels: Optional[List[str]] = None,
+) -> Dict[str, Any]:
     """Classify an issue's content using the outcome taxonomy and intent cues."""
     clean_title = (title or "").strip()
     clean_body = (body or "").strip()
@@ -254,10 +258,46 @@ def classify_issue_content(title: str, body: Optional[str] = None) -> Dict[str, 
             "body_available": bool(clean_body),
         }
 
+    # Dependency bump / vulnerability / chore override in title
+    is_dep_bump = bool(
+        re.search(
+            r"^(?:please\s+)?(?:bump|update|upgrade)\s+['\"`]?([a-zA-Z0-9_\-\./]+)['\"`]?\b",
+            clean_title,
+            re.I,
+        )
+        or re.search(
+            r"\b(?:dependabot|renovate|vulnerability flagged|security update|cve-\d+)\b",
+            clean_title,
+            re.I,
+        )
+    )
+    if is_dep_bump:
+        return {
+            "level": "Activity",
+            "rationale": "Describes dependency bump, vulnerability fix, or routine upkeep chore.",
+            "prescriptive_verbs": verbs_str,
+            "defaulted": False,
+            "body_available": bool(clean_body),
+        }
+
+    # Support question / usage inquiry detection (exclude from Outcome boost)
+    label_set = {str(l).lower() for l in (labels or [])}
+    is_support_label = bool(
+        label_set.intersection({"question", "support", "help wanted", "troubleshooting", "usage"})
+    )
+    is_question_title = bool(
+        re.match(
+            r"^(?:is there a way to|how (?:do|can) (?:i|we)|can (?:i|we)|question:)\b",
+            clean_title,
+            re.I,
+        )
+    )
+    is_support_inquiry = is_support_label or is_question_title
+
     s = content.lower()
     title_lower = clean_title.lower()
 
-    title_intent_score = _score(title_lower, TITLE_INTENT_RE)
+    title_intent_score = _score(title_lower, TITLE_INTENT_RE) if not is_support_inquiry else 0
     scores = {
         "Impact": _score(s, IMPACT_RE),
         "Outcome": _score(s, OUTCOME_RE) + (2 if title_intent_score > 0 else 0),
@@ -265,6 +305,16 @@ def classify_issue_content(title: str, body: Optional[str] = None) -> Dict[str, 
         "Activity": _score(s, ACTIVITY_RE),
         "Input": _score(s, INPUT_RE),
     }
+
+    # If support inquiry without concrete Impact or Output signal, classify as Activity
+    if is_support_inquiry and scores["Impact"] == 0 and scores["Output"] == 0:
+        return {
+            "level": "Activity",
+            "rationale": "User support/configuration question or troubleshooting inquiry.",
+            "prescriptive_verbs": verbs_str,
+            "defaulted": False,
+            "body_available": bool(clean_body),
+        }
 
     # Exclude data artifacts from Impact
     if scores["Impact"] > 0 and DATA_ARTIFACT_EXCLUSION_RE.search(s):
@@ -640,7 +690,7 @@ def analyze_and_prioritize_issues(
         created_at = issue.get("createdAt")
         labels = [l.get("name", "") if isinstance(l, dict) else str(l) for l in issue.get("labels", [])]
 
-        classification = classify_issue_content(title, body)
+        classification = classify_issue_content(title, body, labels=labels)
         level = classification["level"]
         level_counts[level] += 1
 
